@@ -21,3 +21,6 @@ laporan/*.fdb_latexmk
 # scratch ROBOT
 robot.tmp.*
 *.ofn
+
+# dokumen sumber tetap lokal, tidak di-push
+sumber/*.pdf
