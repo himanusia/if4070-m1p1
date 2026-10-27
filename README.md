@@ -13,7 +13,7 @@ Repo ini tooling dan kerangka berkas. Isi tugasnya ditulis tangan.
 | ROBOT (HermiT headless) | 1.9.11 | `~/.hermes/tools/robot.jar` |
 | Protégé | 5.6.9 | `~/.hermes/tools/protege/Protege-5.6.9/Protégé.app` |
 | pdfTeX | TeX Live 2026 | `/Library/TeX/texbin` |
-| Python | 3.13 | venv lokal di `.venv/` |
+| Python | ≥ 3.9 (dipakai 3.9.6) | venv lokal di `.venv/`, dibuat oleh `make setup` |
 
 ```bash
 make setup     # bikin .venv + install requirements.txt
