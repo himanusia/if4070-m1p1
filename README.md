@@ -1,6 +1,6 @@
 # IF4070 M1P1 — Kelompok K11
 
-Tooling untuk Tugas Besar IF4070 Milestone 1 Part 1. Domain: mahjong 4 pemain.
+Tooling untuk Tugas Besar IF4070 Milestone 1 Part 1. Domain: mahjong riichi (WRC Rules 2025) + house rules klub.
 
 ## Prasyarat
 
