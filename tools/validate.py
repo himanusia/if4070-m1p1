@@ -535,8 +535,49 @@ def check_ontology(cfg: dict) -> None:
 # laporan & deliverable
 # --------------------------------------------------------------------------
 
+def check_aksioma(cfg: dict) -> None:
+    head("8. Aksioma inti")
+
+    tex = ROOT / "laporan" / "laporan.tex"
+    if not tex.exists():
+        warn("laporan/laporan.tex tidak ada, aksioma inti tidak bisa dicek")
+        return
+
+    body = tex.read_text(encoding="utf-8")
+    ids: list[str] = []
+    tanpa_rule: list[str] = []
+    for line in body.splitlines():
+        s = line.strip()
+        if s.startswith("%"):
+            continue
+        m = re.match(r"(A\d+)\s*&", s)
+        if not m:
+            continue
+        ids.append(m.group(1))
+        if not re.search(r"\bR\d+\b", s):
+            tanpa_rule.append(m.group(1))
+
+    n = len(set(ids))
+    need = cfg["ambang"]["aksioma_inti_min"]
+    if n >= need:
+        ok(f"{n} aksioma inti (minimal {need})")
+    elif n == 0:
+        fail(
+            f"belum ada aksioma inti, minimal {need}",
+            "satu baris per aksioma: ID & aksioma DL & aturan & alasan konstruksi",
+        )
+    else:
+        fail(f"baru {n} aksioma inti, minimal {need}")
+
+    if tanpa_rule:
+        fail(
+            f"aksioma tanpa ID aturan: {', '.join(tanpa_rule)}",
+            "setiap aksioma wajib menyebut ID aturan yang diwakilinya",
+        )
+
+
 def check_report(cfg: dict) -> None:
-    head("8. Laporan")
+    head("9. Laporan")
 
     if not LAPORAN_PDF.exists():
         warn("laporan/laporan.pdf belum ada (make report)")
@@ -560,6 +601,8 @@ def check_report(cfg: dict) -> None:
             "Pastikan lampiran dipisah dan tidak ikut dihitung."
         )
 
+    check_aksioma(cfg)
+
     tex = (ROOT / "laporan" / "laporan.tex")
     if tex.exists():
         body = tex.read_text(encoding="utf-8")
@@ -569,7 +612,9 @@ def check_report(cfg: dict) -> None:
         else:
             ok("tidak ada \\todo{} tersisa di laporan.tex")
 
-        # bagian wajib
+        # bagian wajib. Judul di tex bisa mengandung makro (\emph{Competency Question}),
+        # jadi perintah LaTeX dibuang dulu sebelum dicocokkan.
+        teks = re.sub(r"\\[a-zA-Z]+\{?", "", body)
         wajib = {
             "deskripsi domain": r"Deskripsi Domain",
             "aksioma inti": r"Aksioma Inti",
@@ -583,7 +628,7 @@ def check_report(cfg: dict) -> None:
             "referensi": r"Referensi",
             "lampiran": r"Lampiran",
         }
-        missing = [k for k, pat in wajib.items() if not re.search(pat, body, re.I)]
+        missing = [k for k, pat in wajib.items() if not re.search(pat, teks, re.I)]
         if missing:
             fail(f"bagian wajib belum ada di laporan.tex: {', '.join(missing)}")
         else:
