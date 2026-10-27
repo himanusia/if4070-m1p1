@@ -161,10 +161,40 @@ def build_ontology(path: Path) -> None:
     g.serialize(destination=str(path), format="xml")
 
 
+AKSIOMA = "\n".join(
+    rf"A{i} & $\mathrm{{K{i}}} \sqsubseteq \mathrm{{K{i + 1}}}$ & R{min(i, 12)} & alasan konstruksi \\"
+    for i in range(1, 11)
+)
+
+
+def tulis_laporan(tmp: Path) -> None:
+    """Salin kerangka laporan repo, isi 10 baris aksioma supaya cek aksioma lolos."""
+    tex = (REPO / "laporan" / "laporan.tex").read_text(encoding="utf-8")
+    marker = "% A1 & $X \\sqsubseteq \\exists r.Y$ & R1 & ... \\\\\n"
+    if marker not in tex:
+        raise RuntimeError("penanda baris aksioma tidak ditemukan di laporan.tex")
+    tex = tex.replace(marker, AKSIOMA + "\n")
+    (tmp / "laporan" / "laporan.tex").write_text(tex, encoding="utf-8")
+
+
+def stage(nama: str, cmd: list[str], env: dict, perlu: Path | None = None) -> bool:
+    proc = subprocess.run(cmd, env=env, capture_output=True, text=True)
+    lolos = proc.returncode == 0
+    if lolos and perlu is not None:
+        lolos = perlu.exists()
+    print(f"[{'PASS' if lolos else 'FAIL'}] {nama}")
+    keluaran = (proc.stdout or "") + (proc.stderr or "")
+    for baris in [b for b in keluaran.strip().splitlines() if b.strip()][-6:]:
+        print("        " + baris.strip())
+    if not lolos:
+        print(f"        fixture: {env.get('IF4070_ROOT')}")
+    return lolos
+
+
 def main() -> int:
     tmp = Path(tempfile.mkdtemp(prefix="if4070-selftest-"))
-    for d in ("aturan", "sumber", "ontologi", "laporan"):
-        (tmp / d).mkdir()
+    for d in ("aturan", "sumber", "ontologi", "laporan", "laporan/gambar"):
+        (tmp / d).mkdir(parents=True, exist_ok=True)
 
     cfg = (REPO / "config.yaml").read_text().replace('grup: "K11"', 'grup: "K99"')
     (tmp / "config.yaml").write_text(cfg)
@@ -177,20 +207,49 @@ def main() -> int:
         tmp / "ontologi" / "K99_M1P1_ontologi.owl",
         tmp / "ontologi" / "K99_M1P1_ontologi_inkonsisten.owl",
     )
+    tulis_laporan(tmp)
 
+    ont = tmp / "ontologi" / "K99_M1P1_ontologi.owl"
     env = dict(os.environ, IF4070_ROOT=str(tmp))
-    proc = subprocess.run(
-        [sys.executable, str(REPO / "tools" / "validate.py")],
-        env=env, capture_output=True, text=True,
-    )
-    print(proc.stdout)
 
-    if proc.returncode != 0:
-        print(f"SELFTEST GAGAL: fixture seharusnya lolos. Ada di {tmp}")
+    langkah = [
+        stage("report   laporan.tex -> PDF",
+              [sys.executable, str(REPO / "tools" / "build_report.py")], env,
+              perlu=tmp / "laporan" / "laporan.pdf"),
+        stage("validate 0 FAIL pada fixture lengkap",
+              [sys.executable, str(REPO / "tools" / "validate.py")], env),
+        stage("reason   HermiT: ontologi fixture konsisten",
+              ["bash", str(REPO / "tools" / "reason.sh"), str(ont), "consistent"], env),
+        stage("package  zip tersusun",
+              [sys.executable, str(REPO / "tools" / "package.py")], env,
+              perlu=tmp / "K99_M1P1.zip"),
+    ]
+
+    if all(langkah):
+        import zipfile
+
+        with zipfile.ZipFile(tmp / "K99_M1P1.zip") as z:
+            isi = sorted(z.namelist())
+        wajib = {
+            "K99_M1P1_ontologi.owl",
+            "K99_M1P1_ontologi_inkonsisten.owl",
+            "K99_M1P1_Laporan.pdf",
+            "K99_M1P1_Sumber/S1_buku.pdf",
+        }
+        kurang = wajib - set(isi)
+        print(f"[{'PASS' if not kurang else 'FAIL'}] package  isi zip sesuai struktur")
+        for n in isi:
+            print("        " + n)
+        if kurang:
+            print(f"        kurang: {', '.join(sorted(kurang))}")
+            langkah.append(False)
+
+    if not all(langkah):
+        print(f"\nSELFTEST GAGAL. Fixture ditinggal di {tmp} buat diperiksa.")
         return 1
 
     shutil.rmtree(tmp)
-    print("SELFTEST LULUS: fixture lengkap -> 0 FAIL")
+    print("\nSELFTEST LULUS: report, validate, reason, package semuanya hijau di fixture lengkap.")
     return 0
 
 
