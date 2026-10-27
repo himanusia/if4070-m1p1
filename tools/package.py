@@ -13,15 +13,17 @@ atau ukuran melewati 25 MB.
 
 from __future__ import annotations
 
+import os
 import shutil
-import subprocess
 import sys
 import zipfile
 from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(
+    os.environ.get("IF4070_ROOT", str(Path(__file__).resolve().parent.parent))
+)
 BUILD = ROOT / "build"
 MAX_BYTES = 25 * 1024 * 1024
 

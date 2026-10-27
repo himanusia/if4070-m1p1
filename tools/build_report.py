@@ -13,6 +13,7 @@ Isi laporan tidak disentuh. Yang disunting cuma nama kelompok dan tabel lampiran
 
 from __future__ import annotations
 
+import os
 import re
 import shutil
 import subprocess
@@ -24,7 +25,9 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate import cell, col, parse_tables  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(
+    os.environ.get("IF4070_ROOT", str(Path(__file__).resolve().parent.parent))
+)
 LAP = ROOT / "laporan"
 SRC = LAP / "laporan.tex"
 BUILD = LAP / "_build.tex"
