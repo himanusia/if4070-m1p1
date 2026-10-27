@@ -93,9 +93,9 @@ Deadline Kamis 17.59, hari ini Selasa.
 
 **Selasa** — domain, `sumber/`, tabel aturan.
 
-Domain sudah dipilih: **kartu bridge** (*contract bridge*). Paragraf perbedaan
-struktural dari domain terdekat yang dilarang wajib ada di laporan — lihat
-`docs/checklist.md` poin 1.
+Domain sudah dipilih: **mahjong 4 pemain**, varian klub Indonesia dengan house
+rules. Paragraf perbedaan struktural dari domain terdekat yang dilarang wajib ada
+di laporan — lihat `docs/checklist.md`.
 
 1. Kumpulkan dokumen sumber **sebagai berkas**, bukan tautan. Simpan di `sumber/` dengan
    nama `S1_...`, `S2_...`. Simpan PDF halaman web, jangan URL-nya.
