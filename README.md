@@ -28,6 +28,7 @@ make doctor    # cek semua di atas ada
 | `make report` | `laporan.tex` → `laporan.pdf`, hitung halaman, lampiran dari tabel aturan. |
 | `make package` | Susun `K11_M1P1.zip`. Menolak kalau `make check` gagal. |
 | `make open` | Buka ontologi utama di Protégé. |
+| `make review` | Gerbang sebelum submit: `check` → `reason` → `reason-bad` → `report` → `package`, berhenti di langkah pertama yang gagal. |
 | `make clean` | Hapus venv dan artefak build. |
 
 ## Alur pengerjaan

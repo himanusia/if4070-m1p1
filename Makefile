@@ -10,7 +10,7 @@ PY        := .venv/bin/python
 ONT := ontologi/$(GROUP)_M1P1_ontologi.owl
 BAD := ontologi/$(GROUP)_M1P1_ontologi_inkonsisten.owl
 
-.PHONY: all setup doctor check selftest reason reason-bad report package open clean
+.PHONY: all setup doctor check selftest reason reason-bad report package review open clean
 
 all: check
 
@@ -46,6 +46,15 @@ report: setup
 
 package: setup check
 	@$(PY) tools/package.py
+
+# Gerbang sebelum submit: urutannya check -> reason -> report -> package.
+# Berhenti di langkah pertama yang gagal.
+review: setup
+	@$(MAKE) --no-print-directory check
+	@$(MAKE) --no-print-directory reason
+	@$(MAKE) --no-print-directory reason-bad
+	@$(MAKE) --no-print-directory report
+	@$(MAKE) --no-print-directory package
 
 open:
 	@test -d "$(PROTEGE)" && open -a "$(PROTEGE)" "$(ONT)" || echo "Protege tidak ada di $(PROTEGE)"
