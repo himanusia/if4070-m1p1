@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bikin KXX_M1P1.zip sesuai struktur deliverable spek.
+"""Bikin KXX_M1P1.zip sesuai struktur deliverable.
 
 Isi zip:
   KXX_M1P1_ontologi.owl

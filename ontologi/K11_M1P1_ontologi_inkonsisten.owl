@@ -12,8 +12,8 @@
        (Explain inconsistency), SCREENSHOT.
     5. make reason-bad  -> harus keluar "inconsistent".
 
-  Screenshot penjelasan dari Protege itu bukti yang diminta spek dan tidak bisa
-  diganti teks. Tanpa itu, bagian studi kasus tidak dinilai penuh.
+  Screenshot penjelasan dari Protege itu bukti yang diminta dan tidak bisa
+  diganti teks.
 
   IRI ontologi di bawah sengaja sama dengan ontologi utama.
 -->

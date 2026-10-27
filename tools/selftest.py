@@ -2,7 +2,7 @@
 """Self-test untuk tools/validate.py.
 
 Bangun domain dummy (perpustakaan) di direktori sementara dengan SEMUA syarat
-spek terpenuhi, lalu pastikan validator melaporkan 0 FAIL. Fixture ini bukan isi
+kelengkapan terpenuhi, lalu pastikan validator melaporkan 0 FAIL. Fixture ini bukan isi
 tugas siapa pun: tujuannya cuma membuktikan checker tidak salah tuduh (false
 negative) dan tidak buta terhadap fitur yang seharusnya terdeteksi.
 

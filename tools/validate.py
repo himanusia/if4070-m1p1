@@ -148,7 +148,7 @@ def check_rules(cfg: dict) -> tuple[list[dict], list[dict]]:
                 if re.search(r"\s", raw_id):
                     fail(
                         f"baris aturan punya lebih dari satu ID ({raw_id!r})",
-                        "spek: satu aturan = satu pernyataan, satu baris. Pecah jadi baris sendiri.",
+                        "satu aturan = satu pernyataan, satu baris. Pecah jadi baris sendiri.",
                     )
                     continue
                 if not re.fullmatch(r"R\d+", raw_id):
@@ -185,7 +185,7 @@ def check_rules(cfg: dict) -> tuple[list[dict], list[dict]]:
         fail(
             f"ID tidak berurutan (hilang: {', '.join(gaps) if gaps else '-'}, "
             f"duplikat/urutan: {nums})",
-            "spek: ID ditulis berurutan R1, R2, R3, ...",
+            "ID ditulis berurutan R1, R2, R3, ...",
         )
 
     # non-OWL
@@ -207,7 +207,7 @@ def check_rules(cfg: dict) -> tuple[list[dict], list[dict]]:
     else:
         warn(
             "tidak ada aturan bertanda 'twist'. Kalau domainnya populer di internet, "
-            "spek minta house rules supaya perbandingan RAG di Milestone 2 bermakna."
+            "house rules bikin perbandingan RAG di Milestone 2 bermakna."
         )
 
     # aturan kosong & kalimat majemuk
@@ -326,7 +326,7 @@ def check_cq(cq_rows: list[dict], rule_rows: list[dict], cfg: dict) -> None:
     if untested:
         fail(
             f"aturan non-OWL belum diuji CQ mana pun: {', '.join(sorted(untested))}",
-            "spek: setiap aturan non-OWL diuji minimal satu competency question.",
+            "setiap aturan non-OWL diuji minimal satu competency question.",
         )
     elif non_owl:
         ok(f"semua aturan non-OWL terpakai di CQ: {', '.join(sorted(non_owl))}")
@@ -506,7 +506,7 @@ def check_ontology(cfg: dict) -> None:
     else:
         fail(
             "belum ada kelas dengan rdfs:comment berisi ID aturan",
-            'spek: anotasi rdfs:comment minimal berisi ID aturan, misalnya "R4".',
+            'anotasi rdfs:comment minimal berisi ID aturan, misalnya "R4".',
         )
     if without_comment:
         warn(
@@ -587,7 +587,7 @@ def check_report(cfg: dict) -> None:
         if missing:
             fail(f"bagian wajib belum ada di laporan.tex: {', '.join(missing)}")
         else:
-            ok(f"11 bagian wajib spek ada di laporan.tex")
+            ok("11 bagian wajib ada di laporan.tex")
 
 
 def main() -> int:

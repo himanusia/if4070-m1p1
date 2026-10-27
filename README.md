@@ -1,9 +1,6 @@
 # IF4070 M1P1 — Kelompok K11
 
-Artefak Tugas Besar IF4070 Representasi Pengetahuan dan Penalaran, Milestone 1 Part 1.
-Domain: mahjong 4 pemain (varian klub, house rules).
-
-Repo ini tooling dan kerangka berkas. Isi tugasnya ditulis tangan.
+Tooling untuk Tugas Besar IF4070 Milestone 1 Part 1. Domain: mahjong 4 pemain.
 
 ## Prasyarat
 
@@ -13,7 +10,7 @@ Repo ini tooling dan kerangka berkas. Isi tugasnya ditulis tangan.
 | ROBOT (HermiT headless) | 1.9.11 | `~/.hermes/tools/robot.jar` |
 | Protégé | 5.6.9 | `~/.hermes/tools/protege/Protege-5.6.9/Protégé.app` |
 | pdfTeX | TeX Live 2026 | `/Library/TeX/texbin` |
-| Python | ≥ 3.9 (dipakai 3.9.6) | venv lokal di `.venv/`, dibuat oleh `make setup` |
+| Python | ≥ 3.9 (dipakai 3.9.6) | venv lokal di `.venv/` |
 
 ```bash
 make setup     # bikin .venv + install requirements.txt
@@ -24,7 +21,7 @@ make doctor    # cek semua di atas ada
 
 | Perintah | Fungsi |
 |---|---|
-| `make check` | Validasi syarat spek: jumlah & penomoran aturan, CQ, berkas sumber, jumlah kelas, fitur DL wajib, anotasi, bagian laporan. Exit 1 kalau ada FAIL. |
+| `make check` | Cek kelengkapan: jumlah & penomoran aturan, CQ, berkas sumber, jumlah kelas, fitur DL, anotasi, bagian laporan. Exit 1 kalau ada FAIL. |
 | `make selftest` | Uji validator pakai domain dummy. Harus 0 FAIL. |
 | `make reason` | HermiT pada ontologi utama lewat ROBOT. Harus konsisten. |
 | `make reason-bad` | HermiT pada salinan inkonsisten. Harus **tidak** konsisten. |
@@ -61,31 +58,24 @@ make package
 ## Layout
 
 ```
-config.yaml                                 grup, anggota, domain, ambang minimal, IRI
+config.yaml                                 grup, anggota, domain, ambang, IRI
 aturan/daftar-aturan.md                     tabel aturan + tabel competency question
 sumber/                                     dokumen sumber, nama diawali S1_, S2_, ...
 ontologi/K11_M1P1_ontologi.owl              ontologi utama (RDF/XML)
 ontologi/K11_M1P1_ontologi_inkonsisten.owl  salinan untuk studi kasus
 laporan/laporan.tex                         laporan, build ke PDF
 laporan/gambar/                             screenshot penjelasan Protégé
-tools/validate.py                           validator syarat spek
+tools/validate.py                           validator
 tools/selftest.py                           uji validator
 tools/reason.sh                             HermiT lewat ROBOT
 tools/build_report.py                       build PDF + lampiran otomatis
 tools/package.py                            packaging zip
-docs/                                       spek, checklist, catatan batas AI
 ```
 
 ## Konvensi
 
-- Nama berkas di `sumber/` diawali kode yang dipakai di kolom Sumber (`S1_...`).
-- Satu baris = satu aturan. ID `R1..Rn` berurutan, tanpa lompatan.
+- Berkas di `sumber/` diawali kode yang dipakai di kolom Sumber (`S1_...`).
+- Satu baris = satu aturan. ID `R1..Rn` berurutan tanpa lompatan.
 - Kolom Catatan: `non-OWL` untuk aturan yang tidak bisa di OWL, `twist` untuk house rules.
-- Nama berkas deliverable diturunkan dari `config.yaml`. Ganti grup di situ, bukan di nama berkas.
-- `laporan/laporan.tex` boleh diketik dengan notasi DL unicode (`⊑ ∃ ⊓ ≡`); `build_report.py` yang menerjemahkan ke LaTeX.
-
-## Rujukan
-
-- `docs/checklist.md` — syarat spek, dipetakan ke berkas dan ke cara verifikasinya
-- `docs/batas-ai.md` — batas penggunaan AI
-- `docs/spesifikasi-m1p1.pdf` — spek asli
+- Nama berkas deliverable diturunkan dari `config.yaml`.
+- `laporan.tex` boleh diketik dengan notasi DL unicode (`⊑ ∃ ⊓ ≡`); `build_report.py` yang menerjemahkannya.
