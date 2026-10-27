@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+  SALINAN UNTUK STUDI KASUS INKONSISTENSI.
+
+  Alurnya:
+    1. Selesaikan dulu KXX_M1P1_ontologi.owl dan pastikan konsisten (make reason).
+    2. Salin ke berkas ini.
+    3. Suntik SATU kontradiksi yang disengaja. Contoh: individu diklaim milik dua
+       kelas yang disjoint, atau individu yang kena restriksi kardinalitas
+       maksimum tapi diberi lebih banyak filler.
+    4. Buka di Protege, jalankan HermiT, lihat penjelasan yang muncul
+       (Explain inconsistency), SCREENSHOT.
+    5. make reason-bad  -> harus keluar "inconsistent".
+
+  Screenshot penjelasan dari Protege itu bukti yang diminta spek dan tidak bisa
+  diganti teks. Tanpa itu, bagian studi kasus tidak dinilai penuh.
+
+  IRI ontologi di bawah sengaja sama dengan ontologi utama.
+-->
+<rdf:RDF
+    xml:base="http://www.semanticweb.org/if4070/ontologies/2026/m1p1"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1">
+        <rdfs:comment>Salinan ontologi dengan inkonsistensi sengaja, untuk studi kasus.</rdfs:comment>
+        <owl:versionInfo>0.1.0-inkonsisten</owl:versionInfo>
+    </owl:Ontology>
+
+</rdf:RDF>

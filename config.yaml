@@ -1,0 +1,33 @@
+# Konfigurasi kelompok. Satu sumber kebenaran buat semua skrip di tools/.
+
+grup: "K11"
+jumlah_anggota: 3
+
+domain: "Kartu bridge (contract bridge)"
+
+# Yang mengumpulkan: NIM terkecil -> 13521003 (Bintang).
+batas_kuliah: "2026-10-29T17:59:00+07:00"
+
+anggota:
+  - nama: "Ahmad Ibrahim"
+    nim: "13523089"
+  - nama: "Bintang Hijriawan Jachja"
+    nim: "13521003"
+  - nama: "Michael Alexander Angkawijaya"
+    nim: "13523102"
+
+# IRI ontologi. Jangan diubah setelah .owl pertama kali disimpan dari Protege,
+# karena mengubahnya memutus referensi di file inkonsisten.
+iri: "http://www.semanticweb.org/if4070/ontologies/2026/m1p1"
+
+ambang:
+  aturan_min: 12
+  aturan_min_2_anggota: 9
+  non_owl_min: 2
+  cq_min: 8
+  cq_jawaban_tidak_min: 2
+  kelas_min: 30
+  kelas_max: 60
+  aksioma_inti_min: 10
+  kelas_terdefinisi_min: 3
+  kelas_terdefinisi_min_2_anggota: 2

@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# hasil build
+build/
+*.zip
+laporan/_build.*
+laporan/generated/
+laporan/laporan.pdf
+
+# artefak latex
+laporan/*.aux
+laporan/*.log
+laporan/*.out
+laporan/*.toc
+laporan/*.fls
+laporan/*.fdb_latexmk
+
+# scratch ROBOT
+robot.tmp.*
+*.ofn

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+  Kerangka kosong ontologi IF4070 M1P1.
+  Hanya header: prefix, IRI ontologi, dan versi. Tidak ada kelas, properti,
+  maupun individu — TBox dan ABox diisi di Protege oleh kelompok.
+
+  Kenapa header-nya disiapkan: supaya IRI dan prefix tidak berubah-ubah setelah
+  file pertama kali disimpan, karena file inkonsisten harus memakai IRI yang sama
+  agar perbandingannya sah.
+
+  Buka dengan: make open   (atau Protege > File > Open)
+-->
+<rdf:RDF
+    xml:base="http://www.semanticweb.org/if4070/ontologies/2026/m1p1"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1">
+        <rdfs:comment>Ontologi Tugas Besar IF4070 Milestone 1 Part 1. Domain: TODO.</rdfs:comment>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+    </owl:Ontology>
+
+</rdf:RDF>
