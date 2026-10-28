@@ -6,43 +6,139 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 >
-  <rdf:Description rdf:nodeID="N4e48c6c4af9b4516a41d22f73b9415d4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
-    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">7</owl:minQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanyao_closed">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
-    <rdfs:comment>R8: triplet hasil panggilan</rdfs:comment>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:type rdf:nodeID="N4c566d2887754c6c8b278896f51163fe"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_1"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_2"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_3"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_4"/>
+    <hasPair rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao_closed"/>
+    <hasYaku rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_5"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_6"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_7"/>
+    <totalHan rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</totalHan>
+    <rdfs:comment>CQ11: totalHan 5 = Tan'yao 1 + 3 dora + Bonus Comeback 1 (R16, R18 non-OWL)</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ClosedHand">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R9: group menjadi bagian dari sebuah tangan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tileOfHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R1: invers dari hasTile</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6a97b030f234db7899a2b349628ad71">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_fullstraight"/>
+    <rdf:rest rdf:nodeID="N762baa215f024c50b07e29592841a3bb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment>Ontologi mahjong riichi untuk IF4070 M1P1 kelompok K11. Basis aturan: WRC Rules 2025 (S1) dan house rules klub (S3).</rdfs:comment>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf31a31addd67457c98bd41a83b6ceae5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
+    <owl:someValuesFrom rdf:nodeID="N21182c73a63b42fc86f9c9db45c10130"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasDora">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+    <rdfs:comment>R15: tangan memuat dora</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_yakuhai_mangan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3"/>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4"/>
+    <hasPair rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai"/>
+    <hasYaku rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3"/>
+    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4"/>
+    <totalHan rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</totalHan>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8f678d8dfa044075bd1a6329b0fe41c8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <rdf:rest rdf:nodeID="N56d11ae0e2c3420abc7828443a4e162a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#OpenHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R8: tangan tanpa group melded</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="Ne335d93314eb45478772884a0b0e1263"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#OpenHand"/>
+    <rdfs:comment>R8: tangan yang memuat group melded</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N089111015a704c5fbb5bdaf79825e9f5"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Dealer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R13: pemain dengan seat wind East</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Player"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdfs:comment>R6: triplet ke-3</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TenpaiHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R11: tangan yang menunggu satu tile pelengkap (bagian OWL saja)</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N1962ad00b1ac456b91a7a3139ca778fd"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdfs:comment>R9: uji tangan terbuka</rdfs:comment>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_1"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf4f068837ded46729041f6397a7ac2ee">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanpa_yaku"/>
-    <rdf:rest rdf:nodeID="Nbfce841fa096493f8a5652e7e862dbd7"/>
+  <rdf:Description rdf:nodeID="Nba321d70f61b4debbbef5d052f9e44f4">
+    <rdf:first rdf:nodeID="Nec2fa2ac0ede487485c74ee633a55b6e"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6543c6663f4f43e4909bf76823864e64">
+    <rdf:first rdf:nodeID="N6a680d663d234909985f2262399d769b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N815b60605d37427bb94e717447c4ecd9">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N4af82d058c04433dbec5b8cacacac884"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8f8e6ec8036046ae926fe1aeddc9c395">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N887594d3f19849d695cb475d28c38573"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N740c652776dc42d7a1f4963d5a577994">
+    <rdf:first rdf:nodeID="N033f65e64f894bf8b62e7d56a49042c2"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N49c6f693b8624bab9eec6189c8fd2f87">
+    <rdf:first rdf:nodeID="Nc6fad705184e453dbc99e68d54770c3d"/>
+    <rdf:rest rdf:nodeID="Ncc51b9e4035f42eabffb9bd41309c2b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdfs:comment>R6: triplet ke-4</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ClosedHand"/>
+    <rdf:type rdf:nodeID="N5b0e7f5bf9574d6289769754e49444ee"/>
     <rdfs:comment>R13: uji tenpai</rdfs:comment>
     <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t1_tp"/>
     <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t2_tp"/>
@@ -59,48 +155,152 @@
     <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t13_tp"/>
     <waitingFor rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_1bambu"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb157ca7d2c0149deb1af54b2d90f9f25">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R5, R6, R7: group memuat tile, invers dari partOfGroup</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ManganHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R6: empat tile identik, dihitung satu group</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-    <rdfs:subClassOf rdf:nodeID="Nff261c9c8651498188aa0376c0be05fa"/>
+    <rdfs:comment>R17: tangan menang bernilai 5 han</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N39812a5f0e524382a6620c4f71146d17"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N1bd8d621c94e4c27a28bbc4f56ee9652">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4372c1791deb41be80b0035f693248f6">
     <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
-    <rdf:rest rdf:nodeID="Nbcba902ceffc4bd187c6935ba807bee3"/>
+    <rdf:rest rdf:nodeID="N34e6f67cca1e4884ac33383e37a0669f"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N881dfe3a595a4d7daa4d0abfed1a2f13">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ManganHand"/>
-    <rdf:rest rdf:nodeID="Nef99843a1abd4da09b3ad44377edc41f"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#wind_east">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SeatWind"/>
+    <rdfs:comment>R12</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncffe6343f4324097854ee7ee20e2a200">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:complementOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HonourTile"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+    <rdfs:comment>R5: sequence ke-3 pada tangan_fullstraight</rdfs:comment>
+    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncbfe6290e93849b5b04093d9973f0839">
+  <rdf:Description rdf:nodeID="N0fa53981042b483f9e53e5070e87dcd9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao_closed"/>
+    <rdf:rest rdf:nodeID="Nc3530829ad82496a8dfb4d0397628aae"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndb736f6508224c339eda55aa3ca2a1e7">
+    <rdf:first rdf:nodeID="N5dfca85c2eee48c9a7e37f843d2208c9"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#partOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:comment>R1: relasi bagian, transitif dari tile ke tangan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+    <rdfs:comment>R8: triplet hasil panggilan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N70c2fa8e78304f25976435899192ae36">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_1"/>
+    <rdf:rest rdf:nodeID="Nc3ac3669639a4da09e53b3ca657819c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_fullstraight">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FullStraight"/>
+    <rdfs:comment>R11</rdfs:comment>
+    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hanValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdfs:comment>R11: tangan tenpai kedua</rdfs:comment>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t1_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t2_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t3_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t4_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t5_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t6_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t7_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t8_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t9_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t10_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t11_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t12_tp2"/>
+    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t13_tp2"/>
+    <waitingFor rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_dragon_haku">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HonourTile"/>
+    <rdfs:comment>R4: contoh honour</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdfs:comment>R6: triplet ke-1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfce4cbd54a54482bafa0a215cb9af100">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N40f380d5bb5a4956838b3e838e5017e9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7c219929c3eb4e889d214ef0b5b01cd2">
+    <rdf:first rdf:nodeID="Nf8ac020efab94b58a03e9c7210704f98"/>
+    <rdf:rest rdf:nodeID="Ndb736f6508224c339eda55aa3ca2a1e7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N285bd7e46afa4f2e93c0f255d0bb0ee0">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ValidHand"/>
+    <rdf:rest rdf:nodeID="N4271ce6db2674986b8b09c6486184b36"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndf19fae81c474401ac469ea35ff6d906">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
-    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:minQualifiedCardinality>
-    <owl:onClass rdf:nodeID="N3a8f565a69b84d399c7a8c7adaa050d1"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
+    <owl:someValuesFrom rdf:nodeID="Nfce4cbd54a54482bafa0a215cb9af100"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ValidHand">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#seatWind">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment>R13: wind yang melekat pada pemain</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R1: sebuah tangan memuat tile</rdfs:comment>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tileOfHand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_1bambu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <rdfs:comment>R2: contoh terminal</rdfs:comment>
+    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasRank>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N407085517c6c4a93b35bd8974a1a1141">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
+    <rdf:rest rdf:nodeID="N04bfb5b2912b418cb24834051c767bc1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ClosedHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R9: tangan berbentuk sah</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N08e1a427a84640e3a909fc2a76754ce2"/>
+    <rdfs:comment>R8: tangan tanpa group melded</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N68432cdc982b49b0b421ebdbc384d7d2"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#OpenHand"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TerminalTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R2: tile suit bernomor 1 dan 9</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
+    <owl:equivalentClass rdf:nodeID="N5085e742e00e49c49a144d0b1328241c"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ClosedHand"/>
+    <rdf:type rdf:nodeID="N3ffcdf95dc5145329652c6251cdd4d97"/>
     <rdfs:comment>R10, R11: uji klasifikasi</rdfs:comment>
     <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_1"/>
     <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_2"/>
@@ -122,80 +322,85 @@
     <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t12_fs"/>
     <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t13_fs"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N4f42f0c05b394f03853e89df2912abca">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="N5befde82db3c4d2997628402f27b3be5"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hanValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:comment>R12, R13: nilai han sebuah yaku</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c2dbfa439684febadb8e69d9cd67e57">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3"/>
-    <rdf:rest rdf:nodeID="N865aa35ceb7349028b96b30758b7836c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2, R3: tile suit karakter</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
+    <rdfs:comment>R5: tiga tile berurutan pada satu suit tanpa honour</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
+    <rdfs:subClassOf rdf:nodeID="N9f3b41bc890140a09329fcb63819027a"/>
+    <rdfs:subClassOf rdf:nodeID="N5818f3a3b31c4a578ba5c83e08cc38f2"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfc43966daeca494e868ac86168e8e454">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WindTile"/>
-    <rdf:rest rdf:nodeID="N595d0581b5e5436cb2f4367ce40523d3"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ThirteenOrphansHand">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HanemanHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R9: tangan berbentuk Thirteen Orphans</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdfs:comment>R17: tangan menang bernilai 6 sampai 7 han</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N8f8e6ec8036046ae926fe1aeddc9c395"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile">
+  <rdf:Description rdf:nodeID="Nf23553115be749568ccf67200f3db52d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N8f2a644594b44f69b38f09eea7b8b697"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39812a5f0e524382a6620c4f71146d17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nc33f05323dba43a48ae2fcadc12d3483"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45cbe57d194247419575a2700e1acf01">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N309b038d5d5e4ec08bc7529c6e113805">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N762baa215f024c50b07e29592841a3bb">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanpa_yaku"/>
+    <rdf:rest rdf:nodeID="Ndce7fb6b2e6f4b3aab7f323184372e4d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb399f5bfcc4c4924b8a9fee2b76c3599">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="N6c5a7ad352d44fc7b34001bf80603476"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ValidHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R9: tangan berbentuk sah</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Ne73145b987b4484b812628c19693afb8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e93c2c9461846f18de373bec31c1aab">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_dragon_haku"/>
+    <rdf:rest rdf:nodeID="N6e0cf77a5e5243b59a5007661388f46f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5e4bbba00e634f2da6ddb5f0e9d40da1">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
+    <rdf:rest rdf:nodeID="N2440f69e8ea1474e95048690c3510d34"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N382aeeb8fb8b4c7abba2f8d54129e5d9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao"/>
+    <rdf:rest rdf:nodeID="N9548d26174f2467db1a654752ca8ae9b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R1: sebuah tangan memuat tile</rdfs:comment>
-    <owl:inverseOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tileOfHand"/>
+    <rdfs:comment>R9: tangan memuat group</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CircleTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2, R3: tile suit lingkaran</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N79e1d4fa890440fb89c545cedad92107">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ValidHand"/>
-    <rdf:rest rdf:nodeID="N3807d6a500ee4501ac167de9d47e8d97"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#partOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:comment>R1: relasi bagian, transitif dari tile ke tangan</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ndab31942767b446f9465e590a15bd2c1">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#YonbaimanHand"/>
+  <rdf:Description rdf:nodeID="Na86fe860bc6c407894507290e2f7bc54">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdfs:comment>R8: tangan terbuka kedua</rdfs:comment>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:comment>Ontologi mahjong riichi untuk IF4070 M1P1 kelompok K11. Basis aturan: WRC Rules 2025 (S1) dan house rules klub (S3).</rdfs:comment>
-    <owl:versionInfo>1.0.0</owl:versionInfo>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Neeb727aeaa4f42aa94a49e4443a3cf52">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_2"/>
-    <rdf:rest rdf:nodeID="N6e23e889fafe4c9981c4b6af859f1f3a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N72e05ba7c2ef489d9d7d107c88ca9a79">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6e23e889fafe4c9981c4b6af859f1f3a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_3"/>
-    <rdf:rest rdf:nodeID="Ndb0e297e80734210a5315fc855f91ff4"/>
+  <rdf:Description rdf:nodeID="N32b85deb64d644cf88e0509e00f3aa5d">
+    <rdf:first rdf:nodeID="Nf228783098684a7f88793f3934adbae1"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#pemain_bintang">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -204,32 +409,64 @@
     <rdfs:comment>R12: dealer memegang East</rdfs:comment>
     <seatWind rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#wind_east"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nef99843a1abd4da09b3ad44377edc41f">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HanemanHand"/>
-    <rdf:rest rdf:nodeID="N009dc9f534dd46ad97e4ae549315f7e0"/>
+  <rdf:Description rdf:nodeID="Nf06712410e7543b9b295afc58f99dba1">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai_2"/>
+    <rdf:rest rdf:nodeID="N00fbf69bcdf44a6cad14d55d44d6ba23"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#AllTripletsPattern">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R9, R10: bentuk tangan empat triplet atau quad dan satu pair</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <owl:equivalentClass rdf:nodeID="Nbbaf90b6fb8c49fcbcd4455f10a7e895"/>
+    <rdfs:comment>R10: tangan valid yang memiliki minimal satu yaku</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Ncfd5d62e32d44cc5bbfc66305251a864"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N03f4103e1d25473cbe630c83f9408092">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_yakuhai_mangan"/>
-    <rdf:rest rdf:nodeID="N85ce4a9a1e5c4985a33ba10224df35f2"/>
+  <rdf:Description rdf:nodeID="Nf8ac020efab94b58a03e9c7210704f98">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R5: tiga tile berurutan pada satu suit tanpa honour</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-    <rdfs:subClassOf rdf:nodeID="N0f342a5bc40b4361a567348ebbc3a505"/>
-    <rdfs:subClassOf rdf:nodeID="Nc722cb3801844d69a7b217a70298b063"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
+    <rdfs:comment>R2, R3: tile suit bambu</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfcfabc6d72f64f85b7ee4e642a7b139c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-    <owl:members rdf:nodeID="N881dfe3a595a4d7daa4d0abfed1a2f13"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasRank">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>R2, R3: nomor tile bernomor</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FullStraight">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R10: contoh yaku, tiga sequence 1-2-3, 4-5-6, 7-8-9 satu suit (S1 §11.5.2)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hanValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>R12, R13: nilai han sebuah yaku</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N83e4a2dd90a0453b891b8428f7eee04c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SevenPairsHand"/>
+    <rdf:rest rdf:nodeID="N2206833d56264ac1a35265e607222fee"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f8b8d26114445d883407aee8414ad8c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_1"/>
+    <rdf:rest rdf:nodeID="N90109669cee041708c98b9ecfce2624b"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanpa_yaku">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -244,309 +481,186 @@
     <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2"/>
     <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc722cb3801844d69a7b217a70298b063">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
-    <owl:allValuesFrom rdf:nodeID="Ncffe6343f4324097854ee7ee20e2a200"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne55d490241924e99aff4bd5f9c3a495d">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
-    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ned7c04f043214258ad86bac572462bfa">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SevenPairsHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="Nf5a07d8bb33741b1bbc0e08ca23772ea"/>
+    <rdfs:comment>R9: tangan berisi tujuh pair berbeda</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Needc9721c3944a8f9d27aab01b326806"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N001d0d12bb4141cf927c7a9d18e7d52a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N85ce4a9a1e5c4985a33ba10224df35f2">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_1bambu"/>
-    <rdf:rest rdf:nodeID="N74097504d4dc4d22895d99c66c04011f"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N477084b996b847e6814ea8096bbcddac">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N0c298b2fa68943358855925438ab8c09"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nff261c9c8651498188aa0376c0be05fa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4944d3e688ee4dafb7d95cfef44d19fc">
-    <rdf:first rdf:nodeID="Ne55d490241924e99aff4bd5f9c3a495d"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne091bbeb6ac44f4d8798bbfd26983d24">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_dragon_haku"/>
-    <rdf:rest rdf:nodeID="N8b85b0b9c97741f68d0b8a39944be1e2"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf95259a43856452e890f7a206dfc471b">
+  <rdf:Description rdf:nodeID="Nb49963d4761640b4ac6f092ee1b287fa">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
     <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="N5586dd196de54c94b7ace4b5faf24ddb"/>
+    <owl:withRestrictions rdf:nodeID="Nd1572b0dd2be41e3ace264b772d1451f"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_yakuhai_mangan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1"/>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2"/>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3"/>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4"/>
-    <hasPair rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai"/>
-    <hasYaku rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai"/>
-    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1"/>
-    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2"/>
-    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3"/>
-    <hasDora rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4"/>
-    <totalHan rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</totalHan>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R12, R19: yaku tangan yang seluruh tilenya inside</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncb7ab8f64f0c4f498fe3fcefe8f80dd5">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_1"/>
-    <rdf:rest rdf:nodeID="N486b08f8c983469b9122771da0233e99"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne4d8e62cbca74700b5ab35434c29fb2d">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2"/>
-    <rdf:rest rdf:nodeID="N13a6f1ac0aed40f7941ce2c3cd415dae"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TerminalTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2: tile suit bernomor 1 dan 9</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
-    <owl:equivalentClass rdf:nodeID="Na3a17110bc654f4a958b0061273f6f65"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#YonbaimanHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R17: tangan menang bernilai 13 han ke atas</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N341eba35caab4a34a531aa3eb7ce6bcb"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N81ecb988479d44b682c7571e507010ae">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-    <owl:distinctMembers rdf:nodeID="N02ffbfe0139a45848cb3d46b24d5b07f"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6703ca9360504d7a9f2c121349b7810d">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N216e86ba65034ab1801bc034544a7aa1"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5e73472c8c00487a994d2a8fb539d962">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
-    <owl:someValuesFrom rdf:nodeID="N753c6b3082af43dfa63567d472830bb7"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8b85b0b9c97741f68d0b8a39944be1e2">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#wind_east"/>
-    <rdf:rest rdf:nodeID="N8440513f1b5b4139b952775a623292a2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasRank">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:comment>R2, R3: nomor tile bernomor</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R7: dua tile identik, bukan group</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-    <rdfs:subClassOf rdf:nodeID="N2c75289b167b41308a2d0125f1cdd829"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N020af1f412234aaba87fcf91b268aa83">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1a471690b96643a19775a84845852876">
-    <rdf:first rdf:nodeID="N49cd7e139f224000a8db7c05bc7a0790"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdfs:comment>R6: triplet ke-1</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N72c3d93131474d228c46470ea97e0476">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_fullstraight"/>
-    <rdf:rest rdf:nodeID="N3133daa6614b4f2e94a170a4c08dbe65"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_fullstraight">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FullStraight"/>
-    <rdfs:comment>R11</rdfs:comment>
-    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hanValue>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8cb3da55be2b49d08988e9189bb7bf10">
-    <rdf:first rdf:nodeID="Ne86b445e74a44fb5898429a9c7a54eda"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao"/>
-    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hanValue>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdfs:comment>R11: tangan tenpai kedua</rdfs:comment>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t1_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t2_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t3_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t4_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t5_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t6_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t7_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t8_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t9_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t10_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t11_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t12_tp2"/>
-    <hasTile rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#t13_tp2"/>
-    <waitingFor rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb2d7180e36b7489bbc77647df1b81ca4">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc1f9543eb24e478d8122e7d7b5d40609">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_1"/>
-    <rdf:rest rdf:nodeID="Neeb727aeaa4f42aa94a49e4443a3cf52"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9804c3a903a842a8ab5525ab9d68c773">
-    <rdf:first rdf:nodeID="N716022a6d0ff49b6b9fd76fea378ebb9"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb7511d68cbb14f1b8f80af1e5eb414a9">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4"/>
-    <rdf:rest rdf:nodeID="N72c3d93131474d228c46470ea97e0476"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CalledQuad">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R6, R8: quad hasil memanggil tile</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N88e1bbb838224b66830666789dde9b8c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="N6703ca9360504d7a9f2c121349b7810d"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SanbaimanHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R17: tangan menang bernilai 11 sampai 12 han</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="Ned7c04f043214258ad86bac572462bfa"/>
+    <rdfs:comment>R5, R6: kumpulan tiga atau empat tile</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment>R4, R13: tile dragon White, Green, Red</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N3cf4352a9d2a4cd3bcf2e595615f0e2e">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</xsd:maxInclusive>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R3: tile suit bernomor 2 sampai 8</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <owl:equivalentClass rdf:nodeID="Nf29318beba9c4bb2a9f799a5f99b25a5"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#seatWind">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:comment>R13: wind yang melekat pada pemain</rdfs:comment>
+  <rdf:Description rdf:nodeID="Nf7ab103e2a024cc8b6cad0e826be1f33">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1"/>
+    <rdf:rest rdf:nodeID="N5d4ea0d94d16470a9e9171cf6f948e9e"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8ac7e6044cd44bc6a7383f8ece542fc4">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ThirteenOrphansHand"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+    <rdfs:comment>R5: sequence ke-2 pada tangan_fullstraight</rdfs:comment>
+    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+    <rdfs:comment>R5: sequence ke-4 pada tangan_fullstraight</rdfs:comment>
+    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_5lingkaran">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CircleTile"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <rdfs:comment>R3: contoh inside</rdfs:comment>
+    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</hasRank>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8a4c7fad83554bf59aeaa823137ad7c0">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_3"/>
+    <rdf:rest rdf:nodeID="N9ed458b7ff1f43bfbaa26836bd88cc1c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nba068d538d4f47db8ef510938c8a4493">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="N7c219929c3eb4e889d214ef0b5b01cd2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N70831e3389cc477fbb27597b71ba116f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdf:rest rdf:nodeID="Na86fe860bc6c407894507290e2f7bc54"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R2, R3: tile suit karakter</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb4b30f8502d84964aa2663990dc5da70">
+    <rdf:first rdf:nodeID="N5713ebcaa60b48e882e20cde6df9907f"/>
+    <rdf:rest rdf:nodeID="N83e4a2dd90a0453b891b8428f7eee04c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc33f05323dba43a48ae2fcadc12d3483">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
+    <rdf:rest rdf:nodeID="N0dee277aa24a483cbc66d29062fbd4c9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N40f380d5bb5a4956838b3e838e5017e9">
+    <rdf:first rdf:nodeID="N799bea7dbbe141f5a8762818e3a641c6"/>
+    <rdf:rest rdf:nodeID="N740c652776dc42d7a1f4963d5a577994"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N04bfb5b2912b418cb24834051c767bc1">
+    <rdf:first rdf:nodeID="Nf31a31addd67457c98bd41a83b6ceae5"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N0e0ecb4240974e13a48a6520aaae5f6c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
-    <owl:someValuesFrom rdf:nodeID="Nd287486facb745c482d34a0d29a474de"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdfs:comment>R9: uji tangan terbuka</rdfs:comment>
-    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_1"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne86b445e74a44fb5898429a9c7a54eda">
+  <rdf:Description rdf:nodeID="N5b0e7f5bf9574d6289769754e49444ee">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbfeba4bc841e4b5caf3efad15e56b676">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
-    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N19d27eea7fb740f594bdee9a80228da5">
-    <rdf:first rdf:nodeID="Nb746562aa0e94777b0cc925a7278051c"/>
-    <rdf:rest rdf:nodeID="N326bdd5f7fd443c78fbbc8e1a3446d32"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <rdfs:comment>R2: contoh terminal</rdfs:comment>
-    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</hasRank>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne248b23ab58a4c09a6310fd4493b4975">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:complementOf rdf:nodeID="Nb157ca7d2c0149deb1af54b2d90f9f25"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ManganHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R17: tangan menang bernilai 5 han</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N8521d83101f944c988f2026d5ceef5de"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3807d6a500ee4501ac167de9d47e8d97">
-    <rdf:first rdf:nodeID="N1bce04f7039441269f2cd1458c868692"/>
+  <rdf:Description rdf:nodeID="N67ab8beee0584a40a97576be21f4a8c6">
+    <rdf:first rdf:nodeID="Ndf19fae81c474401ac469ea35ff6d906"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#OpenHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R8: tangan yang memuat group melded</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N74074496f33a49458806b5be216555e7"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao"/>
+    <rdfs:comment>STUDI KASUS: dora_1 sengaja diasersikan sebagai Tanyao, melanggar R14</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nafc89b6b4a024fc3877b9ae6345f1b80">
+  <rdf:Description rdf:nodeID="N21182c73a63b42fc86f9c9db45c10130">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
     <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="N138211c9fcf64b67ab07b8388887daed"/>
+    <owl:withRestrictions rdf:nodeID="N49c6f693b8624bab9eec6189c8fd2f87"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdfs:comment>R6: triplet ke-3</rdfs:comment>
+  <rdf:Description rdf:nodeID="N073671691eb44db2a9a2b0165a825dd5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
+    <owl:someValuesFrom rdf:nodeID="N52dd0206e42e471dbd5e6ac9f17a0e7c"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N595d0581b5e5436cb2f4367ce40523d3">
+  <rdf:Description rdf:nodeID="N8b38646c953a47a1ad8cd1766156e380">
     <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#drawnBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R8: tile berasal dari draw pemain</rdfs:comment>
+  <rdf:Description rdf:nodeID="Nb903e4c778d6413786771e48bf723060">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_4"/>
+    <rdf:rest rdf:nodeID="N714c7bc03e424c6fb9a92fd41a922aca"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3ffcdf95dc5145329652c6251cdd4d97">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6e0cf77a5e5243b59a5007661388f46f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#wind_east"/>
+    <rdf:rest rdf:nodeID="N9bd2e7e091f545859afa048ab9f998b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1208cb7364894f6291e4974f2548ffcc">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WindTile"/>
+    <rdf:rest rdf:nodeID="N8b38646c953a47a1ad8cd1766156e380"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:comment>R16, R17: total han tangan, dihitung di luar OWL (R16) lalu diasersikan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9f3b41bc890140a09329fcb63819027a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1572b0dd2be41e3ace264b772d1451f">
+    <rdf:first rdf:nodeID="Nd7eaccfa93be4691b26ffe9ba090a337"/>
+    <rdf:rest rdf:nodeID="N6236d94f2e794183bb5cd78ec168f2de"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1c4dfc8919be4d0c9564332954c934c8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="N6543c6663f4f43e4909bf76823864e64"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao"/>
+    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hanValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4af82d058c04433dbec5b8cacacac884">
+    <rdf:first rdf:nodeID="Nde07ae848c6d4dfb9aec6781b80a8038"/>
+    <rdf:rest rdf:nodeID="N32b85deb64d644cf88e0509e00f3aa5d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R9: tangan memuat pair</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf29318beba9c4bb2a9f799a5f99b25a5">
+    <owl:intersectionOf rdf:nodeID="N8f678d8dfa044075bd1a6329b0fe41c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne932af5dfc074e35a4a05d1a4f1e8888">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#waitingFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R11: tile yang ditunggu tangan tenpai</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanyao_open">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -558,312 +672,18 @@
     <hasPair rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao"/>
     <hasYaku rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasDora">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
-    <rdfs:comment>R15: tangan memuat dora</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nceae36942ee54db58d6c7fddbcad6d45">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SanbaimanHand"/>
-    <rdf:rest rdf:nodeID="Ndab31942767b446f9465e590a15bd2c1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WindTile">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R4, R13: tile wind East, South, West, North</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile"/>
+    <rdfs:comment>R2, R3: tile bernomor pada tiga suit</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yakuhai">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R13: yaku dari triplet atau quad honour bernilai</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc6aeba008a2a4f2f8d92823c7e2c4af4">
-    <rdf:first rdf:nodeID="N3cf4352a9d2a4cd3bcf2e595615f0e2e"/>
+  <rdf:Description rdf:nodeID="Nf7689c77f6a54eaf92d7197af05a9c3a">
+    <rdf:first rdf:nodeID="N2f6548de11684df98a92fdff06c0f8eb"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao"/>
-    <rdfs:comment>STUDI KASUS: dora_1 sengaja diasersikan sebagai Tanyao, melanggar R14</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N00528d2eab5c49a1a39d7af1ee7e76c1">
-    <rdf:first rdf:nodeID="N059d5e78db2d4850a858b030604f36f2"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdfs:comment>R5: sequence ke-4 pada tangan_fullstraight</rdfs:comment>
-    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1de3ecc1132942eab6f1c9f8a1767974">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="N26cc8c1e368548f99d1c8d05045a4c74"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R1: tangan pemain berisi 13 atau 14 tile</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SeatWind">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R13: wind yang melekat pada pemain</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3133daa6614b4f2e94a170a4c08dbe65">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanpa_yaku"/>
-    <rdf:rest rdf:nodeID="Nd7c2dd6858bc4f7085084fce8850c84f"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R9: tangan memuat pair</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R8: group yang dibentuk dari tile hasil draw sendiri</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdfs:comment>R5: sequence ke-1 pada tangan_fullstraight</rdfs:comment>
-    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c68bc148809437fb9fc572e0d59bb1b">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
-    <owl:someValuesFrom rdf:nodeID="Nafc89b6b4a024fc3877b9ae6345f1b80"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N937f226ed694461ebb5262431c03404e">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai_2"/>
-    <rdf:rest rdf:nodeID="Nab2d417133874bc3a211922d6be745f4"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4f226596d2484964aac42459f9eea553">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_1"/>
-    <rdf:rest rdf:nodeID="Na7fb81550888403486a8f6d9c886ae3d"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6cc8d3a835924ed2aa218c000cf62d70">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N650e5da3ccab4016be1ec9ddc80fac52">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SevenPairsHand"/>
-    <rdf:rest rdf:nodeID="N8ac7e6044cd44bc6a7383f8ece542fc4"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#RedFiveTile">
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FiveTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R8: group yang dibentuk dengan memanggil tile</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R9: tangan memuat group</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tileOfHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R1: invers dari hasTile</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne335d93314eb45478772884a0b0e1263">
-    <owl:intersectionOf rdf:nodeID="Na1d133bd85944f249f6cebe4f29a122e"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N53604c5526274eb4b6430a0a72b6b06a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_1"/>
-    <rdf:rest rdf:nodeID="N4dd7e45b870648fda0d3fd8592cb3fa8"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#waitingFor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R11: tile yang ditunggu tangan tenpai</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4fdb214bb0d941b4bfa70fbe403f5d7c">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
-    <rdf:rest rdf:nodeID="Nfa039e9d9755445398b6528f56394b11"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdfs:comment>R5: sequence ke-2 pada tangan_fullstraight</rdfs:comment>
-    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na1d133bd85944f249f6cebe4f29a122e">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N38ba0ccb3e81449d961f829eebe519fc"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N38ca247ff4234ebcaee70520bf165330">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N8cb3da55be2b49d08988e9189bb7bf10"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncd3177a9129840889e2ea22314770e7e">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_4"/>
-    <rdf:rest rdf:nodeID="N4f226596d2484964aac42459f9eea553"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na6e50db973504a70a9a9a2ad1ee1e3de">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1"/>
-    <rdf:rest rdf:nodeID="Ne4d8e62cbca74700b5ab35434c29fb2d"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1048d61957ea44bfa160d9ee8a29ab00">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2"/>
-    <rdf:rest rdf:nodeID="N0c2dbfa439684febadb8e69d9cd67e57"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R10: tangan valid yang memiliki minimal satu yaku</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N233319df729b4d2c837ee8e45e62c075"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbfce841fa096493f8a5652e7e862dbd7">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanyao_open"/>
-    <rdf:rest rdf:nodeID="Nad1be92ace90475499b8d8d2cb371c10"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd0a202422eaf483ba183eeb93b7c7557">
-    <rdf:first rdf:nodeID="Ncbfe6290e93849b5b04093d9973f0839"/>
-    <rdf:rest rdf:nodeID="N198671e519604846a53326dacdae747c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R5, R6: kumpulan tiga atau empat tile</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1ed89c2990ab4f7c9e31583d0be8568b">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6310293e47814b44a25bb52584acad58">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <rdf:rest rdf:nodeID="N0df0ce52fc2b42e9935066bf1656e025"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N13a6f1ac0aed40f7941ce2c3cd415dae">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3"/>
-    <rdf:rest rdf:nodeID="Nb7511d68cbb14f1b8f80af1e5eb414a9"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N466e3fa3710941449bf4c75c97a697ed">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_3"/>
-    <rdf:rest rdf:nodeID="N5d3f54ea5d404a7ab94a5cd75a529c84"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R9: group menjadi bagian dari sebuah tangan</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb746562aa0e94777b0cc925a7278051c">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb105d01f1f7b434c90bfc50f3b7c16bb">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasRank"/>
-    <owl:someValuesFrom rdf:nodeID="Nf95259a43856452e890f7a206dfc471b"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N10cda93a0d844ece8cb9cb8c0db2200f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
-    <owl:someValuesFrom rdf:nodeID="N1de3ecc1132942eab6f1c9f8a1767974"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanpa_yaku">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
-    <rdfs:comment>R8: pair tanpa yaku</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8440513f1b5b4139b952775a623292a2">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_fullstraight"/>
-    <rdf:rest rdf:nodeID="Nc444d06cf77e42ed857ca16bfa8e31b8"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N216e86ba65034ab1801bc034544a7aa1">
-    <rdf:first rdf:nodeID="N36ebd7c56b0e484f950fb47b358ae28a"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4dd7e45b870648fda0d3fd8592cb3fa8">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2"/>
-    <rdf:rest rdf:nodeID="Na6e50db973504a70a9a9a2ad1ee1e3de"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SevenPairsHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R9: tangan berisi tujuh pair berbeda</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N8ff1a21db9ce4f06b24d0c8bd831e59a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc444d06cf77e42ed857ca16bfa8e31b8">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_tanyao"/>
-    <rdf:rest rdf:nodeID="Na1807bc161134d6d8fdc9b7be0fc627a"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdfs:comment>R5: sequence ke-3 pada tangan_fullstraight</rdfs:comment>
-    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdfs:comment>R6: triplet ke-2</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R3: tile suit bernomor 2 sampai 8</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <owl:equivalentClass rdf:nodeID="N6a3755bee6fd496fbf82e0840f2cd5e8"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R10, R14: pola tangan yang memberi han</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne55f64edf8bd41d7bb1d6b4d51e0455b">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="Nd2cd5d001a024e63b7de8fe79f2991f9"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd287486facb745c482d34a0d29a474de">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="Nad9448bc557b4630a6ea4f51d9a95931"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N49cd7e139f224000a8db7c05bc7a0790">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N009dc9f534dd46ad97e4ae549315f7e0">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BaimanHand"/>
-    <rdf:rest rdf:nodeID="Nceae36942ee54db58d6c7fddbcad6d45"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PromotedQuad">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R6, R8: quad hasil menambah tile ke triplet melded</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N326bdd5f7fd443c78fbbc8e1a3446d32">
-    <rdf:first rdf:nodeID="Nb2d7180e36b7489bbc77647df1b81ca4"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nad1be92ace90475499b8d8d2cb371c10">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai"/>
-    <rdf:rest rdf:nodeID="N937f226ed694461ebb5262431c03404e"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#AllTriplets">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R10: contoh yaku, empat triplet atau quad dan satu pair (S1 §11.5.2)</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd8a552ea9f66456f92f7498ea28f8521">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:complementOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  <rdf:Description rdf:nodeID="N127d33c1afae4e33921d7c4f72560308">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
+    <rdf:rest rdf:nodeID="N5c60ed61c170458481038ff2a0f56695"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -871,64 +691,272 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
     <rdfs:comment>R9: sequence hasil panggilan</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbcba902ceffc4bd187c6935ba807bee3">
-    <rdf:first rdf:nodeID="N10cda93a0d844ece8cb9cb8c0db2200f"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#AllTripletsPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R9, R10: bentuk tangan empat triplet atau quad dan satu pair</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <owl:equivalentClass rdf:nodeID="Nb142c0abb93049c3aaf7f8f3c634c020"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N74097504d4dc4d22895d99c66c04011f">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_5lingkaran"/>
-    <rdf:rest rdf:nodeID="Nfae964428ab34644aed96e046bd69187"/>
+  <rdf:Description rdf:nodeID="N0fc589c6aa48415187a9cd7b62a12ccb">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="Na94a9a128ae54f96847fc50c2840f8a6"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N059d5e78db2d4850a858b030604f36f2">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#AllTriplets">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R10: contoh yaku, empat triplet atau quad dan satu pair (S1 §11.5.2)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <rdfs:comment>R2: contoh terminal</rdfs:comment>
+    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</hasRank>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+    <rdfs:comment>R5: sequence ke-1 pada tangan_fullstraight</rdfs:comment>
+    <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nec2fa2ac0ede487485c74ee633a55b6e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:complementOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4c566d2887754c6c8b278896f51163fe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4243b91d2f6540c3b0611f77ab885d1c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanyao_open"/>
+    <rdf:rest rdf:nodeID="N5ac710d2964e4a9dba58ab041e5a0663"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#RoundWind">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R13: wind ronde berjalan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb7ac7658427a414ea36b3c137d190130">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#waitingFor"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N799bea7dbbe141f5a8762818e3a641c6">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na44e7384b35041f79a53a9bf8c54bf2e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N407085517c6c4a93b35bd8974a1a1141"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N00fbf69bcdf44a6cad14d55d44d6ba23">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka"/>
+    <rdf:rest rdf:nodeID="Nd6a9041f756442d69cbd159bd8d59a2c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc37cac1af9b840d289e7a7521ea944d6">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2"/>
+    <rdf:rest rdf:nodeID="N0ccc75b82ac74a16908f25866a328cc7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5d064e44770e43639027447a6db84d23">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
-    <owl:someValuesFrom rdf:nodeID="N4f42f0c05b394f03853e89df2912abca"/>
+    <owl:someValuesFrom rdf:nodeID="Nb49963d4761640b4ac6f092ee1b287fa"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6a3755bee6fd496fbf82e0840f2cd5e8">
-    <owl:intersectionOf rdf:nodeID="N7ef7bb41080240a89d4a6de90f11fd94"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yakuhai"/>
+    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hanValue>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R14, R15: tile bonus yang memberi 1 han, bukan yaku</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nef6260aca55249b780ae430f1dca99a9">
-    <rdf:first rdf:nodeID="Nc228f6b7d8134b9ba03410508735a75b"/>
+  <rdf:Description rdf:nodeID="Nf4df769f43c34c50864d63eb6561fd9f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N46d65f3c29424426ab3dfe760deb08d0">
+    <rdf:first rdf:nodeID="N98f30f30e2f04a548e4c68030910d688"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N753c6b3082af43dfa63567d472830bb7">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  <rdf:Description rdf:nodeID="N06b95428fcbb491482f60c7b983e1cad">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_yakuhai_mangan"/>
+    <rdf:rest rdf:nodeID="N46e9226ba6014582a608860ae547801c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0f17bff51f764560903c3b69abdff07f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1"/>
+    <rdf:rest rdf:nodeID="Nc37cac1af9b840d289e7a7521ea944d6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65f8487602754b4a86c74bb85ca82446">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R8: group yang dibentuk dari tile hasil draw sendiri</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tanyao">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R12, R19: yaku tangan yang seluruh tilenya inside</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#roundWind">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R13: wind ronde berjalan</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5eabf0bd847e477ebbadb0633e4914b5">
+    <rdf:first rdf:nodeID="Ne1b2384781fe4f1bbb49dae8fa26eed5"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N934af66217954e8aae7d75d40f032db7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasYaku"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R1: tangan pemain berisi 13 atau 14 tile</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N26343f11aef345a49206b1484e53c93e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N4372c1791deb41be80b0035f693248f6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N089111015a704c5fbb5bdaf79825e9f5">
+    <owl:intersectionOf rdf:nodeID="N0fc589c6aa48415187a9cd7b62a12ccb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R10, R14: pola tangan yang memberi han</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb64dcfbfe3f64042a19d81e54ac1e73d">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N367b8f1aa8e4458788669773edf44836">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_4"/>
+    <rdf:rest rdf:nodeID="Ndc0d99ae98cd410091a4621409ec0dc6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5818f3a3b31c4a578ba5c83e08cc38f2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
+    <owl:allValuesFrom rdf:nodeID="N4542491fd3164cdda41a0e9fffe71b5d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2440f69e8ea1474e95048690c3510d34">
+    <rdf:first rdf:nodeID="N073671691eb44db2a9a2b0165a825dd5"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncfd5d62e32d44cc5bbfc66305251a864">
+    <owl:intersectionOf rdf:nodeID="N285bd7e46afa4f2e93c0f255d0bb0ee0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc3ac3669639a4da09e53b3ca657819c8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_2"/>
+    <rdf:rest rdf:nodeID="N12ef94018fea404fa93452f4bc424014"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R6: empat tile identik, dihitung satu group</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
+    <rdfs:subClassOf rdf:nodeID="N45cbe57d194247419575a2700e1acf01"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R2, R3, R4: tile bernomor yang memiliki suit</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Player">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R13: pemain pada satu meja</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N81818e3e75ad4e199c37e1442804a3db">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_5"/>
+    <rdf:rest rdf:nodeID="N2801e559ebc546ad9d0126b738274588"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N34e6f67cca1e4884ac33383e37a0669f">
+    <rdf:first rdf:nodeID="N5d064e44770e43639027447a6db84d23"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N28b5008c61c246b9a7ed69dc59edf817">
+    <owl:unionOf rdf:nodeID="N70831e3389cc477fbb27597b71ba116f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc0f1d84262aa4888862d380d40185703">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nd2b5c500aea245ec939a0f16c01d40e3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc51b9e4035f42eabffb9bd41309c2b5">
+    <rdf:first rdf:nodeID="Nd14fe026409540b9af907dc8aad57a3e"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3988922c00bc415086415134afe1de8e">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_1"/>
+    <rdf:rest rdf:nodeID="N0257a0540e054ea783e2c4a3713fbd9d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N18f777665c0a47a1afd243af508f6ada">
+    <rdf:first rdf:nodeID="Nb7ac7658427a414ea36b3c137d190130"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasYaku">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R10: tangan memiliki yaku</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne2a2eb1a9b7e4271a81194c051ec2788">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:minQualifiedCardinality>
+    <owl:onClass rdf:nodeID="N28b5008c61c246b9a7ed69dc59edf817"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N539f09e11be2454ca8617dfde216a2c5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="N0f17bff51f764560903c3b69abdff07f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2bd27f446de64801a1687c640a71d516">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#pemain_bintang"/>
+    <rdf:rest rdf:nodeID="N127d33c1afae4e33921d7c4f72560308"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2f6548de11684df98a92fdff06c0f8eb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N119ba515bb004aa1aed4b60086fdf647">
     <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <owl:withRestrictions rdf:nodeID="N19d27eea7fb740f594bdee9a80228da5"/>
+    <owl:withRestrictions rdf:nodeID="N8e1f03984bcc4744ba39dc3769d0e423"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfa039e9d9755445398b6528f56394b11">
-    <rdf:first rdf:nodeID="N0c68bc148809437fb9fc572e0d59bb1b"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:nodeID="N17f1388a551540ef87b408203a6c732a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
+    <rdf:rest rdf:nodeID="Nba321d70f61b4debbbef5d052f9e44f4"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N05cd7a0848a34be6ac994c1e56aa5269">
-    <rdf:first rdf:nodeID="N4e48c6c4af9b4516a41d22f73b9415d4"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2, R3: tile suit bambu</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
+  <rdf:Description rdf:nodeID="N4a11aec9337f4c5e8abaa91da76ea6ab">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HanemanHand"/>
+    <rdf:rest rdf:nodeID="N6a1ff57173d144a5b1eaa1bdbaffb27a"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#partOfGroup">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:comment>R5: tile menjadi bagian dari sebuah group</rdfs:comment>
     <owl:inverseOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N9febc27cd55c49b091a2c0d05815b921">
-    <rdf:first rdf:nodeID="Nc8ba7b15e60b410cb6b2e6ad4fad3263"/>
-    <rdf:rest rdf:nodeID="N650e5da3ccab4016be1ec9ddc80fac52"/>
+  <rdf:Description rdf:nodeID="Nd6a9041f756442d69cbd159bd8d59a2c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka_2"/>
+    <rdf:rest rdf:nodeID="N06b95428fcbb491482f60c7b983e1cad"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yakuhai"/>
-    <hanValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hanValue>
+  <rdf:Description rdf:nodeID="N79dff6a42ade4ba8b98af48bd030c9d3">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanyao_closed"/>
+    <rdf:rest rdf:nodeID="N4243b91d2f6540c3b0611f77ab885d1c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5ac710d2964e4a9dba58ab041e5a0663">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tenpai"/>
+    <rdf:rest rdf:nodeID="Nf06712410e7543b9b295afc58f99dba1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -936,115 +964,32 @@
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N713907bff163446789fab5845d8b4780">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdf:rest rdf:nodeID="N001d0d12bb4141cf927c7a9d18e7d52a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N34590f51ef994f15915532b72df78f9c">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N5794f83f608b419a82b14d1357d76968"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c298b2fa68943358855925438ab8c09">
-    <rdf:first rdf:nodeID="N1a995b5614cc40b58abd6680c8945832"/>
-    <rdf:rest rdf:nodeID="N4944d3e688ee4dafb7d95cfef44d19fc"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TanyaoPattern">
+  <rdf:Description rdf:nodeID="Nf3482fa8edad4a11a7ce9a637b9efbfe">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R12: tangan yang seluruh tilenya inside</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N88e1bbb838224b66830666789dde9b8c"/>
+    <owl:intersectionOf rdf:nodeID="N5e4bbba00e634f2da6ddb5f0e9d40da1"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#RoundWind">
+  <rdf:Description rdf:nodeID="N61bb8a26a1ea4e579358c4c47ba81770">
+    <owl:intersectionOf rdf:nodeID="N1b04c329658d4cf9ad46a11b47a7d6af"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e1f03984bcc4744ba39dc3769d0e423">
+    <rdf:first rdf:nodeID="Ne932af5dfc074e35a4a05d1a4f1e8888"/>
+    <rdf:rest rdf:nodeID="N5eabf0bd847e477ebbadb0633e4914b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0ccc75b82ac74a16908f25866a328cc7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3"/>
+    <rdf:rest rdf:nodeID="N350913cc6a7140a89588a7a35c895ef2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndc0d99ae98cd410091a4621409ec0dc6">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_1"/>
+    <rdf:rest rdf:nodeID="Nff190b03357b478aadc5309e0f3d87c7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc6fad705184e453dbc99e68d54770c3d">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#YonbaimanHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R13: wind ronde berjalan</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na3a17110bc654f4a958b0061273f6f65">
-    <owl:intersectionOf rdf:nodeID="N6310293e47814b44a25bb52584acad58"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3ad4bf7147e14e52b4224c6499dcb481">
-    <rdf:first rdf:nodeID="N5e73472c8c00487a994d2a8fb539d962"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf6edbc5ac57740339bc6debea3a30407">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_3"/>
-    <rdf:rest rdf:nodeID="Ncd3177a9129840889e2ea22314770e7e"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3a8f565a69b84d399c7a8c7adaa050d1">
-    <owl:unionOf rdf:nodeID="N713907bff163446789fab5845d8b4780"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BaimanHand">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R17: tangan menang bernilai 8 sampai 10 han</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="N015b8fc535444fa89076823c3d8f9780"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N72b3d226b1cf41479ff20bbf76ce2031">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
-    <rdf:rest rdf:nodeID="Nf4f068837ded46729041f6397a7ac2ee"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_1bambu">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <rdfs:comment>R2: contoh terminal</rdfs:comment>
-    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasRank>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N138211c9fcf64b67ab07b8388887daed">
-    <rdf:first rdf:nodeID="N72e05ba7c2ef489d9d7d107c88ca9a79"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nad9448bc557b4630a6ea4f51d9a95931">
-    <rdf:first rdf:nodeID="N6cc8d3a835924ed2aa218c000cf62d70"/>
-    <rdf:rest rdf:nodeID="N1a471690b96643a19775a84845852876"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2, R3, R4: tile bernomor yang memiliki suit</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N36ebd7c56b0e484f950fb47b358ae28a">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasTile"/>
-    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#InsideTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N233319df729b4d2c837ee8e45e62c075">
-    <owl:intersectionOf rdf:nodeID="N79e1d4fa890440fb89c545cedad92107"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N486b08f8c983469b9122771da0233e99">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_2"/>
-    <rdf:rest rdf:nodeID="Nf6edbc5ac57740339bc6debea3a30407"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na7fb81550888403486a8f6d9c886ae3d">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_2"/>
-    <rdf:rest rdf:nodeID="N466e3fa3710941449bf4c75c97a697ed"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1bce04f7039441269f2cd1458c868692">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasYaku"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R2, R3: tile bernomor pada tiga suit</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7b6f8a685dcb4fec9b82e3d9eeb64464">
-    <rdf:first rdf:nodeID="N0e0ecb4240974e13a48a6520aaae5f6c"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd7c2dd6858bc4f7085084fce8850c84f">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao"/>
-    <rdf:rest rdf:nodeID="Nf21a7a2b7a724c0fbc9ee78bbb2c318a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd2cd5d001a024e63b7de8fe79f2991f9">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
-    <rdf:rest rdf:nodeID="N00528d2eab5c49a1a39d7af1ee7e76c1"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nca2250bca2cb493f91fd621237b33958">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</xsd:minInclusive>
+    <rdfs:comment>R17: tangan menang bernilai 13 han ke atas</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Nf3482fa8edad4a11a7ce9a637b9efbfe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_fullstraight">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1052,227 +997,389 @@
     <rdfs:comment>R8: pair pada tangan_fullstraight</rdfs:comment>
     <groupOfHand rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_fullstraight"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf5a07d8bb33741b1bbc0e08ca23772ea">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
-    <rdf:rest rdf:nodeID="N3ad4bf7147e14e52b4224c6499dcb481"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3033cac046ed4e19851267604006433e">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="N05cd7a0848a34be6ac994c1e56aa5269"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_dragon_haku">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HonourTile"/>
-    <rdfs:comment>R4: contoh honour</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1a995b5614cc40b58abd6680c8945832">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasGroup"/>
-    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:minQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N079fb8ed47f4482f90e3e10f7140e6ab">
-    <rdf:first rdf:nodeID="Nb105d01f1f7b434c90bfc50f3b7c16bb"/>
+  <rdf:Description rdf:nodeID="N0dee277aa24a483cbc66d29062fbd4c9">
+    <rdf:first rdf:nodeID="Ncfad5b78093e4e5599709d26e0f0ad9c"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_5lingkaran">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CircleTile"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <rdfs:comment>R3: contoh inside</rdfs:comment>
-    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</hasRank>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N015b8fc535444fa89076823c3d8f9780">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yakuhai">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="N1bd8d621c94e4c27a28bbc4f56ee9652"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0f342a5bc40b4361a567348ebbc3a505">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N198671e519604846a53326dacdae747c">
-    <rdf:first rdf:nodeID="Nbfeba4bc841e4b5caf3efad15e56b676"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N341eba35caab4a34a531aa3eb7ce6bcb">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="N4fdb214bb0d941b4bfa70fbe403f5d7c"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfae964428ab34644aed96e046bd69187">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter"/>
-    <rdf:rest rdf:nodeID="Ne091bbeb6ac44f4d8798bbfd26983d24"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
-    <rdfs:comment>R6: triplet ke-4</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3f4d6dff62de41fc8cadef0244ffc900">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
-    <rdf:rest rdf:nodeID="Nd0a202422eaf483ba183eeb93b7c7557"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FullStraight">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R10: contoh yaku, tiga sequence 1-2-3, 4-5-6, 7-8-9 satu suit (S1 §11.5.2)</rdfs:comment>
+    <rdfs:comment>R13: yaku dari triplet atau quad honour bernilai</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N08e1a427a84640e3a909fc2a76754ce2">
-    <owl:unionOf rdf:nodeID="N9febc27cd55c49b091a2c0d05815b921"/>
+  <rdf:Description rdf:nodeID="N6ce697a728b44b0488bc5cca0b4606e7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_9karakter"/>
+    <rdf:rest rdf:nodeID="N9e93c2c9461846f18de373bec31c1aab"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasYaku">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#drawnBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R10: tangan memiliki yaku</rdfs:comment>
+    <rdfs:comment>R8: tile berasal dari draw pemain</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N3e87632e0292467cb23f7adc91b78ef7">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka_2"/>
-    <rdf:rest rdf:nodeID="N03f4103e1d25473cbe630c83f9408092"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_2">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka_2">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdfs:comment>R8: tangan terbuka kedua</rdfs:comment>
+    <hasGroup rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N08f6fb8707494adb96a7d52d37d3b704">
-    <owl:unionOf rdf:nodeID="Nfc43966daeca494e868ac86168e8e454"/>
+  <rdf:Description rdf:nodeID="Nd2b5c500aea245ec939a0f16c01d40e3">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ManganHand"/>
+    <rdf:rest rdf:nodeID="N4a11aec9337f4c5e8abaa91da76ea6ab"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N5befde82db3c4d2997628402f27b3be5">
-    <rdf:first rdf:nodeID="N1ed89c2990ab4f7c9e31583d0be8568b"/>
-    <rdf:rest rdf:nodeID="Nc6aeba008a2a4f2f8d92823c7e2c4af4"/>
+  <rdf:Description rdf:nodeID="Ncb2c4e0a3eab4158a363384ed05b8656">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_4"/>
+    <rdf:rest rdf:nodeID="Na6a97b030f234db7899a2b349628ad71"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Na1807bc161134d6d8fdc9b7be0fc627a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:nodeID="Neb38611513d14f839268d218142d0c3d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SanbaimanHand"/>
+    <rdf:rest rdf:nodeID="Nac6e9219feef4052b00f0c9124d52120"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N0df0ce52fc2b42e9935066bf1656e025">
-    <rdf:first rdf:nodeID="Nd8a552ea9f66456f92f7498ea28f8521"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:nodeID="N55ff939909bb4466a0c8645cf8f772ce">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_3"/>
+    <rdf:rest rdf:nodeID="Nb903e4c778d6413786771e48bf723060"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N2c75289b167b41308a2d0125f1cdd829">
+  <rdf:Description rdf:nodeID="Na4bf2b563d6e4014b3a12326f14a170b">
+    <rdf:first rdf:nodeID="Ne2a2eb1a9b7e4271a81194c051ec2788"/>
+    <rdf:rest rdf:nodeID="N46d65f3c29424426ab3dfe760deb08d0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncfad5b78093e4e5599709d26e0f0ad9c">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#totalHan"/>
+    <owl:someValuesFrom rdf:nodeID="N815b60605d37427bb94e717447c4ecd9"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#roundWind">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>R13: wind ronde berjalan</rdfs:comment>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TanyaoPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R12: tangan yang seluruh tilenya inside</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Nf23553115be749568ccf67200f3db52d"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N865aa35ceb7349028b96b30758b7836c">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4"/>
-    <rdf:rest rdf:nodeID="Nc1f9543eb24e478d8122e7d7b5d40609"/>
+  <rdf:Description rdf:nodeID="N5085e742e00e49c49a144d0b1328241c">
+    <owl:intersectionOf rdf:nodeID="N17f1388a551540ef87b408203a6c732a"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb2387e602d6344189269c6f0ea83f3bf">
+  <rdf:Description rdf:nodeID="Ne1b2384781fe4f1bbb49dae8fa26eed5">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N887594d3f19849d695cb475d28c38573">
     <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WinningHand"/>
-    <rdf:rest rdf:nodeID="N7b6f8a685dcb4fec9b82e3d9eeb64464"/>
+    <rdf:rest rdf:nodeID="N67ab8beee0584a40a97576be21f4a8c6"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc8ba7b15e60b410cb6b2e6ad4fad3263">
-    <owl:intersectionOf rdf:nodeID="N477084b996b847e6814ea8096bbcddac"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao_closed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf5f1ce7015d54ff98a6d3b9e5a224b6a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#pemain_bintang"/>
-    <rdf:rest rdf:nodeID="N72b3d226b1cf41479ff20bbf76ce2031"/>
+  <rdf:Description rdf:nodeID="N98f30f30e2f04a548e4c68030910d688">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N5d3f54ea5d404a7ab94a5cd75a529c84">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_4"/>
-    <rdf:rest rdf:nodeID="N53604c5526274eb4b6430a0a72b6b06a"/>
+  <rdf:Description rdf:nodeID="N08867031fcfc4784b0390e6364ece1c1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasRank"/>
+    <owl:someValuesFrom rdf:nodeID="N119ba515bb004aa1aed4b60086fdf647"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N5794f83f608b419a82b14d1357d76968">
-    <rdf:first rdf:nodeID="Nd898275686724f50a8b464c9ce8bbd98"/>
+  <rdf:Description rdf:nodeID="N8f2a644594b44f69b38f09eea7b8b697">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="Nf7689c77f6a54eaf92d7197af05a9c3a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1a2430202a164acc9dea790b7f66e37d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_5lingkaran"/>
+    <rdf:rest rdf:nodeID="N6ce697a728b44b0488bc5cca0b4606e7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6c5a7ad352d44fc7b34001bf80603476">
+    <rdf:first rdf:nodeID="Nfa3e6243e9544d7aa52bad90b12bf1bc"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N26cc8c1e368548f99d1c8d05045a4c74">
-    <rdf:first rdf:nodeID="N020af1f412234aaba87fcf91b268aa83"/>
-    <rdf:rest rdf:nodeID="N9804c3a903a842a8ab5525ab9d68c773"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Dealer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R13: pemain dengan seat wind East</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Player"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nab2d417133874bc3a211922d6be745f4">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_terbuka"/>
-    <rdf:rest rdf:nodeID="N3e87632e0292467cb23f7adc91b78ef7"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanpa_yaku">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
+    <rdfs:comment>R8: pair tanpa yaku</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1b04c329658d4cf9ad46a11b47a7d6af">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="N18f777665c0a47a1afd243af508f6ada"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a1ff57173d144a5b1eaa1bdbaffb27a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BaimanHand"/>
+    <rdf:rest rdf:nodeID="Neb38611513d14f839268d218142d0c3d"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HonourTile">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment>R4: tile honour, yaitu wind dan dragon</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
-    <owl:equivalentClass rdf:nodeID="N08f6fb8707494adb96a7d52d37d3b704"/>
+    <owl:equivalentClass rdf:nodeID="N2979b562b4af4df483c7d8659f633e21"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb3209a25dcb54fe7a951c38ce04c977f">
+    <rdf:first rdf:nodeID="N2c0455d07e1242e1ba5dffcb9562ec6d"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5dfca85c2eee48c9a7e37f843d2208c9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ThirteenOrphansHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R9: tangan berbentuk Thirteen Orphans</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#groupOfTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>R5, R6, R7: group memuat tile, invers dari partOfGroup</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N52dd0206e42e471dbd5e6ac9f17a0e7c">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Nb3209a25dcb54fe7a951c38ce04c977f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Needc9721c3944a8f9d27aab01b326806">
+    <owl:intersectionOf rdf:nodeID="N1c4dfc8919be4d0c9564332954c934c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N12ef94018fea404fa93452f4bc424014">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_closed_3"/>
+    <rdf:rest rdf:nodeID="N367b8f1aa8e4458788669773edf44836"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R14, R15: tile bonus yang memberi 1 han, bukan yaku</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Yaku"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb00b43c95d8a4bb68e19f007fd3af4a5">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_3"/>
+    <rdf:rest rdf:nodeID="N764a85fcf2394e2c9e0e89a0f1d5d09a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb142c0abb93049c3aaf7f8f3c634c020">
+    <owl:intersectionOf rdf:nodeID="N45348e86da5f492681ab8b6c8e904830"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd7eaccfa93be4691b26ffe9ba090a337">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne73145b987b4484b812628c19693afb8">
+    <owl:unionOf rdf:nodeID="Nb4b30f8502d84964aa2663990dc5da70"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0257a0540e054ea783e2c4a3713fbd9d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_2"/>
+    <rdf:rest rdf:nodeID="Nb00b43c95d8a4bb68e19f007fd3af4a5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc3530829ad82496a8dfb4d0397628aae">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai"/>
+    <rdf:rest rdf:nodeID="N2bd27f446de64801a1687c640a71d516"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N46e9226ba6014582a608860ae547801c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tile_1bambu"/>
+    <rdf:rest rdf:nodeID="N1a2430202a164acc9dea790b7f66e37d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45348e86da5f492681ab8b6c8e904830">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PlayerHand"/>
+    <rdf:rest rdf:nodeID="Na4bf2b563d6e4014b3a12326f14a170b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6236d94f2e794183bb5cd78ec168f2de">
+    <rdf:first rdf:nodeID="Nb64dcfbfe3f64042a19d81e54ac1e73d"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4542491fd3164cdda41a0e9fffe71b5d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:complementOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HonourTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd14fe026409540b9af907dc8aad57a3e">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CircleTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R2, R3: tile suit lingkaran</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SuitTile"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BambooTile"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CharacterTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#CalledQuad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R6, R8: quad hasil memanggil tile</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a680d663d234909985f2262399d769b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#hasPair"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">7</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N87e35c29c45445aaae2265f2802efda4">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_7"/>
+    <rdf:rest rdf:nodeID="N3f8b8d26114445d883407aee8414ad8c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Triplet"/>
+    <rdfs:comment>R6: triplet ke-2</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2206833d56264ac1a35265e607222fee">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ThirteenOrphansHand"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nde07ae848c6d4dfb9aec6781b80a8038">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#PromotedQuad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R6, R8: quad hasil menambah tile ke triplet melded</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Quad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#MeldedGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R8: group yang dibentuk dengan memanggil tile</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfa3e6243e9544d7aa52bad90b12bf1bc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:complementOf rdf:nodeID="Nf4df769f43c34c50864d63eb6561fd9f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9548d26174f2467db1a654752ca8ae9b">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_yakuhai"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N84e649888de84ca0889ff212fa9f67c1">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_3"/>
+    <rdf:rest rdf:nodeID="Ncb2c4e0a3eab4158a363384ed05b8656"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#WindTile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R4, R13: tile wind East, South, West, North</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DragonTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#DoraTile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#BaimanHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R17: tangan menang bernilai 8 sampai 10 han</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N26343f11aef345a49206b1484e53c93e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na94a9a128ae54f96847fc50c2840f8a6">
+    <rdf:first rdf:nodeID="N65f8487602754b4a86c74bb85ca82446"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SanbaimanHand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>R17: tangan menang bernilai 11 sampai 12 han</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="Na44e7384b35041f79a53a9bf8c54bf2e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2979b562b4af4df483c7d8659f633e21">
+    <owl:unionOf rdf:nodeID="N1208cb7364894f6291e4974f2548ffcc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N90109669cee041708c98b9ecfce2624b">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_2"/>
+    <rdf:rest rdf:nodeID="N55ff939909bb4466a0c8645cf8f772ce"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment>R1: satuan terkecil, 136 tile dalam satu set</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ndb0e297e80734210a5315fc855f91ff4">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_fullstraight_4"/>
-    <rdf:rest rdf:nodeID="Ncb7ab8f64f0c4f498fe3fcefe8f80dd5"/>
+  <rdf:Description rdf:nodeID="N45e2b963d1b1428fb838d023a4e0cf12">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_2"/>
+    <rdf:rest rdf:nodeID="N8a4c7fad83554bf59aeaa823137ad7c0"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbbaf90b6fb8c49fcbcd4455f10a7e895">
-    <owl:intersectionOf rdf:nodeID="N3f4d6dff62de41fc8cadef0244ffc900"/>
+  <rdf:Description rdf:nodeID="N350913cc6a7140a89588a7a35c895ef2">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_4"/>
+    <rdf:rest rdf:nodeID="N81818e3e75ad4e199c37e1442804a3db"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Sequence"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#ConcealedGroup"/>
+  <rdf:Description rdf:nodeID="N2c0455d07e1242e1ba5dffcb9562ec6d">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</xsd:minInclusive>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#HanemanHand">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#TenpaiHand">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R17: tangan menang bernilai 6 sampai 7 han</rdfs:comment>
-    <owl:equivalentClass rdf:nodeID="Ne55f64edf8bd41d7bb1d6b4d51e0455b"/>
+    <rdfs:comment>R11: tangan yang menunggu satu tile pelengkap (bagian OWL saja)</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="N61bb8a26a1ea4e579358c4c47ba81770"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N5586dd196de54c94b7ace4b5faf24ddb">
-    <rdf:first rdf:nodeID="Nca2250bca2cb493f91fd621237b33958"/>
-    <rdf:rest rdf:nodeID="Nef6260aca55249b780ae430f1dca99a9"/>
+  <rdf:Description rdf:nodeID="N764a85fcf2394e2c9e0e89a0f1d5d09a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanyao_4"/>
+    <rdf:rest rdf:nodeID="N70c2fa8e78304f25976435899192ae36"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N716022a6d0ff49b6b9fd76fea378ebb9">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1962ad00b1ac456b91a7a3139ca778fd">
-    <owl:intersectionOf rdf:nodeID="N34590f51ef994f15915532b72df78f9c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#wind_east">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SeatWind"/>
-    <rdfs:comment>R12</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf21a7a2b7a724c0fbc9ee78bbb2c318a">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_yakuhai"/>
-    <rdf:rest rdf:nodeID="Nf5f1ce7015d54ff98a6d3b9e5a224b6a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N38ba0ccb3e81449d961f829eebe519fc">
-    <rdf:first rdf:nodeID="Ne248b23ab58a4c09a6310fd4493b4975"/>
+  <rdf:Description rdf:nodeID="N56d11ae0e2c3420abc7828443a4e162a">
+    <rdf:first rdf:nodeID="N08867031fcfc4784b0390e6364ece1c1"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8ff1a21db9ce4f06b24d0c8bd831e59a">
-    <owl:intersectionOf rdf:nodeID="N3033cac046ed4e19851267604006433e"/>
+  <rdf:Description rdf:nodeID="N9ed458b7ff1f43bfbaa26836bd88cc1c">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_4"/>
+    <rdf:rest rdf:nodeID="N3988922c00bc415086415134afe1de8e"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8521d83101f944c988f2026d5ceef5de">
+  <rdf:Description rdf:nodeID="N4271ce6db2674986b8b09c6486184b36">
+    <rdf:first rdf:nodeID="N934af66217954e8aae7d75d40f032db7"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Pair">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="Nb2387e602d6344189269c6f0ea83f3bf"/>
+    <rdfs:comment>R7: dua tile identik, bukan group</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Group"/>
+    <rdfs:subClassOf rdf:nodeID="N309b038d5d5e4ec08bc7529c6e113805"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N7ef7bb41080240a89d4a6de90f11fd94">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#NumberedTile"/>
-    <rdf:rest rdf:nodeID="N079fb8ed47f4482f90e3e10f7140e6ab"/>
+  <rdf:Description rdf:nodeID="N714c7bc03e424c6fb9a92fd41a922aca">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_tanpa_yaku_1"/>
+    <rdf:rest rdf:nodeID="N45e2b963d1b1428fb838d023a4e0cf12"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd898275686724f50a8b464c9ce8bbd98">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#waitingFor"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Tile"/>
+  <rdf:Description rdf:nodeID="Nac6e9219feef4052b00f0c9124d52120">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#YonbaimanHand"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N02ffbfe0139a45848cb3d46b24d5b07f">
-    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_1"/>
-    <rdf:rest rdf:nodeID="N1048d61957ea44bfa160d9ee8a29ab00"/>
+  <rdf:Description rdf:nodeID="Ndce7fb6b2e6f4b3aab7f323184372e4d">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#p_tanyao"/>
+    <rdf:rest rdf:nodeID="N0fa53981042b483f9e53e5070e87dcd9"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc228f6b7d8134b9ba03410508735a75b">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</xsd:maxInclusive>
+  <rdf:Description rdf:nodeID="N9bd2e7e091f545859afa048ab9f998b5">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#y_fullstraight"/>
+    <rdf:rest rdf:nodeID="N382aeeb8fb8b4c7abba2f8d54129e5d9"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N74074496f33a49458806b5be216555e7">
-    <owl:intersectionOf rdf:nodeID="N38ca247ff4234ebcaee70520bf165330"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#RedFiveTile">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#FiveTile"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#Player">
+  <rdf:Description rdf:about="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#SeatWind">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>R13: pemain pada satu meja</rdfs:comment>
+    <rdfs:comment>R13: wind yang melekat pada pemain</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N68432cdc982b49b0b421ebdbc384d7d2">
+    <owl:intersectionOf rdf:nodeID="Nb399f5bfcc4c4924b8a9fee2b76c3599"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5d4ea0d94d16470a9e9171cf6f948e9e">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_yakuhai_2"/>
+    <rdf:rest rdf:nodeID="N84e649888de84ca0889ff212fa9f67c1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf228783098684a7f88793f3934adbae1">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2801e559ebc546ad9d0126b738274588">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#dora_6"/>
+    <rdf:rest rdf:nodeID="N87e35c29c45445aaae2265f2802efda4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5c60ed61c170458481038ff2a0f56695">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#tangan_tanpa_yaku"/>
+    <rdf:rest rdf:nodeID="N79dff6a42ade4ba8b98af48bd030c9d3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nff190b03357b478aadc5309e0f3d87c7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/if4070/ontologies/2026/m1p1#g_terbuka_2"/>
+    <rdf:rest rdf:nodeID="Nf7ab103e2a024cc8b6cad0e826be1f33"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N033f65e64f894bf8b62e7d56a49042c2">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5713ebcaa60b48e882e20cde6df9907f">
+    <owl:intersectionOf rdf:nodeID="Nba068d538d4f47db8ef510938c8a4493"/>
   </rdf:Description>
 </rdf:RDF>

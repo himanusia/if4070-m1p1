@@ -134,8 +134,8 @@ ID aturan yang diwakili dan alasan pemilihan konstruksinya.
 A1 & $\mathrm{TerminalTile} \equiv \mathrm{NumberedTile} \sqcap \neg\mathrm{InsideTile}$ & R2 & 1 dan 9 adalah tile bernomor yang bukan inside; komplemen lebih ringkas daripada enumerasi enam tile; hasRank dibuat functional supaya rank 1 atau 9 mengentail bukan inside \\
 A2 & $\mathrm{InsideTile} \equiv \mathrm{NumberedTile} \sqcap \exists \mathrm{hasRank}.\mathrm{integer}[2,8]$ & R3 & batas 2 sampai 8 adalah rentang numerik, jadi dipakai facet tipe data, bukan enumerasi \\
 A3 & $\mathrm{HonourTile} \equiv \mathrm{WindTile} \sqcup \mathrm{DragonTile}$ & R4 & honour didefinisikan lengkap oleh dua jenisnya, sehingga union-nya menutup \\
-A4 & $\mathrm{Sequence} \sqsubseteq \mathrm{Group} \sqcap {=}3\,\mathrm{groupOfTile}.\mathrm{Tile}$ & R5 & sequence selalu tiga tile, jadi kardinalitas tepat lebih kuat daripada $\geq 3$ \\
-A5 & $\mathrm{Sequence} \sqsubseteq \forall \mathrm{groupOfTile}.\neg\mathrm{HonourTile}$ & R5 & larangan honour bersifat universal atas seluruh anggota group \\
+A4 & $\mathrm{Sequence} \sqsubseteq \mathrm{Group} \sqcap {=}3\,\mathrm{groupOfTile}.\mathrm{Tile}$ & R5 (sebagian) & sequence selalu tiga tile, jadi kardinalitas tepat lebih kuat daripada $\geq 3$ \\
+A5 & $\mathrm{Sequence} \sqsubseteq \forall \mathrm{groupOfTile}.\neg\mathrm{HonourTile}$ & R5 (sebagian) & larangan honour bersifat universal atas seluruh anggota group \\
 A6 & $\mathrm{Quad} \sqsubseteq \mathrm{Group} \sqcap {=}4\,\mathrm{groupOfTile}.\mathrm{Tile}$ & R6 & quad dibedakan dari triplet justru oleh jumlahnya \\
 A7 & $\mathrm{Pair} \sqcap \mathrm{Group} \sqsubseteq \bot$ & R7 & pair bukan group, jadi keduanya harus saling lepas \\
 A8 & $\mathrm{ClosedHand} \equiv \mathrm{PlayerHand} \sqcap \neg\exists \mathrm{hasGroup}.\mathrm{MeldedGroup}$ & R8 & status closed adalah ketiadaan group melded, bukan penanda yang diasersikan \\

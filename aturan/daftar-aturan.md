@@ -8,7 +8,7 @@
 | R2 | Tile terminal adalah tile suit bernomor 1 atau 9 | S1 §3.1 |  |
 | R3 | Tile inside adalah tile suit bernomor 2 sampai 8 | S1 §3.1 |  |
 | R4 | Tile honour terdiri atas tile wind dan tile dragon, yang saling lepas dengan tile suit | S1 §3.1, §4.1 |  |
-| R5 | Sequence adalah tiga tile berurutan pada satu suit, tidak melingkar dari 9 ke 1, tanpa tile honour | S1 §3.2 |  |
+| R5 | Sequence adalah tiga tile berurutan pada satu suit, tidak melingkar dari 9 ke 1, tanpa tile honour | S1 §3.2 | non-OWL |
 | R6 | Quad terdiri atas empat tile identik dan dihitung sebagai satu group | S1 §3.2 |  |
 | R7 | Pair terdiri atas dua tile identik dan tidak tergolong group | S1 §3.2 |  |
 | R8 | Tangan tergolong open jika memiliki minimal satu group melded di luar tile kemenangan; selain itu closed | S1 §3.3 |  |
