@@ -1,11 +1,33 @@
 SHELL := /bin/bash
-GROUP := $(shell python3 -c "import yaml;print(yaml.safe_load(open('config.yaml'))['grup'])" 2>/dev/null || echo KXX)
 
-JAVA_HOME := $(HOME)/.hermes/tools/jdk/jdk-21.0.13+9/Contents/Home
-JAVA      := $(JAVA_HOME)/bin/java
-ROBOT     := $(HOME)/.hermes/tools/robot.jar
-PROTEGE   := $(HOME)/.hermes/tools/protege/Protege-5.6.9/Protégé.app
+# --- resolusi tool -------------------------------------------------------
+# Tidak ada path yang di-hardcode. Urutannya: variabel environment, lalu
+# probing. Override kapan saja:  make doctor ROBOT=/path/robot.jar
+#
+# JAVA_HOME: registri macOS, lalu JDK lokal mana pun, lalu PATH.
+JAVA_HOME ?= $(shell h=$$(/usr/libexec/java_home 2>/dev/null); \
+                [ -n "$$h" ] || h=$$(ls -d $(HOME)/.hermes/tools/jdk/*/Contents/Home 2>/dev/null | head -1); \
+                [ -n "$$h" ] || h=$$(dirname "$$(dirname "$$(command -v java 2>/dev/null)")" 2>/dev/null); \
+                echo "$$h")
+JAVA_BIN  := $(JAVA_HOME)/bin/java
+
+# ROBOT: sembarang robot.jar di direktori tool, versi apa pun.
+ROBOT     ?= $(firstword $(wildcard \
+                $(HOME)/.hermes/tools/robot.jar \
+                $(HOME)/.hermes/tools/*/robot.jar \
+                $(HOME)/.local/share/robot.jar))
+
+# Protege: bundle .app di /Applications atau di direktori tool.
+PROTEGE   ?= $(firstword $(wildcard \
+                /Applications/Protégé.app /Applications/Protege.app \
+                $(HOME)/Applications/Protégé.app $(HOME)/Applications/Protege.app \
+                $(HOME)/.hermes/tools/*/*/Protégé.app \
+                $(HOME)/.hermes/tools/*/*/Protege.app))
+
 PY        := .venv/bin/python
+
+# Nomor kelompok dibaca dari config.yaml tanpa butuh pyyaml di python sistem.
+GROUP := $(shell sed -n 's/^grup:[[:space:]]*"\{0,1\}\([^"]*\)"\{0,1\}.*/\1/p' config.yaml 2>/dev/null | head -1)
 
 ONT := ontologi/$(GROUP)_M1P1_ontologi.owl
 BAD := ontologi/$(GROUP)_M1P1_ontologi_inkonsisten.owl
@@ -23,11 +45,12 @@ setup: .venv
 	@echo "ok: venv siap ($(PY))"
 
 doctor:
-	@printf "%-12s" "java";       test -x "$(JAVA)" && "$(JAVA)" -version 2>&1 | head -1 || echo "MISSING -> lihat README"
-	@printf "%-12s" "robot";      test -f "$(ROBOT)" && echo "$(ROBOT)" || echo "MISSING"
-	@printf "%-12s" "protege";    test -d "$(PROTEGE)" && echo "$(PROTEGE)" || echo "MISSING"
-	@printf "%-12s" "pdflatex";   command -v pdflatex >/dev/null && pdflatex --version | head -1 || echo "MISSING"
-	@printf "%-12s" "venv";       test -x "$(PY)" && echo "$(PY)" || echo "belum: make setup"
+	@printf "%-10s " "grup";      echo "$(GROUP) -> $(ONT)"
+	@printf "%-10s " "java";      test -x "$(JAVA_BIN)" && "$(JAVA_BIN)" -version 2>&1 | head -1 || echo "MISSING, set JAVA_HOME=..."
+	@printf "%-10s " "robot";     test -f "$(ROBOT)" && echo "$(ROBOT)" || echo "MISSING, set ROBOT=/path/robot.jar"
+	@printf "%-10s " "protege";   test -d "$(PROTEGE)" && echo "$(PROTEGE)" || echo "MISSING, set PROTEGE=/path/Protege.app"
+	@printf "%-10s " "pdflatex";  command -v pdflatex >/dev/null && pdflatex --version | head -1 || echo "MISSING"
+	@printf "%-10s " "python";    test -x "$(PY)" && $(PY) --version || echo "belum: make setup"
 
 check: setup
 	@$(PY) tools/validate.py
@@ -36,10 +59,10 @@ selftest: setup
 	@$(PY) tools/selftest.py
 
 reason: setup
-	@bash tools/reason.sh "$(ONT)" consistent
+	@JAVA_BIN="$(JAVA_BIN)" ROBOT="$(ROBOT)" bash tools/reason.sh "$(ONT)" consistent
 
 reason-bad: setup
-	@bash tools/reason.sh "$(BAD)" inconsistent
+	@JAVA_BIN="$(JAVA_BIN)" ROBOT="$(ROBOT)" bash tools/reason.sh "$(BAD)" inconsistent
 
 report: setup
 	@$(PY) tools/build_report.py
@@ -47,7 +70,7 @@ report: setup
 package: setup check
 	@$(PY) tools/package.py
 
-# Gerbang sebelum submit: urutannya check -> reason -> report -> package.
+# Gerbang sebelum submit: check -> reason -> reason-bad -> report -> package.
 # Berhenti di langkah pertama yang gagal.
 review: setup
 	@$(MAKE) --no-print-directory check
@@ -57,7 +80,8 @@ review: setup
 	@$(MAKE) --no-print-directory package
 
 open:
-	@test -d "$(PROTEGE)" && open -a "$(PROTEGE)" "$(ONT)" || echo "Protege tidak ada di $(PROTEGE)"
+	@if [ -d "$(PROTEGE)" ]; then open -a "$(PROTEGE)" "$(ONT)"; \
+	else echo "Protege tidak ketemu. Set PROTEGE=/path/Protege.app"; exit 1; fi
 
 clean:
 	rm -rf .venv __pycache__ tools/__pycache__ laporan/*.aux laporan/*.log laporan/*.out laporan/*.toc build

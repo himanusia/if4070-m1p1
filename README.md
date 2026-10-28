@@ -4,17 +4,23 @@ Tooling untuk Tugas Besar IF4070 Milestone 1 Part 1. Domain: mahjong riichi (WRC
 
 ## Prasyarat
 
-| Kebutuhan | Versi | Lokasi di mesin ini |
-|---|---|---|
-| Java | 21 | `~/.hermes/tools/jdk/jdk-21.0.13+9/Contents/Home` |
-| ROBOT (HermiT headless) | 1.9.11 | `~/.hermes/tools/robot.jar` |
-| Protégé | 5.6.9 | `~/.hermes/tools/protege/Protege-5.6.9/Protégé.app` |
-| pdfTeX | TeX Live 2026 | `/Library/TeX/texbin` |
-| Python | ≥ 3.9 (dipakai 3.9.6) | venv lokal di `.venv/` |
+| Kebutuhan | Dicari dari mana |
+|---|---|
+| Java ≥ 11 | `JAVA_HOME`, lalu `/usr/libexec/java_home`, lalu `~/.hermes/tools/jdk/*/Contents/Home`, lalu `PATH` |
+| ROBOT (HermiT headless) | `ROBOT`, lalu `~/.hermes/tools/robot.jar` / `~/.hermes/tools/*/robot.jar` |
+| Protégé | `PROTEGE`, lalu `/Applications`, lalu `~/.hermes/tools/*/*/Protégé.app` |
+| pdfTeX | `PATH` |
+| Python ≥ 3.9 + `requirements.txt` | venv lokal `.venv/` |
+
+Tidak ada path yang di-hardcode. Kalau penemuan otomatis gagal, override:
+
+```bash
+make doctor JAVA_HOME=/path/to/jdk ROBOT=/path/robot.jar PROTEGE="/Applications/Protégé.app"
+```
 
 ```bash
 make setup     # bikin .venv + install requirements.txt
-make doctor    # cek semua di atas ada
+make doctor    # tampilkan path yang benar-benar dipakai
 ```
 
 ## Perintah

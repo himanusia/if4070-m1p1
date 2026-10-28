@@ -18,6 +18,7 @@ import sys
 import tempfile
 from pathlib import Path
 
+import yaml
 from rdflib import Graph, Literal, Namespace, RDF, RDFS, BNode
 from rdflib.collection import Collection
 
@@ -196,8 +197,11 @@ def main() -> int:
     for d in ("aturan", "sumber", "ontologi", "laporan", "laporan/gambar"):
         (tmp / d).mkdir(parents=True, exist_ok=True)
 
-    cfg = (REPO / "config.yaml").read_text().replace('grup: "K11"', 'grup: "K99"')
-    (tmp / "config.yaml").write_text(cfg)
+    cfg = yaml.safe_load((REPO / "config.yaml").read_text(encoding="utf-8"))
+    cfg["grup"] = "K99"  # fixture wajib beda dari repo asli
+    (tmp / "config.yaml").write_text(
+        yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
     (tmp / "aturan" / "daftar-aturan.md").write_text(TABEL, encoding="utf-8")
     for n in ("S1_buku.pdf", "S2_wiki.pdf", "S3_house.pdf"):
         (tmp / "sumber" / n).write_bytes(b"%PDF-1.4 uji\n")
