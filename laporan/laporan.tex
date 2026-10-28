@@ -101,18 +101,33 @@ Institut Teknologi Bandung\\[4pt]
 \section{Deskripsi Domain}
 % =====================================================================
 
-\todo{Tulis bagian ini tangan.}
-\textbf{Batasan domain:} apa yang masuk dan apa yang sengaja dikeluarkan, sebutkan
-cakupan \emph{scope} secara eksplisit (level detail, periode aturan, entitas yang
-diabaikan).
+\textbf{Batasan domain.} Domain ini adalah evaluasi tangan pada mahjong \emph{riichi}
+menurut World Riichi Championship (WRC) Rules 2025, ditambah dua \emph{house rules}
+fiktif kelompok. Yang dimodelkan: jenis tile (suit, terminal, inside, honour),
+bentuk group dan pair, status tangan (open, closed, valid, menang, tenpai), tiga
+yaku (Tan'yao, Yakuhai, serta contoh All Triplets dan Full Straight), dora, total han,
+dan kategori nilai mangan sampai yonbaiman. Yang sengaja dikeluarkan: persiapan
+meja (membangun tembok, menentukan seat wind awal, membagi tile), perhitungan fu,
+yakuman, riichi dan ippatsu, furiten, pembayaran poin, uma, dan penalti. Persiapan
+meja bersifat prosedural sehingga tidak menghasilkan klasifikasi, sedangkan fu dan
+pembayaran adalah aritmetika yang memperbesar ontologi tanpa menambah kedalaman
+penalaran.
 
-\textbf{Sumber:} daftar dokumen di folder \texttt{sumber/} beserta apa yang diambil
-dari masing-masing.
+\textbf{Sumber.} S1 adalah \emph{World Riichi Championship Rules 2025} (v20250526), sumber
+seluruh aturan R1 sampai R17; nomor bagian (§) pada daftar aturan mengacu ke dokumen
+ini. S2 adalah dokumen \emph{house rules} kelompok yang memuat Bonus Comeback (R18) dan
+Tan'yao Tertutup (R19). Keduanya ada di folder \texttt{K11\_M1P1\_Sumber}.
 
-\textbf{Perbedaan struktural dari domain terdekat yang dilarang:}
-Wajib ada \emph{satu paragraf} yang menjelaskan kenapa domain ini tidak
-serumpun dengan domain di daftar larangan. Sebut domain terdekatnya, lalu
-tunjuk perbedaan struktur konsepnya — bukan perbedaan nama atau tema.
+\textbf{Perbedaan struktural dari domain terdekat yang dilarang.} Domain terdekat di
+daftar larangan adalah Settlers of Catan, sesama permainan meja. Struktur konsep Catan
+berpusat pada papan berbentuk graf (petak, simpul, jalan), kepemilikan bangunan pada
+simpul, dan aliran sumber daya antar pemain; penalarannya adalah ketetanggaan dan
+produksi. Mahjong \emph{riichi} tidak memiliki papan maupun sumber daya. Konsep
+intinya adalah dekomposisi sebuah multiset tile menjadi group dan pair, lalu
+klasifikasi hasil dekomposisi itu ke pola (yaku) yang menentukan nilai. Akibatnya
+ontologi ini didominasi kelas terdefinisi atas struktur bagian--keseluruhan
+(tile, group, tangan) dan rentang numerik, bukan relasi spasial, sehingga ontologi
+Catan tidak dapat diadaptasi menjadi ontologi ini hanya dengan mengganti nama.
 
 % =====================================================================
 \section{Aksioma Inti}
@@ -121,7 +136,8 @@ tunjuk perbedaan struktur konsepnya — bukan perbedaan nama atau tema.
 Minimal 10 aksioma dalam notasi logika deskripsi formal, masing-masing dengan
 ID aturan yang diwakili dan alasan pemilihan konstruksinya.
 
-\begin{longtable}{@{}p{0.6cm} p{6.6cm} p{1.5cm} p{4.2cm}@{}}
+{\small
+\begin{longtable}{@{}p{0.8cm} p{6.9cm} p{1.6cm} p{4.6cm}@{}}
 \toprule
 \textbf{ID} & \textbf{Aksioma} & \textbf{Aturan} & \textbf{Alasan konstruksi} \\
 \midrule
@@ -152,9 +168,7 @@ A16 & $\mathrm{ManganHand} \equiv \mathrm{WinningHand} \sqcap \exists \mathrm{to
 \midrule
 \bottomrule
 \end{longtable}
-
-\todo{Isi tabel di atas. Alasan konstruksi harus menjelaskan kenapa ∃/∀/⊓/
-kardinalitas/disjointness dipilih, bukan sekadar mengulang bunyi aksioma.}
+}
 
 % =====================================================================
 \section{Pemenuhan Fitur Wajib}
@@ -169,56 +183,104 @@ kardinalitas/disjointness dipilih, bukan sekadar mengulang bunyi aksioma.}
 \textbf{Fitur wajib} & \textbf{Aksioma yang memakai} & \textbf{CQ yang bergantung} \\
 \midrule
 \endhead
-Kelas terdefinisi yang menghasilkan klasifikasi terinferensi & & \\
-Restriksi tipe data atau kardinalitas & & \\
-Properti transitif / invers / rantai properti & & \\
-Disjointness & & \\
+Kelas terdefinisi yang menghasilkan klasifikasi terinferensi (14 kelas, minimal 3) & A1 TerminalTile, A2 InsideTile, A8 ClosedHand, A9 ValidHand, A11 WinningHand, A16 ManganHand; juga OpenHand & CQ1, CQ2, CQ6, CQ8, CQ9, CQ10, CQ11 \\
+Restriksi tipe data atau kardinalitas & A2 ($\exists$hasRank.integer[2,8]), A16 ($\exists$totalHan.integer[5,5]); A4, A6 (${=}3$, ${=}4$ groupOfTile), A9 (${\geq}4$ hasGroup, ${\geq}1$ hasPair) & CQ2, CQ6, CQ8, CQ10, CQ11 \\
+Properti transitif / invers / rantai properti & groupOfTile $\equiv$ partOfGroup$^{-}$ (dipakai A4--A6), tileOfHand $\equiv$ hasTile$^{-}$, Trans(partOf) & CQ3 \\
+Disjointness & A7 Pair $\sqcap$ Group, A14 DoraTile $\sqcap$ Yaku, TerminalTile $\sqcap$ InsideTile, Sequence $\sqcap$ Triplet, MeldedGroup $\sqcap$ ConcealedGroup, AllDisjoint lima kategori & CQ1, CQ2, CQ3, CQ5, CQ9 \\
 \midrule
 \bottomrule
 \end{longtable}
 
-\todo{Setiap fitur wajib harus dipakai minimal satu CQ. Fitur yang hanya
-ditempelkan tanpa CQ tidak dihitung.}
+CQ3 bergantung pada properti invers: keanggotaan tile pada group dapat diasersikan
+dari sisi tile (partOfGroup), tetapi restriksi A5 dibaca dari sisi group
+(groupOfTile), sehingga keduanya harus terhubung sebagai invers. Disjointness
+MeldedGroup dan ConcealedGroup adalah yang membuat \emph{closure axiom} pada CQ1
+menghasilkan ClosedHand.
 
 % =====================================================================
 \section{Jawaban \emph{Competency Question}}
 % =====================================================================
 
-Untuk setiap CQ: kueri DL Query yang dijalankan di Protégé, hasilnya, dan jalur
-penalarannya.
+Kueri ditulis dalam sintaks Manchester di tab DL Query Protégé dengan reasoner
+HermiT aktif. ``Unsatisfiable'' berarti kelas kueri ekuivalen dengan
+$\bot$ (Nothing): tidak ada individu yang mungkin memenuhinya, sehingga jawabannya
+``Tidak'' secara pasti, bukan sekadar karena data tidak ada. CQ4, CQ7, dan CQ12
+bergantung pada aturan non-OWL; bagian OWL-nya ditunjukkan di sini dan jawaban
+akhirnya diturunkan di Part 2.
 
-\todo{Ulangi blok berikut untuk setiap CQ1..CQn.}
+{\small
+\begin{longtable}{@{}p{0.9cm} p{4.1cm} p{4.0cm} p{5.0cm}@{}}
+\toprule
+\textbf{CQ} & \textbf{DL Query} & \textbf{Hasil (HermiT)} & \textbf{Jalur penalaran} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{CQ} & \textbf{DL Query} & \textbf{Hasil (HermiT)} & \textbf{Jalur penalaran} \\
+\midrule
+\endhead
+CQ1 & \texttt{ClosedHand} & 3 individu: tangan\_fullstraight, tangan\_tanyao\_closed, tangan\_tenpai. \textbf{Ya} & \emph{Closure} hasGroup only ConcealedGroup dan MeldedGroup $\sqcap$ ConcealedGroup $\sqsubseteq \bot$ mengentail $\neg\exists$hasGroup.MeldedGroup, lalu A8 (R8) \\
+CQ2 & \texttt{TerminalTile and InsideTile} & Unsatisfiable. \textbf{Tidak}. (\texttt{TerminalTile}: tile\_1bambu, tile\_9karakter) & hasRank functional bernilai 1 tidak masuk [2,8] sehingga bukan InsideTile (A2), lalu A1 (R2, R3); kedua kelas disjoint \\
+CQ3 & \texttt{Sequence and (groupOfTile some DragonTile)} & Unsatisfiable. \textbf{Tidak} & DragonTile $\sqsubseteq$ HonourTile (A3, R4) bertentangan dengan A5 (R5); Sequence $\sqcap$ Triplet juga disjoint \\
+CQ4 & -- & Tidak dapat dikueri. \textbf{Tidak} (Part 2) & ``Berurutan, tidak melingkar'' adalah bagian non-OWL dari R5 \\
+CQ5 & \texttt{Pair and Group} & Unsatisfiable. \textbf{Tidak} & A7 (R7); pair tidak dapat mengisi syarat ${\geq}4$ hasGroup.Group pada A9 (R6, R9) \\
+CQ6 & \texttt{ValidHand}, lalu \texttt{WinningHand} & tangan\_tanpa\_yaku ada di 5 hasil ValidHand, tetapi tidak di 4 hasil WinningHand. \textbf{Tidak} & A9 terpenuhi berkat AllDifferent (R7, R9), tetapi A11 butuh $\exists$hasYaku.Yaku (R10) \\
+CQ7 & \texttt{TenpaiHand} & tangan\_tenpai, tangan\_tenpai\_2. \textbf{Tidak} (Part 2) & A12 hanya menangkap $\exists$waitingFor; syarat tile pelengkap masih mungkin ada adalah bagian non-OWL R11 \\
+CQ8 & \texttt{WinningHand and OpenHand} & tangan\_tanyao\_open, tangan\_yakuhai\_mangan. \textbf{Ya} & Group melded memberi OpenHand (R8), A9 (R9), yaku Tan'yao (R3, R12) memenuhi A11 (R10) \\
+CQ9 & \texttt{WinningHand and (hasDora some DoraTile)} & tangan\_tanyao\_closed, tangan\_yakuhai\_mangan; tangan\_tanpa\_yaku tidak muncul. \textbf{Tidak} & Dora tidak dapat menjadi yaku (A14, R14), sehingga dora (R15) tidak memenuhi A11 (R10) \\
+CQ10 & \texttt{ManganHand and OpenHand} & tangan\_yakuhai\_mangan. \textbf{Mangan} & Yakuhai (R13) dan 4 dora (R15) dijumlah di luar OWL menjadi totalHan 5 (R16), lalu A16 (R17) \\
+CQ11 & \texttt{ManganHand and ClosedHand} & tangan\_tanyao\_closed. \textbf{5 han, mangan} & Tan'yao (R12), 3 dora (R15), dan Bonus Comeback (R18) dijumlah di luar OWL (R16), lalu A16 (R17); closed lewat \emph{closure} \\
+CQ12 & \texttt{WinningHand and OpenHand and (hasYaku some Tanyao)} & tangan\_tanyao\_open (menurut WRC). \textbf{Tidak} menurut \emph{house rules} (Part 2) & R19 membatalkan R12 untuk tangan open; logika deskripsi monoton sehingga pembatalan ini tidak dapat dinyatakan \\
+\midrule
+\bottomrule
+\end{longtable}
+}
 
-\subsection*{CQ1}
-\begin{tabular}{@{}p{2.2cm} p{11.3cm}@{}}
-\textbf{Pertanyaan} & \todo{} \\
-\textbf{DL Query} & \texttt{\todo{ekspresi DL Query yang diketik di tab DL Query}} \\
-\textbf{Hasil} & \todo{isi hasil beserta jumlah individu/kelas} \\
-\textbf{Jalur penalaran} & \todo{aturan mana yang berperan, dalam urutan apa} \\
-\end{tabular}
-
-\todo{Minimal dua CQ harus berjawaban "Tidak" dan dijelaskan mengapa tidak.}
+Jawaban ``Tidak'' memiliki dua bentuk. Pada CQ2, CQ3, dan CQ5 kelas kuerinya
+unsatisfiable, sehingga tidak ada model yang memenuhinya. Pada CQ6 dan CQ9 individu
+yang ditanyakan tidak terentail sebagai WinningHand; di bawah asumsi dunia terbuka ini
+berarti ``tidak terbukti menang'', dan Part 2 (Prolog, asumsi dunia tertutup) yang
+menegaskannya menjadi ``tidak menang''.
 
 % =====================================================================
 \section{Studi Kasus Inkonsistensi}
 % =====================================================================
 
 \begin{enumerate}[leftmargin=*]
-  \item \textbf{Kontradiksi yang disuntikkan:} \todo{apa yang diubah di salinan
-        \texttt{\_inkonsisten.owl} dan kenapa itu menghasilkan inkonsistensi}
+  \item \textbf{Kontradiksi yang disuntikkan:} salinan
+        \texttt{K11\_M1P1\_ontologi\_inkonsisten.owl} identik dengan ontologi utama
+        ditambah satu asersi, \texttt{dora\_1 : Tanyao}. Individu \texttt{dora\_1}
+        sudah bertipe DoraTile, sehingga asersi ini menyatakan sebuah dora sekaligus
+        yaku, kesalahan pemodelan yang mudah terjadi karena keduanya sama-sama
+        ``memberi han''.
   \item \textbf{Penjelasan dari Protégé:} lihat gambar di bawah.
-  \item \textbf{Cara membaca penjelasan:} \todo{urai rantai aksioma yang dilaporkan
-        reasoner, dari premis sampai ⊥}
-  \item \textbf{Cara memperbaiki:} \todo{perbaikan mana yang dipilih dan kenapa
-        itu yang benar secara model, bukan sekadar yang menghilangkan galat}
+  \item \textbf{Cara membaca penjelasan:} HermiT melaporkan tiga aksioma yang bersama-sama
+        tidak dapat dipenuhi. (1) \texttt{dora\_1 : Tanyao} dan aksioma
+        Tanyao $\sqsubseteq$ Yaku membuat dora\_1 anggota Yaku. (2) \texttt{dora\_1 :
+        DoraTile} membuat dora\_1 anggota DoraTile. (3) A14 menyatakan
+        DoraTile $\sqcap$ Yaku $\sqsubseteq \bot$. Jadi dora\_1 harus berada di $\bot$,
+        padahal $\bot$ tidak memiliki anggota, sehingga seluruh ontologi tidak
+        memiliki model. Karena inkonsisten, reasoner dapat menurunkan apa saja
+        (\emph{ex falso quodlibet}), sehingga semua hasil klasifikasi lain pada salinan
+        ini tidak bermakna.
+  \item \textbf{Cara memperbaiki:} ada tiga kandidat, masing-masing menghapus satu
+        aksioma dari penjelasan. Menghapus A14 akan menghilangkan galat, tetapi
+        bertentangan dengan R14 (dora bukan yaku) dan membuat CQ9 berjawaban salah.
+        Menghapus Tanyao $\sqsubseteq$ Yaku merusak R12. Perbaikan yang benar adalah
+        menghapus asersi \texttt{dora\_1 : Tanyao}, karena hanya asersi itu yang tidak
+        didukung aturan mana pun. Han dari dora dicatat lewat \texttt{hasDora}
+        (R15), bukan dengan menjadikannya yaku.
 \end{enumerate}
 
 \begin{figure}[h]
 \centering
-% \includegraphics[width=0.9\linewidth]{penjelasan_inkonsisten.png}
-\fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering
-\todo{screenshot jendela \emph{Explain inconsistency} di Protégé}\\[4pt]
-\small bukti ini wajib berupa gambar, tidak bisa diganti teks}}
+\IfFileExists{gambar/penjelasan_inkonsisten.png}{%
+  \includegraphics[width=0.9\linewidth]{penjelasan_inkonsisten.png}%
+}{%
+  \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering
+  \todo{simpan screenshot jendela \emph{Explain inconsistency} di Protégé sebagai
+  laporan/gambar/penjelasan\_inkonsisten.png}\\[4pt]
+  \small bukti ini wajib berupa gambar, tidak bisa diganti teks}}%
+}
 \caption{Penjelasan inkonsistensi dari HermiT di Protégé.}
 \end{figure}
 
@@ -229,22 +291,61 @@ penalarannya.
 Minimal tiga keputusan. Untuk masing-masing: alternatif yang dipertimbangkan dan
 alasan alternatif itu tidak dipilih.
 
-\todo{Ulangi pola berikut tiga kali atau lebih.}
+\textbf{Keputusan 1: status closed diturunkan lewat \emph{closure axiom}.}
+ClosedHand didefinisikan sebagai tangan tanpa group melded (A8). Di bawah asumsi
+dunia terbuka definisi ini tidak pernah terentail, karena reasoner tidak dapat
+menyingkirkan kemungkinan group melded yang tidak disebut. Karena itu setiap tangan
+closed diberi asersi \texttt{hasGroup only ConcealedGroup}, yaitu fakta domain bahwa
+semua group-nya concealed; dengan disjointness MeldedGroup dan ConcealedGroup,
+HermiT menyimpulkan ClosedHand.\\
+\textit{Alternatif yang dipertimbangkan:} mengasersikan \texttt{ClosedHand} langsung
+pada individu, atau mendefinisikan ClosedHand dengan penanda boolean.\\
+\textit{Alasan tidak dipilih:} asersi langsung membuat CQ1 hanya membaca ulang data
+tanpa penalaran, dan penanda boolean memindahkan keputusan dari reasoner ke penulis
+ABox. \emph{Closure} tetap memakai A8 sebagai definisi yang dinalar.
 
-\textbf{Keputusan 1:} \todo{keputusan}\\
-\textit{Alternatif yang dipertimbangkan:} \todo{}\\
-\textit{Alasan tidak dipilih:} \todo{}
+\textbf{Keputusan 2: kardinalitas minimum ditambah \texttt{owl:AllDifferent}.}
+ValidHand memakai ${\geq}4$ hasGroup dan ${\geq}1$ hasPair (A9), dan semua individu
+dinyatakan saling berbeda.\\
+\textit{Alternatif yang dipertimbangkan:} kardinalitas eksak ${=}4$ dan ${=}1$ sesuai
+bunyi R9, tanpa deklarasi perbedaan individu.\\
+\textit{Alasan tidak dipilih:} asersi positif tidak pernah mengentail batas atas di
+dunia terbuka, sehingga ${=}4$ tidak pernah terpenuhi. Batas bawah pun gagal tanpa
+AllDifferent, karena OWL tidak memakai \emph{unique name assumption}: empat nama group
+bisa saja merujuk individu yang sama. Konsekuensinya, batas atas ``tepat empat
+group'' tidak dinalar: tangan dengan lima group juga terklasifikasi valid. Batas atas
+itu diperiksa di Part 2, yang memakai asumsi dunia tertutup.
+
+\textbf{Keputusan 3: total han diasersikan, kategori diturunkan.}
+Data property functional \texttt{totalHan} diisi nilai yang dihitung di luar OWL
+(R16), lalu kategori mangan sampai yonbaiman didefinisikan sebagai rentang tipe data
+atas nilai itu (A16).\\
+\textit{Alternatif yang dipertimbangkan:} mengasersikan kategori langsung pada
+tangan, atau mencoba menurunkan total han dari jumlah yaku dan dora di dalam OWL.\\
+\textit{Alasan tidak dipilih:} OWL tidak memiliki agregasi penjumlahan, sehingga
+total han tidak dapat dihitung di dalam ontologi; mengasersikan kategori langsung
+kehilangan penalaran R17. Pemisahan ini juga menentukan pembagian kerja dengan
+Part 2: Prolog menghitung totalHan, ontologi mengklasifikasikan kategorinya, dan
+karena totalHan functional, kelima kategori otomatis saling lepas.
+
+\textbf{Keputusan 4: dora sebagai tile, bukan yaku.} DoraTile adalah subkelas Tile yang
+disjoint dengan Yaku (A14), dan dihubungkan ke tangan lewat \texttt{hasDora}
+$\sqsubseteq$ \texttt{hasTile}.\\
+\textit{Alternatif yang dipertimbangkan:} memodelkan dora sebagai jenis yaku dengan
+\texttt{hanValue} 1, karena keduanya sama-sama menambah han.\\
+\textit{Alasan tidak dipilih:} R14 menyatakan dora bukan yaku, dan R10 mensyaratkan
+yaku untuk menang. Jika dora adalah yaku, tangan tanpa yaku dengan dora akan
+terklasifikasi menang, bertentangan dengan CQ9.
 
 % =====================================================================
 \section{Aturan Non-OWL}
 % =====================================================================
 
-\todo{Untuk setiap aturan bertanda non-OWL di daftar aturan, tulis alasan
-teknisnya: agregasi yang tidak dimiliki OWL, sifat monoton logika deskripsi,
-atau kebutuhan asumsi dunia tertutup. Sebutkan juga rencana implementasinya di
-Part 2 (Prolog).}
+Kelima aturan berikut diimplementasikan di Part 2 (Prolog). Kolom terakhir menyebut
+bentuk implementasinya.
 
-\begin{longtable}{@{}p{1.2cm} p{5.4cm} p{6.3cm}@{}}
+{\small
+\begin{longtable}{@{}p{1.4cm} p{5.0cm} p{7.6cm}@{}}
 \toprule
 \textbf{Aturan} & \textbf{Bunyi aturan} & \textbf{Alasan teknis tidak bisa di OWL} \\
 \midrule
@@ -253,9 +354,15 @@ Part 2 (Prolog).}
 \textbf{Aturan} & \textbf{Bunyi aturan} & \textbf{Alasan teknis tidak bisa di OWL} \\
 \midrule
 \endhead
+R5 & Sequence adalah tiga tile berurutan pada satu suit, tidak melingkar dari 9 ke 1 & Bagian ``berurutan'' menghubungkan ketiga anggota group satu sama lain ($b = a+1$, $c = b+1$). Logika deskripsi hanya mampu menyatakan pola berbentuk pohon dan tidak memiliki aritmetika antar individu, sehingga hanya jumlah tile dan larangan honour (A4, A5) yang dimodelkan. Prolog: \texttt{B =:= A+1, C =:= B+1, C =< 9}. \\
+R11 & Tenpai jika hanya butuh satu tile pelengkap dan tile itu masih mungkin ada & ``Masih mungkin ada'' berarti tangan belum memegang keempat salinan tile itu, yaitu penghitungan salinan dan negasi atas data yang lengkap. OWL tidak dapat menghitung salinan, dan di dunia terbuka tidak dapat memastikan tidak ada salinan lain. Prolog: hitung salinan dengan \texttt{aggregate\_all(count, ...)} dan bandingkan dengan 4. \\
+R16 & Total han adalah jumlah han yaku ditambah jumlah dora & Agregasi penjumlahan atas sejumlah individu; OWL tidak memiliki operasi aritmetika atau agregasi. Prolog: \texttt{sum\_list} atas \texttt{hanValue} yaku ditambah jumlah dora, hasilnya mengisi totalHan. \\
+R18 & Bonus Comeback: +1 han bagi pemenang dengan skor meja terendah, bila sudah punya yaku & ``Terendah'' adalah agregasi minimum atas seluruh pemain dan butuh kepastian bahwa tidak ada pemain lain dengan skor lebih rendah (asumsi dunia tertutup). Selain itu menambah han lagi-lagi penjumlahan. Prolog: \texttt{min\_member} atas skor pemain, lalu tambah 1 ke total. \\
+R19 & Tan'yao pada tangan open tidak bernilai, menggantikan R12 & Aturan pengecualian yang membatalkan kesimpulan R12. Logika deskripsi monoton: menambah aturan tidak dapat menghapus kesimpulan yang sudah terentail, sehingga Tan'yao open tetap bernilai menurut ontologi. Prolog: urutan klausa dengan \emph{cut} atau negasi sebagai kegagalan, \texttt{\textbackslash+ open\_hand(H)}. \\
 \midrule
 \bottomrule
 \end{longtable}
+}
 
 % =====================================================================
 \section{Pembagian Tanggung Jawab}
@@ -286,6 +393,7 @@ Wajib jujur. Penggunaan yang tidak dideklarasikan membuat bagian terkait bernila
 \textbf{Kakas} & \textbf{Tujuan penggunaan} & \textbf{Bagian yang terpengaruh} & \textbf{Cara kelompok memeriksa} \\
 \midrule
 \endhead
+Claude (Anthropic), lewat Claude Code & Menata gaya tabel lampiran dan memperbaiki skrip build laporan & skrip build laporan dan tabel lampiran & \texttt{make selftest} dan \texttt{make check} lulus \\
 \midrule
 \bottomrule
 \end{longtable}
@@ -303,10 +411,13 @@ Wajib jujur. Penggunaan yang tidak dideklarasikan membuat bagian terkait bernila
   Knowledge Sharing, IJCAI-95}.
 \bibitem{protege} Dokumentasi Protégé dan Protégé Wiki, panduan pengguna dan
   tutorial OWL.
+\bibitem{wrc} [S1] World Riichi Championship (2025). \emph{WRC Rules 2025}, versi
+  v20250526. Diakses dari \url{https://www.worldriichi.org/wrc-rules}; salinan berkas
+  ada di \texttt{K11\_M1P1\_Sumber/S1\_WRC\_Rules\_2025.pdf}.
+\bibitem{house} [S2] Kelompok K11 (2026). \emph{S2 House Rules Kelompok}: Bonus
+  Comeback dan Tan'yao Tertutup (fiktif). Berkas
+  \texttt{K11\_M1P1\_Sumber/S2\_house\_rules\_kelompok.md}.
 \end{thebibliography}
-
-\todo{Tambahkan referensi dokumen sumber domain (S1, S2, ...) dengan penulis,
-tahun, dan cara aksesnya.}
 
 % =====================================================================
 \clearpage
