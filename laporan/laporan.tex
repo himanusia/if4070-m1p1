@@ -12,6 +12,7 @@
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}  % font vektor; tanpa ini T1 jatuh ke bitmap EC dan microtype gagal
 \usepackage[utf8]{inputenc}
 \usepackage[indonesian]{babel}
 \usepackage[margin=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
@@ -22,6 +23,9 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{inter}  % \sffamily = Inter, dipakai di lampiran supaya sama dengan contoh spesifikasi
+\definecolor{tabhead}{HTML}{EFEFEF}
 \usepackage{caption}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -127,18 +131,24 @@ ID aturan yang diwakili dan alasan pemilihan konstruksinya.
 \midrule
 \endhead
 
-A1 & $\mathrm{TerminalTile} \equiv \mathrm{NumberedTile} \sqcap \neg\mathrm{InsideTile}$ & R2 & 1 dan 9 adalah tile bernomor yang bukan inside; komplemen lebih ringkas daripada enumerasi enam tile \\
+A1 & $\mathrm{TerminalTile} \equiv \mathrm{NumberedTile} \sqcap \neg\mathrm{InsideTile}$ & R2 & 1 dan 9 adalah tile bernomor yang bukan inside; komplemen lebih ringkas daripada enumerasi enam tile; hasRank dibuat functional supaya rank 1 atau 9 mengentail bukan inside \\
 A2 & $\mathrm{InsideTile} \equiv \mathrm{NumberedTile} \sqcap \exists \mathrm{hasRank}.\mathrm{integer}[2,8]$ & R3 & batas 2 sampai 8 adalah rentang numerik, jadi dipakai facet tipe data, bukan enumerasi \\
 A3 & $\mathrm{HonourTile} \equiv \mathrm{WindTile} \sqcup \mathrm{DragonTile}$ & R4 & honour didefinisikan lengkap oleh dua jenisnya, sehingga union-nya menutup \\
-A4 & $\mathrm{Sequence} \sqsubseteq \mathrm{Group} \sqcap {=}3\,\mathrm{partOfGroup}.\mathrm{Tile}$ & R5 & sequence selalu tiga tile, jadi kardinalitas tepat lebih kuat daripada $\geq 3$ \\
-A5 & $\mathrm{Sequence} \sqsubseteq \forall \mathrm{partOfGroup}.\neg\mathrm{HonourTile}$ & R5 & larangan honour bersifat universal atas seluruh anggota group \\
-A6 & $\mathrm{Quad} \sqsubseteq \mathrm{Group} \sqcap {=}4\,\mathrm{partOfGroup}.\mathrm{Tile}$ & R6 & quad dibedakan dari triplet justru oleh jumlahnya \\
+A4 & $\mathrm{Sequence} \sqsubseteq \mathrm{Group} \sqcap {=}3\,\mathrm{groupOfTile}.\mathrm{Tile}$ & R5 & sequence selalu tiga tile, jadi kardinalitas tepat lebih kuat daripada $\geq 3$ \\
+A5 & $\mathrm{Sequence} \sqsubseteq \forall \mathrm{groupOfTile}.\neg\mathrm{HonourTile}$ & R5 & larangan honour bersifat universal atas seluruh anggota group \\
+A6 & $\mathrm{Quad} \sqsubseteq \mathrm{Group} \sqcap {=}4\,\mathrm{groupOfTile}.\mathrm{Tile}$ & R6 & quad dibedakan dari triplet justru oleh jumlahnya \\
 A7 & $\mathrm{Pair} \sqcap \mathrm{Group} \sqsubseteq \bot$ & R7 & pair bukan group, jadi keduanya harus saling lepas \\
 A8 & $\mathrm{ClosedHand} \equiv \mathrm{PlayerHand} \sqcap \neg\exists \mathrm{hasGroup}.\mathrm{MeldedGroup}$ & R8 & status closed adalah ketiadaan group melded, bukan penanda yang diasersikan \\
-A9 & $\mathrm{ValidHand} \equiv (\mathrm{PlayerHand} \sqcap {\geq}4\,\mathrm{hasGroup}.\mathrm{Group} \sqcap {\geq}1\,\mathrm{hasPair}.\mathrm{Pair}) \sqcup \mathrm{SevenPairsHand} \sqcup \mathrm{ThirteenOrphansHand}$ & R9 & memakai batas bawah, bukan kardinalitas eksak: asersi positif tidak pernah mengentail ${=}n$ di dunia terbuka, sedangkan ${\geq}n$ terentail \\
+A9 & $\mathrm{ValidHand} \equiv (\mathrm{PlayerHand} \sqcap {\geq}4\,\mathrm{hasGroup}.\mathrm{Group} \sqcap {\geq}1\,\mathrm{hasPair}.\mathrm{Pair}) \sqcup \mathrm{SevenPairsHand} \sqcup \mathrm{ThirteenOrphansHand}$ & R9 & memakai batas bawah, bukan kardinalitas eksak: asersi positif tidak pernah mengentail ${=}n$ di dunia terbuka, sedangkan ${\geq}n$ terentail asalkan individu group dinyatakan berbeda (owl:AllDifferent), karena OWL tidak memakai unique name assumption \\
 A10 & $\mathrm{SevenPairsHand} \equiv \mathrm{PlayerHand} \sqcap {\geq}7\,\mathrm{hasPair}.\mathrm{Pair}$ & R9 & bentuk tujuh pair tidak punya group sama sekali, sehingga butuh definisi terpisah \\
 A11 & $\mathrm{WinningHand} \equiv \mathrm{ValidHand} \sqcap \exists \mathrm{hasYaku}.\mathrm{Yaku}$ & R10 & menang adalah valid ditambah syarat yaku, jadi subclass terdefinisi \\
 A12 & $\mathrm{TenpaiHand} \equiv \mathrm{PlayerHand} \sqcap \exists \mathrm{waitingFor}.\mathrm{Tile}$ & R11 & hanya bagian OWL; syarat tile pelengkap harus ada tidak dapat diekspresikan pada dunia terbuka \\
+A13 & $\mathrm{TanyaoPattern} \equiv \mathrm{PlayerHand} \sqcap \forall \mathrm{hasTile}.\mathrm{InsideTile}$ & R12 & syarat ``seluruh tile'' bersifat universal; di dunia terbuka hanya terklasifikasi jika tile tangan ditutup \\
+A14 & $\mathrm{DoraTile} \sqcap \mathrm{Yaku} \sqsubseteq \bot$ & R14 & dora bukan yaku dinyatakan sebagai disjointness, sehingga dora tidak pernah memenuhi syarat yaku pada A11 \\
+A15 & $\mathrm{hasDora} \sqsubseteq \mathrm{hasTile}$ & R15 & dora adalah tile di tangan, jadi sub-properti; jumlah han-nya agregasi di luar OWL (R16) \\
+A16 & $\mathrm{ManganHand} \equiv \mathrm{WinningHand} \sqcap \exists \mathrm{totalHan}.\mathrm{integer}[5,5]$, dan seterusnya untuk haneman sampai yonbaiman & R17 & kategori adalah rentang numerik atas totalHan yang functional, sehingga kelima kategori otomatis saling lepas \\
+% contoh bentuk baris — hapus dan ganti dengan aksioma kelompok:
+% A1 & $X \sqsubseteq \exists r.Y$ & R1 & ... \\
 \midrule
 \bottomrule
 \end{longtable}

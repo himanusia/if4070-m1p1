@@ -111,38 +111,33 @@ def generate_appendix() -> tuple[int, int]:
 
     out = ["% dihasilkan otomatis oleh tools/build_report.py — jangan disunting", ""]
 
-    out.append(r"\begin{longtable}{@{}p{1.0cm} p{8.4cm} p{1.5cm} p{3.3cm}@{}}")
-    out.append(r"\toprule")
-    out.append(r"\textbf{ID} & \textbf{Aturan} & \textbf{Sumber} & \textbf{Catatan} \\")
-    out.append(r"\midrule")
-    out.append(r"\endfirsthead")
-    out.append(r"\toprule")
-    out.append(r"\textbf{ID} & \textbf{Aturan} & \textbf{Sumber} & \textbf{Catatan} \\")
-    out.append(r"\midrule")
-    out.append(r"\endhead")
-    for r in fill(rule_rows):
-        cells = [tex_escape(c.strip()) for c in (r + [""] * 4)[:4]]
-        out.append(" & ".join(cells) + r" \\")
-    out.append(r"\bottomrule")
-    out.append(r"\end{longtable}")
+    # gaya mengikuti contoh daftar aturan di spesifikasi: sans, garis penuh, header abu-abu
+    def table(widths: list[str], heads: list[str], rows: list[list[str]]) -> None:
+        spec = "|" + "|".join(rf">{{\raggedright\arraybackslash}}p{{{w}}}" for w in widths) + "|"
+        header = r"\rowcolor{tabhead} " + " & ".join(rf"\textbf{{{h}}}" for h in heads) + r" \\ \hline"
+        out.append(rf"\begin{{longtable}}{{{spec}}}")
+        out.append(r"\hline")
+        out.append(header)
+        out.append(r"\endfirsthead")
+        out.append(r"\hline")
+        out.append(header)
+        out.append(r"\endhead")
+        for r in rows:
+            cells = [tex_escape(c.strip()) for c in (r + [""] * 4)[:4]]
+            out.append(" & ".join(cells) + r" \\ \hline")
+        out.append(r"\end{longtable}")
+
+    out.append(r"\begingroup\sffamily\small\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.1}")
+    out.append(r"\subsection*{1. Tabel Aturan}")
+    table(["0.9cm", "9.6cm", "2.3cm", "2.0cm"],
+          ["ID", "Aturan", "Sumber", "Catatan"], fill(rule_rows))
 
     if fill(cq_rows):
         out.append("")
-        out.append(r"\subsection*{Competency Question}")
-        out.append(r"\begin{longtable}{@{}p{1.2cm} p{6.6cm} p{3.2cm} p{2.6cm}@{}}")
-        out.append(r"\toprule")
-        out.append(r"\textbf{ID} & \textbf{Pertanyaan} & \textbf{Jawaban} & \textbf{Aturan} \\")
-        out.append(r"\midrule")
-        out.append(r"\endfirsthead")
-        out.append(r"\toprule")
-        out.append(r"\textbf{ID} & \textbf{Pertanyaan} & \textbf{Jawaban} & \textbf{Aturan} \\")
-        out.append(r"\midrule")
-        out.append(r"\endhead")
-        for r in fill(cq_rows):
-            cells = [tex_escape(c.strip()) for c in (r + [""] * 4)[:4]]
-            out.append(" & ".join(cells) + r" \\")
-        out.append(r"\bottomrule")
-        out.append(r"\end{longtable}")
+        out.append(r"\subsection*{2. Tabel \emph{Competency Question}}")
+        table(["1.0cm", "6.4cm", "5.2cm", "2.2cm"],
+              ["ID", "Pertanyaan", "Jawaban", "Aturan"], fill(cq_rows))
+    out.append(r"\endgroup")
 
     GEN.parent.mkdir(parents=True, exist_ok=True)
     GEN.write_text("\n".join(out) + "\n", encoding="utf-8")
