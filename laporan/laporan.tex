@@ -127,8 +127,18 @@ ID aturan yang diwakili dan alasan pemilihan konstruksinya.
 \midrule
 \endhead
 
-% contoh bentuk baris — hapus dan ganti dengan aksioma kelompok:
-% A1 & $X \sqsubseteq \exists r.Y$ & R1 & ... \\
+A1 & $\mathrm{TerminalTile} \equiv \mathrm{NumberedTile} \sqcap \neg\mathrm{InsideTile}$ & R2 & 1 dan 9 adalah tile bernomor yang bukan inside; komplemen lebih ringkas daripada enumerasi enam tile \\
+A2 & $\mathrm{InsideTile} \equiv \mathrm{NumberedTile} \sqcap \exists \mathrm{hasRank}.\mathrm{integer}[2,8]$ & R3 & batas 2 sampai 8 adalah rentang numerik, jadi dipakai facet tipe data, bukan enumerasi \\
+A3 & $\mathrm{HonourTile} \equiv \mathrm{WindTile} \sqcup \mathrm{DragonTile}$ & R4 & honour didefinisikan lengkap oleh dua jenisnya, sehingga union-nya menutup \\
+A4 & $\mathrm{Sequence} \sqsubseteq \mathrm{Group} \sqcap {=}3\,\mathrm{partOfGroup}.\mathrm{Tile}$ & R5 & sequence selalu tiga tile, jadi kardinalitas tepat lebih kuat daripada $\geq 3$ \\
+A5 & $\mathrm{Sequence} \sqsubseteq \forall \mathrm{partOfGroup}.\neg\mathrm{HonourTile}$ & R5 & larangan honour bersifat universal atas seluruh anggota group \\
+A6 & $\mathrm{Quad} \sqsubseteq \mathrm{Group} \sqcap {=}4\,\mathrm{partOfGroup}.\mathrm{Tile}$ & R6 & quad dibedakan dari triplet justru oleh jumlahnya \\
+A7 & $\mathrm{Pair} \sqcap \mathrm{Group} \sqsubseteq \bot$ & R7 & pair bukan group, jadi keduanya harus saling lepas \\
+A8 & $\mathrm{ClosedHand} \equiv \mathrm{PlayerHand} \sqcap \neg\exists \mathrm{hasGroup}.\mathrm{MeldedGroup}$ & R8 & status closed adalah ketiadaan group melded, bukan penanda yang diasersikan \\
+A9 & $\mathrm{ValidHand} \equiv (\mathrm{PlayerHand} \sqcap {\geq}4\,\mathrm{hasGroup}.\mathrm{Group} \sqcap {\geq}1\,\mathrm{hasPair}.\mathrm{Pair}) \sqcup \mathrm{SevenPairsHand} \sqcup \mathrm{ThirteenOrphansHand}$ & R9 & memakai batas bawah, bukan kardinalitas eksak: asersi positif tidak pernah mengentail ${=}n$ di dunia terbuka, sedangkan ${\geq}n$ terentail \\
+A10 & $\mathrm{SevenPairsHand} \equiv \mathrm{PlayerHand} \sqcap {\geq}7\,\mathrm{hasPair}.\mathrm{Pair}$ & R9 & bentuk tujuh pair tidak punya group sama sekali, sehingga butuh definisi terpisah \\
+A11 & $\mathrm{WinningHand} \equiv \mathrm{ValidHand} \sqcap \exists \mathrm{hasYaku}.\mathrm{Yaku}$ & R10 & menang adalah valid ditambah syarat yaku, jadi subclass terdefinisi \\
+A12 & $\mathrm{TenpaiHand} \equiv \mathrm{PlayerHand} \sqcap \exists \mathrm{waitingFor}.\mathrm{Tile}$ & R11 & hanya bagian OWL; syarat tile pelengkap harus ada tidak dapat diekspresikan pada dunia terbuka \\
 \midrule
 \bottomrule
 \end{longtable}

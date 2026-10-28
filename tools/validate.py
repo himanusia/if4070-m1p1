@@ -255,7 +255,8 @@ def check_sources(rule_rows: list[dict]) -> None:
         fail("folder sumber/ tidak ada")
         return
 
-    files = [p.name for p in SUMBER_DIR.iterdir() if p.is_file() and p.name != "README.md"]
+    files = [p.name for p in SUMBER_DIR.iterdir()
+             if p.is_file() and not p.name.startswith(".")]
     for code in sorted(codes, key=lambda c: int(c[1:])):
         pattern = re.compile(rf"^{code}(?!\d)")
         hits = [f for f in files if pattern.match(f)]
@@ -447,6 +448,14 @@ def check_ontology(cfg: dict) -> None:
     ]
     has_card = any(next(g.triples((r, p, None)), None) for r in restrictions for p in card_preds)
     has_data = any(next(g.triples((r, OWL.onDataRange, None)), None) for r in restrictions)
+    if not has_data:
+        has_data = any(
+            (v, OWL.onDatatype, None) in g
+            for r in restrictions
+            for pred in (OWL.someValuesFrom, OWL.allValuesFrom)
+            for v in g.objects(r, pred)
+            if isinstance(v, BNode)
+        )
     if not has_data:
         for r in restrictions:
             for pred in (OWL.someValuesFrom, OWL.allValuesFrom, OWL.hasValue):
