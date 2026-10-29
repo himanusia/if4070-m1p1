@@ -49,7 +49,8 @@ def main() -> int:
         return 1
 
     src_files = [
-        p for p in sorted(sumber.glob("*")) if p.is_file() and p.name != "README.md"
+        p for p in sorted(sumber.glob("*"))
+        if p.is_file() and not p.name.startswith(".")
     ] if sumber.exists() else []
     if not src_files:
         print("FAIL folder sumber/ kosong. Setiap kode S1, S2, ... butuh berkas.")
