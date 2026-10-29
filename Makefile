@@ -32,7 +32,7 @@ GROUP := $(shell sed -n 's/^grup:[[:space:]]*"\{0,1\}\([^"]*\)"\{0,1\}.*/\1/p' c
 ONT := ontologi/$(GROUP)_M1P1_ontologi.owl
 BAD := ontologi/$(GROUP)_M1P1_ontologi_inkonsisten.owl
 
-.PHONY: all setup doctor check selftest reason reason-bad report package review open clean
+.PHONY: all setup doctor check selftest reason reason-bad report package review open open-bad clean
 
 all: check
 
@@ -81,6 +81,11 @@ review: setup
 
 open:
 	@if [ -d "$(PROTEGE)" ]; then open -a "$(PROTEGE)" "$(ONT)"; \
+	else echo "Protege tidak ketemu. Set PROTEGE=/path/Protege.app"; exit 1; fi
+
+# Buka salinan yang sengaja inkonsisten, buat studi kasus.
+open-bad:
+	@if [ -d "$(PROTEGE)" ]; then open -a "$(PROTEGE)" "$(BAD)"; \
 	else echo "Protege tidak ketemu. Set PROTEGE=/path/Protege.app"; exit 1; fi
 
 clean:
