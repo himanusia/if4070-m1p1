@@ -12,8 +12,6 @@ Tooling untuk Tugas Besar IF4070 Milestone 1 Part 1. Domain: mahjong riichi (WRC
 | pdfTeX | `PATH` |
 | Python ≥ 3.9 + `requirements.txt` | venv lokal `.venv/` |
 
-Tidak ada path yang di-hardcode. Kalau penemuan otomatis gagal, override:
-
 ```bash
 make doctor JAVA_HOME=/path/to/jdk ROBOT=/path/robot.jar PROTEGE="/Applications/Protégé.app"
 ```
@@ -60,7 +58,6 @@ make report
 make package
 ```
 
-`make check` di awal pasti gagal — itu daftar kerja, bukan bug.
 
 ## Layout
 
