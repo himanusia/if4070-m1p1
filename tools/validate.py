@@ -600,15 +600,21 @@ def check_report(cfg: dict) -> None:
     except Exception:  # noqa: BLE001
         pass
 
-    if pages is None:
+    # Batas 10 halaman berlaku di luar lampiran. Hitung dari label lampiran
+    # di .aux, jangan dari jumlah halaman total.
+    isi = pages
+    aux = ROOT / "laporan" / "_build.aux"
+    if aux.exists():
+        m = re.search(r"\\newlabel\{sec:lampiran\}\{\{[^}]*\}\{(\d+)\}", aux.read_text(errors="replace"))
+        if m:
+            isi = int(m.group(1)) - 1
+
+    if isi is None:
         ok("laporan.pdf ada (jumlah halaman tidak terbaca, cek manual)")
-    elif pages <= 10:
-        ok(f"laporan.pdf {pages} halaman (maksimal 10 di luar lampiran)")
+    elif isi <= 10:
+        ok(f"laporan.pdf {isi} halaman sebelum lampiran (maksimal 10)")
     else:
-        warn(
-            f"laporan.pdf {pages} halaman — batas 10 di luar lampiran. "
-            "Pastikan lampiran dipisah dan tidak ikut dihitung."
-        )
+        fail(f"laporan.pdf {isi} halaman sebelum lampiran, batas 10")
 
     check_aksioma(cfg)
 
