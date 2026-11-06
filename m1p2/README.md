@@ -8,6 +8,7 @@ meta-interpreter that builds proof trees from `aturan/3` clauses.
 Requires SWI-Prolog 9 or newer.
 
 ```
+./case.sh CQ8              # one case: kb.pl only + that case's facts, prints proof
 ./run.sh                   # interactive session, kb.pl + abox.pl preloaded
 ./demo.sh                  # print every CQ case (explain / why_not), then exit
 swipl test/run_tests.pl    # run cq.json + tests.json against kb.pl ONLY
