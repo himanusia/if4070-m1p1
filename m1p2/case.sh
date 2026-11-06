@@ -10,4 +10,4 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-exec swipl -q -s test/case.pl -- "$1"
+exec swipl -q -s test/case.pl -- "$@"
