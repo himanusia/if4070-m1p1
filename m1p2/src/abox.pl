@@ -174,6 +174,7 @@ triple(y_yakuhai, han_value, 1).
 
 % --- individu kasus video CQ8: meld 567m, sisa 234m 345p 678s 55s ---
 triple(tangan_cq8, rdf_type, player_hand).
+triple(tangan_cq8, ruleset, wrc).
 triple(tangan_cq8, has_group, g_cq8_meld).
 triple(tangan_cq8, has_group, g_cq8_1).
 triple(tangan_cq8, has_group, g_cq8_2).
@@ -241,3 +242,25 @@ triple(t_cq8_s5b, rdf_type, numbered_tile).
 triple(t_cq8_s5b, has_rank, 5).
 triple(t_cq8_s5b, has_suit, souzu).
 triple(tangan_cq8, has_tile, t_cq8_s5b).
+
+% --- individu kasus video CQ12: tangan CQ8 yang sama, dinilai dengan house rules ---
+triple(tangan_cq12, rdf_type, player_hand).
+triple(tangan_cq12, has_group, g_cq8_meld).
+triple(tangan_cq12, has_group, g_cq8_1).
+triple(tangan_cq12, has_group, g_cq8_2).
+triple(tangan_cq12, has_group, g_cq8_3).
+triple(tangan_cq12, has_pair, p_cq8).
+triple(tangan_cq12, has_tile, t_cq8_m5).
+triple(tangan_cq12, has_tile, t_cq8_m6).
+triple(tangan_cq12, has_tile, t_cq8_m7).
+triple(tangan_cq12, has_tile, t_cq8_m2).
+triple(tangan_cq12, has_tile, t_cq8_m3).
+triple(tangan_cq12, has_tile, t_cq8_m4).
+triple(tangan_cq12, has_tile, t_cq8_p3).
+triple(tangan_cq12, has_tile, t_cq8_p4).
+triple(tangan_cq12, has_tile, t_cq8_p5).
+triple(tangan_cq12, has_tile, t_cq8_s6).
+triple(tangan_cq12, has_tile, t_cq8_s7).
+triple(tangan_cq12, has_tile, t_cq8_s8).
+triple(tangan_cq12, has_tile, t_cq8_s5a).
+triple(tangan_cq12, has_tile, t_cq8_s5b).
