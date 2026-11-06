@@ -8,10 +8,13 @@
 main :-
     consult('src/kb.pl'),
     consult('src/abox.pl'),
-    format("KB: ~w aturan, ~w triple~n",
-           [19, 171]),
+    hitung(aturan(_, _, _), A),
+    hitung(triple(_, _, _), T),
+    format("KB: ~w klausa aturan, ~w triple~n", [A, T]),
     jalankan_cq,
     halt.
+
+hitung(Goal, N) :- aggregate_all(count, Goal, N).
 
 jalankan_cq :-
     setup_call_cleanup(open('test/cq.json', read, S, [encoding(utf8)]),
