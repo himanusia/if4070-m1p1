@@ -1,0 +1,30 @@
+% main.pl — titik masuk. Memuat kb.pl + abox.pl lalu menjalankan kueri demo.
+% Pakai: swipl main.pl
+
+:- use_module(library(json)).
+
+:- initialization(main, main).
+
+main :-
+    consult('src/kb.pl'),
+    consult('src/abox.pl'),
+    format("KB: ~w aturan, ~w triple~n",
+           [19, 171]),
+    jalankan_cq,
+    halt.
+
+jalankan_cq :-
+    setup_call_cleanup(open('test/cq.json', read, S, [encoding(utf8)]),
+                       json_read_dict(S, Kasus),
+                       close(S)),
+    forall(member(K, Kasus), satu(K)).
+
+satu(K) :-
+    atom_string(I, K.kueri.individu),
+    atom_string(C, K.kueri.kelas),
+    format("~n~w: ~w(~w)?~n", [K.id, C, I]),
+    (   explain(classify(I, C), Bukti)
+    ->  format("  YA~n  ~q~n", [Bukti])
+    ;   why_not(classify(I, C), Alasan),
+        format("  TIDAK~n  ~q~n", [Alasan])
+    ).

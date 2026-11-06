@@ -1,0 +1,103 @@
+[
+  {
+    "id": "CQ1",
+    "kategori": "umum",
+    "aturan_terkait": ["r8"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_tanyao_closed", "kelas": "closed_hand" },
+    "harapan": true
+  },
+  {
+    "id": "CQ2a",
+    "kategori": "umum",
+    "aturan_terkait": ["r2"],
+    "fakta": [],
+    "kueri": { "individu": "tile_1bambu", "kelas": "terminal_tile" },
+    "harapan": true
+  },
+  {
+    "id": "CQ2b",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r3"],
+    "fakta": [],
+    "kueri": { "individu": "tile_1bambu", "kelas": "inside_tile" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r3"]
+  },
+  {
+    "id": "CQ3",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r5"],
+    "fakta": [],
+    "kueri": { "individu": "g_yakuhai_1", "kelas": "sequence" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r5"]
+  },
+  {
+    "id": "CQ5",
+    "kategori": "batas",
+    "aturan_terkait": ["r7", "r9"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_terbuka", "kelas": "valid_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r9"]
+  },
+  {
+    "id": "CQ6",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r9", "r10"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_tanpa_yaku", "kelas": "winning_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r10"]
+  },
+  {
+    "id": "CQ6b",
+    "kategori": "umum",
+    "aturan_terkait": ["r9"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_tanpa_yaku", "kelas": "valid_hand" },
+    "harapan": true
+  },
+  {
+    "id": "CQ7",
+    "kategori": "batas",
+    "aturan_terkait": ["r11"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_tenpai", "kelas": "tenpai_hand" },
+    "harapan": true
+  },
+  {
+    "id": "CQ8",
+    "kategori": "rantai",
+    "aturan_terkait": ["r8", "r9", "r10", "r12"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_cq8", "kelas": "winning_hand" },
+    "harapan": true
+  },
+  {
+    "id": "CQ9",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r14", "r10"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_tanpa_yaku", "kelas": "winning_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r10"]
+  },
+  {
+    "id": "CQ10",
+    "kategori": "umum",
+    "aturan_terkait": ["r16", "r17"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_yakuhai_mangan", "kelas": "winning_hand" },
+    "harapan": true
+  },
+  {
+    "id": "CQ12",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r19"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_cq8", "kelas": "tanyao_open" },
+    "harapan": true
+  }
+]

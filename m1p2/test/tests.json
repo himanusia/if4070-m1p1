@@ -1,0 +1,176 @@
+[
+  {
+    "id": "T01",
+    "kategori": "umum",
+    "aturan_terkait": ["r1"],
+    "fakta": [["tangan_umum", "rdf_type", "player_hand"]],
+    "kueri": { "individu": "tangan_umum", "kelas": "player_hand" },
+    "harapan": true
+  },
+  {
+    "id": "T02",
+    "kategori": "umum",
+    "aturan_terkait": ["r2"],
+    "fakta": [["tile_9bambu", "has_rank", "9"]],
+    "kueri": { "individu": "tile_9bambu", "kelas": "terminal_tile" },
+    "harapan": true
+  },
+  {
+    "id": "T03",
+    "kategori": "batas",
+    "aturan_terkait": ["r3"],
+    "fakta": [["tile_2karakter", "has_rank", "2"]],
+    "kueri": { "individu": "tile_2karakter", "kelas": "inside_tile" },
+    "harapan": true
+  },
+  {
+    "id": "T04",
+    "kategori": "batas",
+    "aturan_terkait": ["r3"],
+    "fakta": [["tile_9bambu", "has_rank", "9"]],
+    "kueri": { "individu": "tile_9bambu", "kelas": "inside_tile" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r3"]
+  },
+  {
+    "id": "T05",
+    "kategori": "individu_baru",
+    "aturan_terkait": ["r9", "r10"],
+    "fakta": [
+      ["tangan_baru", "rdf_type", "player_hand"],
+      ["tangan_baru", "has_group", "gb1"],
+      ["tangan_baru", "has_group", "gb2"],
+      ["tangan_baru", "has_group", "gb3"],
+      ["tangan_baru", "has_group", "gb4"],
+      ["tangan_baru", "has_pair", "pb1"],
+      ["tangan_baru", "has_yaku", "y_tanyao"]
+    ],
+    "kueri": { "individu": "tangan_baru", "kelas": "winning_hand" },
+    "harapan": true
+  },
+  {
+    "id": "T06",
+    "kategori": "individu_baru",
+    "aturan_terkait": ["r8"],
+    "fakta": [
+      ["tangan_baru2", "rdf_type", "player_hand"],
+      ["tangan_baru2", "has_group", "gm1"],
+      ["gm1", "rdf_type", "melded_group"]
+    ],
+    "kueri": { "individu": "tangan_baru2", "kelas": "closed_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r8"]
+  },
+  {
+    "id": "T07",
+    "kategori": "info_tak_lengkap",
+    "aturan_terkait": ["r9"],
+    "fakta": [["tangan_tanpa_pair", "rdf_type", "player_hand"]],
+    "kueri": { "individu": "tangan_tanpa_pair", "kelas": "valid_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r9"]
+  },
+  {
+    "id": "T08",
+    "kategori": "info_tak_lengkap",
+    "aturan_terkait": ["r11"],
+    "fakta": [
+      ["tangan_setengah", "rdf_type", "player_hand"],
+      ["tangan_setengah", "waiting_for", "tile_1bambu"]
+    ],
+    "kueri": { "individu": "tangan_setengah", "kelas": "tenpai_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r11"]
+  },
+  {
+    "id": "T09",
+    "kategori": "rantai",
+    "aturan_terkait": ["r1", "r9", "r10"],
+    "fakta": [
+      ["tangan_rantai", "rdf_type", "player_hand"],
+      ["tangan_rantai", "has_group", "gr1"],
+      ["tangan_rantai", "has_group", "gr2"],
+      ["tangan_rantai", "has_group", "gr3"],
+      ["tangan_rantai", "has_group", "gr4"],
+      ["tangan_rantai", "has_pair", "pr1"],
+      ["tangan_rantai", "has_yaku", "y_fullstraight"]
+    ],
+    "kueri": { "individu": "tangan_rantai", "kelas": "winning_hand" },
+    "harapan": true
+  },
+  {
+    "id": "T10",
+    "kategori": "batas",
+    "aturan_terkait": ["r9"],
+    "fakta": [
+      ["tangan_tiga_group", "rdf_type", "player_hand"],
+      ["tangan_tiga_group", "has_group", "g3a"],
+      ["tangan_tiga_group", "has_group", "g3b"],
+      ["tangan_tiga_group", "has_group", "g3c"],
+      ["tangan_tiga_group", "has_pair", "p3a"]
+    ],
+    "kueri": { "individu": "tangan_tiga_group", "kelas": "valid_hand" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r9"]
+  },
+  {
+    "id": "T11",
+    "kategori": "umum",
+    "aturan_terkait": ["r7"],
+    "fakta": [["pair_baru", "rdf_type", "pair"]],
+    "kueri": { "individu": "pair_baru", "kelas": "pair" },
+    "harapan": true
+  },
+  {
+    "id": "T12",
+    "kategori": "pengecualian",
+    "aturan_terkait": ["r7"],
+    "fakta": [["pair_baru", "rdf_type", "pair"]],
+    "kueri": { "individu": "pair_baru", "kelas": "sequence" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r5"]
+  },
+  {
+    "id": "T13",
+    "kategori": "rantai",
+    "aturan_terkait": ["r8", "r9", "r10", "r12"],
+    "fakta": [
+      ["tangan_tanyao_terbuka", "rdf_type", "player_hand"],
+      ["tangan_tanyao_terbuka", "has_group", "gt1"],
+      ["gt1", "rdf_type", "melded_group"],
+      ["tangan_tanyao_terbuka", "has_group", "gt2"],
+      ["tangan_tanyao_terbuka", "has_group", "gt3"],
+      ["tangan_tanyao_terbuka", "has_group", "gt4"],
+      ["tangan_tanyao_terbuka", "has_pair", "pt1"],
+      ["tangan_tanyao_terbuka", "has_yaku", "y_tanyao"]
+    ],
+    "kueri": { "individu": "tangan_tanyao_terbuka", "kelas": "open_hand" },
+    "harapan": true
+  },
+  {
+    "id": "T14",
+    "kategori": "individu_baru",
+    "aturan_terkait": ["r4"],
+    "fakta": [["tile_dragon_baru", "rdf_type", "honour_tile"]],
+    "kueri": { "individu": "tile_dragon_baru", "kelas": "honour_tile" },
+    "harapan": true
+  },
+  {
+    "id": "T15",
+    "kategori": "info_tak_lengkap",
+    "aturan_terkait": ["r2"],
+    "fakta": [["tile_tanpa_rank", "rdf_type", "numbered_tile"]],
+    "kueri": { "individu": "tile_tanpa_rank", "kelas": "terminal_tile" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r2"]
+  },
+  {
+    "id": "T16",
+    "kategori": "batas",
+    "aturan_terkait": ["r17"],
+    "fakta": [],
+    "kueri": { "individu": "tangan_yakuhai_mangan", "kelas": "kategori_han" },
+    "harapan": false,
+    "why_not_wajib_menyebut": ["r17"]
+  }
+]
