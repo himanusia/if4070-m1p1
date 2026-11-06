@@ -1,48 +1,52 @@
 # Milestone 1 Part 2 — K11 (Mahjong)
 
-Translasi basis pengetahuan Part 1 (OWL/DL) ke SWI-Prolog, dengan meta-interpreter
-yang membangun pohon bukti dari `aturan/3`.
+Translation of the Part 1 OWL/DL knowledge base into SWI-Prolog, with a
+meta-interpreter that builds proof trees from `aturan/3` clauses.
 
-## Menjalankan
+## Running
 
-Butuh SWI-Prolog 9 atau lebih baru.
+Requires SWI-Prolog 9 or newer.
 
 ```
-swipl src/main.pl          # muat kb + abox, jalankan seluruh CQ
-swipl test/run_tests.pl    # jalankan cq.json + tests.json
-swipl src/kb.pl            # kb.pl harus load bersih tanpa triple individu
+./run.sh                   # interactive session, kb.pl + abox.pl preloaded
+./demo.sh                  # print all twelve CQ answers, then exit
+swipl test/run_tests.pl    # run cq.json + tests.json
+swipl src/kb.pl            # must load alone, with no individual triples
 ```
 
-## Susunan berkas
+## Layout
 
-| Berkas | Isi |
+| File | Contents |
 |---|---|
-| `src/kb.pl` | meta-interpreter, antarmuka (`classify/2`, `explain/2`, `why_not/2`), 19 aturan domain sebagai `aturan/3`. Tanpa triple individu. |
-| `src/abox.pl` | seluruh individu sebagai `triple/3` |
-| `src/main.pl` | titik masuk: muat kb + abox, jalankan CQ |
-| `test/cq.json` | 12 CQ beserta kasusnya |
-| `test/tests.json` | 16 kasus uji, 6 kategori |
-| `test/run_tests.pl` | runner yang mencocokkan hasil dengan `harapan` |
+| `src/kb.pl` | meta-interpreter, interface (`classify/2`, `explain/2`, `why_not/2`), the 19 domain rules as `aturan/3`. No individual triples. |
+| `src/abox.pl` | every individual as `triple/3` |
+| `src/main.pl` | entry point: loads kb + abox, runs the CQs |
+| `test/cq.json` | the 12 CQs and their cases |
+| `test/tests.json` | 16 test cases across 6 categories |
+| `test/run_tests.pl` | runner that compares results against `harapan` |
 
-## Antarmuka
+## Interface
 
 ```prolog
-?- explain(classify(tangan_cq8, winning_hand), Bukti).
-?- why_not(classify(tangan_tanpa_yaku, winning_hand), Alasan).
 ?- classify(tangan_cq8, winning_hand).
+?- explain(classify(tangan_cq8, winning_hand), Proof).
+?- why_not(classify(tangan_tanpa_yaku, winning_hand), Reasons).
 ```
 
-Bentuk bukti:
+Proof shape:
 
 ```
-bukti(IdAturan, Tujuan, [SubBukti...])
-fakta(Tujuan)
-tidak(Tujuan)
+bukti(RuleId, Goal, [SubProof...])
+fakta(Goal)
+tidak(Goal)
 ```
 
-`why_not/2` mengembalikan daftar `gagal(IdAturan, TujuanGagal)`, satu entri untuk
-tiap klausa aturan yang kepalanya cocok dengan kueri.
+`why_not/2` returns a list of `gagal(RuleId, FailedGoal)`, one entry for every
+rule clause whose head matches the query.
+
+Interface names are Indonesian because the specification fixes them; everything
+else in the code is English.
 
 ## Video
 
-Rekaman demo ada di Google Drive: _tautan menyusul_
+Demo recording: _link pending_

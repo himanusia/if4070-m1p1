@@ -12,10 +12,10 @@ body_goals((A, B), [A|Sisa]) :- !, body_goals(B, Sisa).
 body_goals(true, []) :- !.
 body_goals(A, [A]).
 
-kepala_aturan(F/N) :- aturan(_, Kepala, _), functor(Kepala, F, N).
+rule_head(F/N) :- aturan(_, Kepala, _), functor(Kepala, F, N).
 
 prove(true, fakta(true)) :- !.
-prove((A, B), gabung(PA, PB)) :- !, prove(A, PA), prove(B, PB).
+prove((A, B), conj(PA, PB)) :- !, prove(A, PA), prove(B, PB).
 prove(\+(G), tidak(\+(G))) :- !, \+ prove(G, _).
 prove(Goal, bukti(Id, Goal, Sub)) :-
     aturan(Id, Kepala, Badan),
@@ -24,7 +24,7 @@ prove(Goal, bukti(Id, Goal, Sub)) :-
     prove_list(Goals, Sub).
 prove(Goal, fakta(Goal)) :-
     functor(Goal, F, N),
-    \+ kepala_aturan(F/N),
+    \+ rule_head(F/N),
     call(Goal).
 
 prove_list([], []).
@@ -49,22 +49,22 @@ why_not(classify(Individu, Kelas), Alasan) :-
             ( aturan(Id, Kepala, Badan),
               Kepala = Goal,
               body_goals(Badan, Goals),
-              gagal_pertama(Goals, Gagal)
+              first_failure(Goals, Gagal)
             ),
             Alasan).
 
-gagal_pertama([G|_], G) :- \+ prove(G, _), !.
-gagal_pertama([G|Gs], Gagal) :- prove(G, _), gagal_pertama(Gs, Gagal).
+first_failure([G|_], G) :- \+ prove(G, _), !.
+first_failure([G|Gs], Gagal) :- prove(G, _), first_failure(Gs, Gagal).
 
 % ---------------------------------------------------------------------------
 % PEMBANTU (bukan aturan domain)
 % ---------------------------------------------------------------------------
 
-jumlah_group(H, N) :- findall(G, triple(H, has_group, G), L), length(L, N).
-jumlah_pair(H, N)  :- findall(P, triple(H, has_pair, P), L), length(L, N).
-jumlah_tile(H, N)  :- findall(T, triple(H, has_tile, T), L), length(L, N).
-jumlah_dora(H, N)  :- findall(D, triple(H, has_dora, D), L), length(L, N).
-ada_group_melded(H) :- triple(H, has_group, G), triple(G, rdf_type, melded_group).
+group_count(H, N) :- findall(G, triple(H, has_group, G), L), length(L, N).
+pair_count(H, N)  :- findall(P, triple(H, has_pair, P), L), length(L, N).
+tile_count(H, N)  :- findall(T, triple(H, has_tile, T), L), length(L, N).
+dora_count(H, N)  :- findall(D, triple(H, has_dora, D), L), length(L, N).
+has_melded_group(H) :- triple(H, has_group, G), triple(G, rdf_type, melded_group).
 
 % ---------------------------------------------------------------------------
 % ATURAN DOMAIN
@@ -87,14 +87,14 @@ aturan(r6, quad(G), triple(G, rdf_type, quad)).
 aturan(r7, pair(P), triple(P, rdf_type, pair)).
 
 aturan(r8, closed_hand(H),
-       ( player_hand(H), \+ ada_group_melded(H) )).
+       ( player_hand(H), \+ has_melded_group(H) )).
 
 aturan(r8, open_hand(H),
-       ( player_hand(H), ada_group_melded(H) )).
+       ( player_hand(H), has_melded_group(H) )).
 
 aturan(r9, valid_hand(H),
-       ( player_hand(H), jumlah_group(H, N), N >= 4,
-         jumlah_pair(H, P), P >= 1 )).
+       ( player_hand(H), group_count(H, N), N >= 4,
+         pair_count(H, P), P >= 1 )).
 
 aturan(r10, winning_hand(H),
        ( valid_hand(H), triple(H, has_yaku, _) )).
@@ -106,11 +106,11 @@ aturan(r10, winning_hand(H),
 
 aturan(r11, tenpai_hand(H),
        ( player_hand(H), triple(H, waiting_for, _),
-         jumlah_tile(H, N), N =:= 13 )).
+         tile_count(H, N), N =:= 13 )).
 
 aturan(r12, tanyao(H),
        ( player_hand(H),
-         jumlah_tile(H, N), N >= 13,
+         tile_count(H, N), N >= 13,
          \+ ( triple(H, has_tile, T), \+ inside_tile(T) ) )).
 
 aturan(r13, yakuhai(H), triple(H, has_yaku, y_yakuhai)).
@@ -119,13 +119,13 @@ aturan(r14, dora_bukan_yaku(D),
        ( triple(D, rdf_type, dora_tile), \+ triple(D, rdf_type, yaku) )).
 
 aturan(r15, tambahan_han_dora(H, N),
-       ( jumlah_dora(H, N), N > 0 )).
+       ( dora_count(H, N), N > 0 )).
 
 aturan(r16, total_han(H, Total),
        ( winning_hand(H),
          findall(V, ( triple(H, has_yaku, Y), triple(Y, han_value, V) ), NV),
          sum_list(NV, HYaku),
-         jumlah_dora(H, HD),
+         dora_count(H, HD),
          Total is HYaku + HD )).
 
 aturan(r17, kategori_han(Total, mangan),   ( Total >= 5,  Total =< 5  )).

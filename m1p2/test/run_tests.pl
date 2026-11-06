@@ -9,63 +9,63 @@
 main :-
     consult('src/kb.pl'),
     consult('src/abox.pl'),
-    jalankan('test/cq.json'),
-    jalankan('test/tests.json'),
-    ringkas,
+    run_file('test/cq.json'),
+    run_file('test/tests.json'),
+    summary,
     halt.
 
-jalankan(Berkas) :-
+run_file(Berkas) :-
     setup_call_cleanup(open(Berkas, read, S, [encoding(utf8)]),
                        json_read_dict(S, Semua),
                        close(S)),
     length(Semua, N),
     format("~n== ~w (~w kasus) ==~n", [Berkas, N]),
-    forall(member(K, Semua), uji(K)).
+    forall(member(K, Semua), run_case(K)).
 
-uji(K) :-
+run_case(K) :-
     Id = K.id,
     atom_string(Individu, K.kueri.individu),
     atom_string(Kelas, K.kueri.kelas),
     Harapan = K.harapan,
     Fakta = K.fakta,
-    forall(member([S, P, O], Fakta), pasang(S, P, O)),
+    forall(member([S, P, O], Fakta), add_fact(S, P, O)),
     (   catch(classify(Individu, Kelas), _, fail)
     ->  Hasil = true
     ;   Hasil = false
     ),
-    (   Hasil == Harapan -> Status = lulus ; Status = gagal ),
+    (   Hasil == Harapan -> Status = passed ; Status = failed ),
     assertz(hasil(Id, Status)),
     format("~w  ~w  ~w(~w)  harapan=~w hasil=~w~n",
            [Id, Status, Kelas, Individu, Harapan, Hasil]),
-    (   Status == gagal
+    (   Status == failed
     ->  (   catch(why_not(classify(Individu, Kelas), A), _, A = galat)
-        ->  format("      gagal: ~q~n", [A])
+        ->  format("      failed: ~q~n", [A])
         ;   true
         )
     ;   true
     ),
-    forall(member([S, P, O], Fakta), lepas(S, P, O)).
+    forall(member([S, P, O], Fakta), drop_fact(S, P, O)).
 
-nilai(O, N) :-
+value_of(O, N) :-
     (   number(O) -> N = O
     ;   atom_number(O, X) -> N = X
     ;   atom_string(N, O)
     ).
 
-pasang(S, P, O) :-
-    atom_string(SA, S), atom_string(PA, P), nilai(O, N),
+add_fact(S, P, O) :-
+    atom_string(SA, S), atom_string(PA, P), value_of(O, N),
     assertz(triple(SA, PA, N)).
 
-lepas(S, P, O) :-
-    atom_string(SA, S), atom_string(PA, P), nilai(O, N),
+drop_fact(S, P, O) :-
+    atom_string(SA, S), atom_string(PA, P), value_of(O, N),
     retractall(triple(SA, PA, N)).
 
-ringkas :-
-    findall(Id, hasil(Id, lulus), Lulus),
-    findall(Id, hasil(Id, gagal), Gagal),
+summary :-
+    findall(Id, hasil(Id, passed), Lulus),
+    findall(Id, hasil(Id, failed), Gagal),
     length(Lulus, NL), length(Gagal, NG),
-    format("~n== RINGKASAN ==~n  lulus: ~w~n  gagal: ~w~n", [NL, NG]),
+    format("~n== SUMMARY ==~n  passed: ~w~n  failed: ~w~n", [NL, NG]),
     (   Gagal == []
-    ->  writeln("  semua kasus sesuai harapan")
-    ;   format("  yang gagal: ~w~n", [Gagal])
+    ->  writeln("  all cases match expectations")
+    ;   format("  failed: ~w~n", [Gagal])
     ).

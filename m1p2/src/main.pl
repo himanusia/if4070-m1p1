@@ -8,15 +8,15 @@
 main :-
     consult('src/kb.pl'),
     consult('src/abox.pl'),
-    hitung(aturan(_, _, _), A),
-    hitung(triple(_, _, _), T),
+    count_of(aturan(_, _, _), A),
+    count_of(triple(_, _, _), T),
     format("KB: ~w klausa aturan, ~w triple~n", [A, T]),
-    jalankan_cq,
+    run_cq,
     halt.
 
-hitung(Goal, N) :- aggregate_all(count, Goal, N).
+count_of(Goal, N) :- aggregate_all(count, Goal, N).
 
-jalankan_cq :-
+run_cq :-
     setup_call_cleanup(open('test/cq.json', read, S, [encoding(utf8)]),
                        json_read_dict(S, Kasus),
                        close(S)),
