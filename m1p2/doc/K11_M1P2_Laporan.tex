@@ -1,17 +1,39 @@
+% =====================================================================
+%  IF4070 Milestone 1 Part 2 — laporan
+%  Format mengikuti laporan Part 1 (laporan/laporan.tex).
+% =====================================================================
 \documentclass[11pt,a4paper]{article}
+
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[indonesian]{babel}
+\usepackage[margin=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{longtable}
-\usepackage{listings}
+\usepackage{array}
+\usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[hidelinks]{hyperref}
+\usepackage{colortbl}
+\definecolor{tabhead}{HTML}{EFEFEF}
 \usepackage{caption}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{listings}
 
+\catcode`\_=12\relax
+\newcommand{\code}[1]{\texttt{#1}}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.15}
 \setlength{\emergencystretch}{3em}
+
 \lstset{
   basicstyle=\ttfamily\footnotesize,
   breaklines=true,
@@ -24,31 +46,54 @@
   xleftmargin=0.5em,
 }
 
-\catcode`\_=12\relax
-\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\grup}{K11}
 
-\title{\vspace{-1.5cm}\textbf{Laporan Milestone 1 Part 2}\\[0.2em]
-\large Translasi Basis Pengetahuan OWL ke SWI-Prolog\\[0.4em]
-\normalsize IF4070 Representasi Pengetahuan dan Penalaran\\
-Kelompok K11 --- Domain Mahjong Empat Pemain}
-\author{}
-\date{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small IF4070 M1P2}
+\fancyhead[R]{\small Kelompok \grup}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
 
 \begin{document}
-\maketitle
-\vspace{-1.2cm}
 
-\begin{center}
+% =====================================================================
+% COVER
+% =====================================================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Large\bfseries Tugas Besar IF4070\\ Representasi Pengetahuan dan Penalaran\par}
+\vspace{1.2cm}
+{\LARGE\bfseries Milestone 1 Part 2\par}
+\vspace{0.4cm}
+{\large Translasi Basis Pengetahuan OWL ke SWI-Prolog\par}
+\vspace{2cm}
+
 \begin{tabular}{ll}
 \toprule
-Nama & NIM \\
+\textbf{Kelompok} & \grup \\
+\textbf{Domain}   & Mahjong \emph{riichi} (WRC Rules 2025, \emph{house rules} klub) \\
+\bottomrule
+\end{tabular}
+
+\vspace{1.5cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Nama} & \textbf{NIM} \\
 \midrule
 Ahmad Ibrahim & 13523089 \\
 Bintang Hijriawan Jachja & 13521003 \\
 Michael Alexander Angkawijaya & 13523102 \\
 \bottomrule
 \end{tabular}
-\end{center}
+
+\vfill
+{\small Program Studi Teknik Informatika\\
+Sekolah Teknik Elektro dan Informatika\\
+Institut Teknologi Bandung\\[4pt]
+2026\par}
+\end{titlepage}
 
 \section{Pendahuluan}
 
