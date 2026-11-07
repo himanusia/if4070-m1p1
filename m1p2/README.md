@@ -66,4 +66,4 @@ else in the code is English.
 
 ## Video
 
-Demo recording: _link pending_
+Demo recording: https://drive.google.com/file/d/1BDcKePC-NBk54fVDyI9Jz7vMyyrQ-Hx0/view
