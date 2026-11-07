@@ -1,0 +1,407 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+
+\setlength{\emergencystretch}{3em}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  framerule=0.3pt,
+  rulecolor=\color{gray!50},
+  keepspaces=true,
+  showstringspaces=false,
+  xleftmargin=0.5em,
+}
+
+\catcode`\_=12\relax
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{\vspace{-1.5cm}\textbf{Laporan Milestone 1 Part 2}\\[0.2em]
+\large Translasi Basis Pengetahuan OWL ke SWI-Prolog\\[0.4em]
+\normalsize IF4070 Representasi Pengetahuan dan Penalaran\\
+Kelompok K11 --- Domain Mahjong Empat Pemain}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.2cm}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Nama & NIM \\
+\midrule
+Ahmad Ibrahim & 13523089 \\
+Bintang Hijriawan Jachja & 13521003 \\
+Michael Alexander Angkawijaya & 13523102 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Pendahuluan}
+
+Part 1 menghasilkan ontologi OWL untuk domain mahjong empat pemain varian klub:
+45 kelas, 19 aturan domain, dan 12 \textit{competency question} (CQ). Part 2 meminta
+ontologi itu dijalankan sebagai program: basis pengetahuan dalam SWI-Prolog, dengan
+antarmuka \code{classify/2}, \code{explain/2}, dan \code{why_not/2}.
+
+Perbedaan mendasar antara keduanya bukan bahasa, melainkan asumsi. OWL menganut
+\textit{open world}: pernyataan yang tidak ada dianggap belum diketahui. Prolog menganut
+\textit{closed world}: pernyataan yang tidak dapat dibuktikan dianggap salah. Karena itu
+sistem ini tidak sekadar menyalin aksioma; ia harus menjelaskan akibat dari perubahan asumsi
+itu, dan itu yang dibahas pada Bagian~\ref{sec:ocwa}.
+
+Sistem terdiri atas tiga berkas: \code{kb.pl} berisi 51 klausa aturan tanpa satu pun
+triple individu, \code{abox.pl} berisi 260 triple untuk 52 individu, dan \code{main.pl}
+sebagai titik masuk. Fakta individu pada kasus uji disuntikkan saat runtime, sehingga
+\code{kb.pl} dapat dimuat sendirian --- bentuk yang dipakai asisten saat menguji.
+
+\section{Pemetaan OWL/DL ke Prolog}
+
+Entitas ontologi dipetakan satu-ke-satu menjadi predikat, dengan konvensi nama
+\textit{snake case}: kelas \code{WinningHand} menjadi \code{winning_hand/1}, properti
+\code{hasYaku} menjadi \code{has_yaku/2} di dalam \code{triple/3}. Aksioma menjadi klausa.
+
+\begin{table}[h]
+\centering\small
+\caption{Pemetaan aksioma Part 1 ke klausa Prolog}
+\label{tab:pemetaan}
+\begin{tabular}{@{}p{6.3cm}p{8.2cm}@{}}
+\toprule
+Aksioma DL (Part 1) & Klausa Prolog (Part 2) \\
+\midrule
+$\text{WinningHand} \sqsubseteq \text{ValidHand}$ &
+\code{aturan(r10, winning_hand(H), (valid_hand(H), yaku_tangan(H,_))).} \\
+$\text{WinningHand} \equiv \text{ValidHand} \sqcap \exists\text{hasYaku}.\text{Yaku}$ &
+\code{yaku_tangan/2} punya tiga klausa: yaku eksplisit (r10), tanyao (r12), yakuhai (r13). \\
+$\text{ValidHand} \equiv \text{PlayerHand} \sqcap {\geq}4\,\text{hasGroup} \sqcap {\geq}1\,\text{hasPair}$ &
+\code{aturan(r9, valid_hand(H), (player_hand(H), group_count(H,4), pair_count(H,1))).} \\
+$\text{Tanyao} \sqsubseteq \text{Yaku}$ &
+\code{aturan(r12, yaku_tangan(H, y_tanyao), (tanyao_pattern(H), tanyao_bernilai(H))).} \\
+\textit{Individual} dan \textit{property assertion} &
+\code{triple(Subjek, Predikat, Objek)} di \code{abox.pl} atau pada kasus uji. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Kelas dengan banyak klausa tidak dipecah menjadi beberapa predikat. Aturan r10 misalnya
+punya dua klausa untuk \code{winning_hand/1}: satu menuntut yaku eksplisit, satu menerima
+tanyao sebagai yaku. ID aturan dipertahankan sama dengan Part 1, sesuai ketentuan bahwa
+setiap aturan domain harus dapat ditelusuri ke nomornya.
+
+\section{Implementasi aturan non-OWL}
+
+Lima aturan pada Part 1 tidak dapat dinyatakan murni dalam OWL. Berikut bentuk Prolog-nya
+dan alasan teknisnya.
+
+\paragraph{R5 --- enumerasi urutan \textit{sequence}.}
+OWL tidak punya tipe daftar; urutan tile tidak dapat dinyatakan sebagai aksioma. Di Prolog,
+\code{sequence/1} dapat diperiksa dari data tile, tetapi pada sistem ini pemeriksaan dibatasi
+pada tipe group karena \code{abox.pl} tidak menyimpan urutan eksplisit:
+\begin{lstlisting}
+aturan(r5, sequence(G), triple(G, rdf_type, sequence)).
+\end{lstlisting}
+Keterbatasan ini dicatat pada Bagian~\ref{sec:keterbatasan}.
+
+\paragraph{R11 --- ketersediaan tile untuk tenpai.}
+Menunggu tile yang keempat salinannya sudah dipegang sendiri bukan tenpai sah. Ini aturan
+kardinalitas atas dunia, bukan atas individu, sehingga butuh aritmetika:
+\begin{lstlisting}
+aturan(r11, tenpai_hand(H),
+       ( player_hand(H), tile_count(H, 13),
+         triple(H, waiting_for, W), tile_masih_ada(H, W) )).
+aturan(r11, tile_masih_ada(H, W), ( copies_held(H, W, N), N < 4 )).
+\end{lstlisting}
+
+\paragraph{R16 --- penjumlahan han.}
+OWL tidak punya penjumlahan. Prolog memakai \code{sum_list/2}:
+\begin{lstlisting}
+aturan(r16, total_han(H, Total),
+       ( winning_hand(H),
+         findall(V, (triple(H, has_yaku, Y), triple(Y, han_value, V)), NV),
+         sum_list(NV, HYaku), jumlah_dora(H, HD), Total is HYaku + HD )).
+\end{lstlisting}
+
+\paragraph{R18 --- perbandingan skor meja.}
+Syarat ``pemain dengan skor terendah'' adalah perbandingan antar-individu yang tidak
+tertutup, sehingga OWL hanya bisa menyatakannya dengan aksioma bantu:
+\begin{lstlisting}
+aturan(r18, skor_meja_terendah(P),
+       ( triple(P, skor_meja, S), triple(P, di_meja, M),
+         \+ ( triple(Q, di_meja, M), Q \== P,
+              triple(Q, skor_meja, SQ), SQ < S ) )).
+\end{lstlisting}
+
+\paragraph{R19 --- override house rules.}
+Tanyao pada tangan terbuka hanya bernilai bila tangan dinilai menurut WRC. Ini konflik
+prioritas antar aturan, yang di OWL tidak bisa membatalkan inferensi lain (monoton):
+\begin{lstlisting}
+aturan(r19, tanyao_bernilai(H), closed_hand(H)).
+aturan(r19, tanyao_bernilai(H), triple(H, ruleset, wrc)).
+\end{lstlisting}
+
+\section{Analisis \textit{open world} versus \textit{closed world}}
+\label{sec:ocwa}
+
+CQ6 menjadi contoh paling jelas. Pertanyaannya: apakah tangan dengan empat group dan satu
+pair tanpa yaku tergolong menang? Tangan yang diuji adalah 123m (meld) + 456m + 789p +
+888s + 55p --- sah secara bentuk, mengandung terminal, satu triplet, tanpa yakuhai.
+
+\subsection{Perilaku di OWL}
+
+Aksioma Part 1 menyatakan
+$\text{WinningHand} \equiv \text{ValidHand} \sqcap \exists\text{hasYaku}.\text{Yaku}$.
+Individu \code{tangan_tanpa_yaku} di-assert sebagai \code{ValidHand} tetapi tidak memiliki
+satu pun triple \code{hasYaku}. Di bawah \textit{open world}, ketiadaan itu tidak berarti
+tidak ada: bisa saja yakunya ada tetapi belum dicatat. Karena itu HermiT tetap menyatakan
+ontologi \emph{konsisten}, dan \code{tangan_tanpa_yaku} tidak dapat diklasifikasikan
+sebagai \code{WinningHand}. Jawaban Protégé bukan ``tidak'', melainkan ``tidak terbukti''.
+
+Untuk memperoleh negasi yang tegas di OWL diperlukan aksioma penutup tambahan, misalnya
+menyatakan kelas \code{TanpaYaku} secara eksplisit dan meng-assert individunya ke sana.
+Tanpa itu, OWL memang tidak dirancang memberi jawaban negatif.
+
+\subsection{Perilaku di Prolog}
+
+Prolog memakai \textit{negation as failure}: \code{\textbackslash+}/1 berhasil bila tujuannya
+gagal dibuktikan. Akibatnya CQ6 dijawab tegas \textbf{tidak}, disertai daftar alasan:
+
+\begin{lstlisting}
+?- why_not(classify(cq6_tangan, winning_hand), A).
+A = [ gagal(r10, yaku_tangan(cq6_tangan,_)),
+      gagal(r10, triple(cq6_tangan,has_yaku,_)),
+      gagal(r12, tanyao_pattern(cq6_tangan)),
+      gagal(r12, triple(cq6_tangan,has_yaku,_)),
+      gagal(r13, punya_yakuhai(cq6_tangan)),
+      gagal(r12, \+ (triple(cq6_tangan,has_tile,_), \+ inside_tile(_))),
+      gagal(r13, triple(cq6_tangan_g4_8s_1, rdf_type, dragon_tile)),
+      gagal(r13, triple(cq6_tangan_g4_8s_1, has_wind,_)) ].
+\end{lstlisting}
+
+\begin{table}[h]
+\centering\small
+\caption{Perbandingan jawaban CQ6 pada dua sistem}
+\label{tab:ocwa}
+\begin{tabular}{@{}p{4.2cm}p{4.6cm}p{5.7cm}@{}}
+\toprule
+Aspek & Protégé (OWL) & Prolog \\
+\midrule
+Asumsi & open world & closed world \\
+Ketiadaan \code{hasYaku} & belum diketahui & tidak ada \\
+Jawaban & tidak terbukti menang & tidak menang \\
+Alasan & tidak tersedia & 8 entri \code{gagal/2} \\
+Konsistensi & konsisten & tidak relevan \\
+Untuk jawaban negatif & perlu aksioma penutup & otomatis \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Contoh \code{explain/2} dan \code{why_not/2}}
+
+\subsection{explain/2 untuk CQ8 --- jawaban ya}
+
+CQ8: tangan terbuka dengan meld 567m, sisa 234m 345p 678s 55s, tanpa yaku lain. Menurut
+WRC, apakah menang? Pohon bukti (dipotong pada bagian berulang):
+
+\begin{lstlisting}
+?- explain(classify(cq8_tangan, winning_hand), B).
+bukti(r10, winning_hand(cq8_tangan), [
+  bukti(r9, valid_hand(cq8_tangan), [
+    bukti(r1, player_hand(cq8_tangan), [fakta(triple(...,rdf_type,player_hand))]),
+    fakta(group_count(cq8_tangan,4)),
+    fakta(pair_count(cq8_tangan,1)) ]),
+  bukti(r12, yaku_tangan(cq8_tangan,y_tanyao), [
+    bukti(r12, tanyao_pattern(cq8_tangan), [
+      fakta(tile_count(cq8_tangan,14)),
+      fakta(14>=13),
+      tidak((triple(cq8_tangan,has_tile,_), \+ inside_tile(_))) ]),
+    bukti(r19, tanyao_bernilai(cq8_tangan), [
+      fakta(triple(cq8_tangan,ruleset,wrc)) ]) ]) ])
+\end{lstlisting}
+
+Cara membacanya: r10 adalah aturan menang dengan dua syarat, sah dan punya yaku.
+Syarat pertama dipenuhi r9 (empat group, satu pair). Syarat kedua dipenuhi r12 dengan
+dua sub-syarat: polanya tanyao (\code{tile_count} 14, tidak ada tile di luar 2--8), dan
+tanyao itu bernilai karena r19 menemukan \code{ruleset wrc}. Tanpa triple terakhir,
+jawabannya berubah menjadi tidak --- inilah titik temu antara domain dan aturan house rules.
+
+\subsection{explain/2 untuk CQ10 --- jawaban ya}
+
+Tangan \code{tangan_yakuhai_mangan} memiliki triplet yakuhai dan total han 5, sehingga
+menang lewat r10 klausa pertama dengan \code{yaku_tangan} eksplisit, dan kategorinya mangan
+lewat r17. Pohon buktinya lebih pendek karena tidak perlu melewati pola tanyao.
+
+\subsection{why_not/2 untuk CQ6 --- jawaban tidak}
+
+Dibahas pada Bagian~\ref{sec:ocwa}. Entri pertama (\code{gagal(r10, yaku_tangan(...))})
+sudah cukup untuk menjawab; tujuh entri sisanya adalah penelusuran turunan yang menjelaskan
+mengapa tiap jalur yaku gagal.
+
+\subsection{why_not/2 untuk CQ5 --- jawaban tidak}
+
+Tangan \code{tangan_terbuka} tidak memiliki pair, sehingga \code{gagal(r9, ...)} muncul
+sebagai alasan utama. Contoh ini menunjukkan bahwa \code{why_not/2} tidak selalu berhenti di
+aturan yang sama: kalau kegagalannya struktural, r9 yang dilaporkan; kalau kegagalannya
+pada yaku, r10 yang dilaporkan.
+
+\section{Hasil pengujian}
+
+Runner \code{test/run_tests.pl} membandingkan hasil setiap kasus dengan field
+\code{harapan} pada JSON. Setiap kasus menyuntikkan faktanya sendiri lalu membersihkannya
+kembali, sehingga urutan pengujian tidak memengaruhi hasil.
+
+\begin{table}[h]
+\centering\small
+\caption{Rekapitulasi kasus uji per kategori}
+\label{tab:uji}
+\begin{tabular}{@{}lcl@{}}
+\toprule
+Kategori & Jumlah & Contoh yang diuji \\
+\midrule
+umum & 6 & tipe tangan, terminal, pair \\
+batas & 10 & rank 2 dan 9, jumlah group kurang satu \\
+pengecualian & 11 & CQ6 tanpa yaku, CQ2b tile terminal bukan inside \\
+individu baru & 3 & tangan dan tile yang tidak ada di \code{abox.pl} \\
+info tak lengkap & 3 & tangan tanpa data tile, tanpa pair \\
+rantai & 5 & CQ8 dua tingkat (r10 $\to$ r9 + r12) \\
+\midrule
+Total & 38 & \textbf{38/38 lulus, 0 gagal} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Jumlah 38 berasal dari 16 kasus CQ ditambah 22 kasus pada \code{tests.json}. Seluruh kasus
+yang diharapkan bernilai salah (\code{harapan: false}) juga lulus, termasuk lima kasus
+\code{info_tak_lengkap} yang menguji perilaku saat data tidak lengkap --- kondisi yang
+paling mungkin muncul saat asisten menguji dengan individu baru.
+
+Waktu eksekusi seluruh 16 kasus CQ di bawah 0,1 detik, jauh di bawah batas 5 detik per
+kueri. \code{kb.pl} juga diuji dimuat sendirian: tidak ada error, tidak ada permintaan input,
+dan tidak ada triple individu yang ikut termuat.
+
+\section{Keterbatasan}
+\label{sec:keterbatasan}
+
+\begin{enumerate}
+\item R5 belum memvalidasi urutan tile. Pemeriksaan berhenti pada tipe group, karena
+      \code{abox.pl} menyimpan rank dan suit tetapi tidak menyimpan posisi dalam sequence.
+      Akibatnya sequence 8-9-1 (yang tidak sah) tidak dapat ditolak sistem ini.
+\item Sebagian kasus tidak mencantumkan data tile lengkap. Untuk kasus seperti itu,
+      kegagalan tanyao terjadi karena hitungan tile nol, bukan karena ada tile terminal.
+      Alasan yang dilaporkan tetap benar, tetapi bukan alasan ``sebenarnya'' menurut domain.
+\item Perhitungan han berhenti pada kategori (mangan sampai yonbaiman), belum sampai nilai
+      poin dan pembayaran. R17 hanya memetakan total han ke nama kategori.
+\item R19 hanya menangani tanyao. Override house rules untuk yaku lain belum dimodelkan.
+\item Tidak ada antarmuka pengguna. Semua interaksi lewat REPL SWI-Prolog.
+\end{enumerate}
+
+\section{Perubahan dari Part 1}
+
+\begin{enumerate}
+\item Individu tidak lagi seluruhnya berada di \code{abox.pl}; kasus uji membawa faktanya
+      sendiri. Ini memenuhi syarat bahwa \code{kb.pl} harus dapat diuji tanpa ABox tetap.
+\item Tanyao dipecah menjadi dua predikat: \code{tanyao_pattern/1} (bentuk tangan) dan
+      \code{yaku_tangan/2} (nilai yaku). Di Part 1 keduanya satu kelas.
+\item Ditambahkan penanda \code{ruleset} (wrc atau house rules) agar R19 dapat membedakan
+      penilaian, sesuai pertanyaan CQ8 yang eksplisit menyebut WRC.
+\item Ditambahkan \code{seven_pairs_hand/1} dan \code{thirteen_orphans_hand/1} sebagai
+      alternatif bentuk sah pada r9.
+\item ID aturan r1--r19 dipertahankan, dan setiap klausa tetap dapat ditelusuri ke
+      aksioma asalnya di ontologi.
+\end{enumerate}
+
+\section{Pembagian tanggung jawab}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}p{5.2cm}p{9.3cm}@{}}
+\toprule
+Nama & Kontribusi \\
+\midrule
+Ahmad Ibrahim (13523089) & Meta-interpreter dan antarmuka, runner pengujian, pemetaan
+aturan ke Prolog, penulisan laporan. \\
+Michael Alexander Angkawijaya (13523102) & Perluasan aturan domain (yaku, kategori han,
+seven pairs, thirteen orphans), model \code{ruleset}, kasus uji mandiri. \\
+Bintang Hijriawan Jachja (13521003) & Tidak berkontribusi pada Part 2. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Log penggunaan AI}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}p{3.4cm}p{5.4cm}p{5.6cm}@{}}
+\toprule
+Alat & Digunakan untuk & Verifikasi \\
+\midrule
+Hermes Agent (DeepSeek V4.1) &
+Kerangka \code{kb.pl}, meta-interpreter, runner uji, skrip demo, penulisan laporan. &
+Menjalankan \code{swipl test/run_tests.pl} dan \code{./case.sh} pada setiap perubahan;
+hasil dibaca dan dicocokkan dengan \code{harapan}. \\
+Hermes Agent (DeepSeek V4.1) &
+Menyusun kasus uji CQ dan \code{tests.json}. &
+Setiap kasus dijalankan; kasus yang tidak sesuai harapan diperiksa manual. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh keluaran AI diverifikasi dengan mengeksekusi program, bukan dengan membaca kode
+saja. Kesalahan yang ditemukan lewat verifikasi dicatat pada riwayat commit, misalnya
+perbaikan aturan tanyao yang semula bernilai benar untuk tangan kosong.
+
+\section{Referensi}
+
+\begin{enumerate}
+\item World Riichi Championship. \textit{WRC Rules 2025}. Dokumen sumber aturan domain
+      pada Part 1.
+\item SWI-Prolog. \textit{SWI-Prolog Reference Manual}, versi 10.
+\item W3C OWL Working Group. \textit{OWL 2 Web Ontology Language Document Overview},
+      edisi kedua.
+\item Protégé. \textit{Protégé 5.6 Documentation}, Stanford Center for Biomedical
+      Informatics Research.
+\end{enumerate}
+
+\appendix
+\section{Daftar aturan final}
+
+\begin{longtable}{@{}p{1.1cm}p{5.6cm}p{7.8cm}@{}}
+\toprule
+ID & Kepala & Makna \\
+\midrule
+\endhead
+r1 & \code{player_hand/1} & Tangan milik pemain \\
+r2 & \code{terminal_tile/1} & Tile berank 1 atau 9 \\
+r3 & \code{inside_tile/1} & Tile berank 2 sampai 8 \\
+r4 & \code{honour_tile/1} & Tile honour (wind, dragon) \\
+r5 & \code{sequence/1} & Group berjenis sequence \\
+r6 & \code{quad/1} & Group berjenis quad \\
+r7 & \code{pair/1} & Group berjenis pair \\
+r8 & \code{closed_hand/1}, \code{open_hand/1} & Ada group meld atau tidak \\
+r9 & \code{valid_hand/1} & Empat group dan satu pair, seven pairs, thirteen orphans \\
+r10 & \code{winning_hand/1}, \code{yaku_tangan/2} & Sah dan punya yaku \\
+r11 & \code{tenpai_hand/1} & 13 tile, menunggu, tile masih tersedia \\
+r12 & \code{tanyao/1}, \code{tanyao_pattern/1} & Seluruh tile inside \\
+r13 & \code{yakuhai/1}, \code{punya_yakuhai/1} & Triplet dragon atau wind \\
+r14 & \code{dora_bukan_yaku/1} & Dora menambah han, bukan yaku \\
+r15 & \code{tambahan_han_dora/2} & Tambahan han dari dora \\
+r16 & \code{total_han/2} & Penjumlahan han yaku dan dora \\
+r17 & \code{kategori_han/2} & Mangan sampai yonbaiman \\
+r18 & \code{bonus_comeback/1} & Bonus skor terendah (house rules) \\
+r19 & \code{tanyao_bernilai/1} & House rules membatalkan tanyao terbuka \\
+\bottomrule
+\end{longtable}
+
+\end{document}

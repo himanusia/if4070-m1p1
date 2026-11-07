@@ -274,9 +274,9 @@
     ],
     "kueri": {
       "individu": "cq6_tangan",
-      "kelas": "valid_hand"
+      "kelas": "winning_hand"
     },
-    "harapan": true
+    "harapan": false
   },
   {
     "id": "CQ7",
