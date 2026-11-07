@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,7 +791,7 @@ lmtt/m/n/10 abox.pl
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 166--166
+Underfull \hbox (badness 6741) in paragraph at lines 165--165
 []|\T1/lmr/m/n/10 (+20) Aksioma penut-up (Closed-
  []
 
@@ -803,7 +803,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.185 ...{R5: enumerasi urutan \textit{sequence}.}
+l.184 ...{R5: enumerasi urutan \textit{sequence}.}
                                                    [1{/usr/local/texlive/2026ba
 sic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2026basic/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026basic/texmf-
@@ -812,15 +812,15 @@ dist/fonts/enc/dvips/lm/lm-rm.enc}] [2]
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 287.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 286.
 [3] [4] [5]
-Underfull \hbox (badness 1270) in paragraph at lines 421--423
+Underfull \hbox (badness 1270) in paragraph at lines 420--422
 []\T1/lmr/m/n/10.95 (+20) Tanyao dipec-ah men-ja-di dua predikat: \T1/lmtt/m/n/
 10.95 tanyao_pattern/1 \T1/lmr/m/n/10.95 (+20) (ben-tuk tan-gan) dan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--451
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 []|\T1/lmr/m/n/10 (+20) Bintang Hi-jri-awan Jach-ja
  []
 
@@ -828,17 +828,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--451
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6] [7]
-Underfull \hbox (badness 6332) in paragraph at lines 468--468
+Underfull \hbox (badness 6332) in paragraph at lines 467--467
 []|\T1/lmr/m/n/10 (+20) Menafsirkan pe-san galat SWI-
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 472--472
+Underfull \hbox (badness 3815) in paragraph at lines 471--471
 []|\T1/lmr/m/n/10 (+20) Menyusun dan mer-apikan teks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--513
+Underfull \hbox (badness 10000) in paragraph at lines 512--512
 []|\T1/lmtt/m/n/10.95 winning_hand/1\T1/lmr/m/n/10.95 (+20) ,
  []
 
@@ -855,7 +855,7 @@ Package rerunfilecheck Info: File `K11_M1P2_Laporan.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  18675 strings out of 469006
- 296393 string characters out of 5454813
+ 296391 string characters out of 5454813
  987377 words of memory out of 5000000
  46847 multiletter control sequences out of 15000+600000
  723606 words of font info for 175 fonts, out of 8000000 for 9000
@@ -872,7 +872,7 @@ f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-dis
 t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/fon
 ts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
 pe1/public/lm/lmtt9.pfb>
-Output written on K11_M1P2_Laporan.pdf (10 pages, 275094 bytes).
+Output written on K11_M1P2_Laporan.pdf (10 pages, 275083 bytes).
 PDF statistics:
  305 PDF objects out of 1000 (max. 8388607)
  267 compressed objects within 3 object streams

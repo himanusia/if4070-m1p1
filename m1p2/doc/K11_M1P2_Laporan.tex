@@ -147,9 +147,8 @@ setiap aturan domain harus dapat ditelusuri ke nomornya.
 
 \subsection{Aksioma yang diterjemahkan penuh, sebagian, dan yang hilang}
 
-Tidak semua aksioma Part 1 punya padanan yang setara. Tabel berikut memisahkan tiga
-tingkat kesetaraan itu, karena perbedaan inilah yang menentukan jawaban mana yang berubah
-antara Protégé dan Prolog.
+Tidak semua aksioma Part 1 punya padanan yang setara. Tabel di bawah memisahkan tiga tingkat
+itu. Dari sinilah ketahuan jawaban mana yang berubah antara Protégé dan Prolog.
 
 \begin{table}[h]
 \centering\small
@@ -174,7 +173,7 @@ inferensi lain; di Prolog urutan klausa dan negasi menanganinya \\
 \end{table}
 
 Baris terakhir yang paling berpengaruh. Di OWL, begitu R12 menyimpulkan sebuah tangan
-bertanyao, tidak ada aturan yang dapat membatalkannya. Di Prolog, R19 dapat menolak tanyao
+dengan tanyao, tidak ada aturan yang dapat membatalkannya. Di Prolog, R19 dapat menolak tanyao
 pada tangan terbuka karena aturan itu dievaluasi sebagai klausa, bukan sebagai entailment.
 
 \section{Implementasi aturan non-OWL}
@@ -243,7 +242,7 @@ Individu \code{tangan_tanpa_yaku} di-assert sebagai \code{ValidHand} tetapi tida
 satu pun triple \code{hasYaku}. Di bawah \textit{open world}, ketiadaan itu tidak berarti
 tidak ada: bisa saja yakunya ada tetapi belum dicatat. Karena itu HermiT tetap menyatakan
 ontologi \emph{konsisten}, dan \code{tangan_tanpa_yaku} tidak dapat diklasifikasikan
-sebagai \code{WinningHand}. Jawaban Protégé bukan ``tidak'', melainkan ``tidak terbukti''.
+sebagai \code{WinningHand}. Protégé tidak menjawab ``tidak''. Dia menjawab ``tidak terbukti''.
 
 Untuk memperoleh negasi yang tegas di OWL diperlukan aksioma penutup tambahan, misalnya
 menyatakan kelas \code{TanpaYaku} secara eksplisit dan meng-assert individunya ke sana.
@@ -433,7 +432,7 @@ Dua penambahan yang terlihat seperti aturan baru sebenarnya sudah tercakup defin
 \code{seven\_pairs\_hand/1} dan \code{thirteen\_orphans\_hand/1} adalah dua disjunct yang
 sudah ada pada aksioma $\text{ValidHand} \equiv \dots \sqcup \text{SevenPairsHand} \sqcup
 \text{ThirteenOrphansHand}$, hanya belum pernah dipakai sebagai klausa. Penanda
-\code{ruleset} juga bukan aturan baru, melainkan properti individu yang membuat R19 dapat
+\code{ruleset} juga bukan aturan baru. Dia properti individu yang membuat R19 dapat
 memilih cabangnya.
 
 \section{Pembagian tanggung jawab}
