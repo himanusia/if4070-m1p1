@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,62 +791,73 @@ lmtt/m/n/10 abox.pl
  []
 
 
+Underfull \hbox (badness 6741) in paragraph at lines 167--167
+[]|\T1/lmr/m/n/10 (+20) Aksioma penut-up (Closed-
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.158 \begin{lstlisting}
-                         [1{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/d
-vips/lm/lm-mathsy.enc}{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/
-lm/lm-mathit.enc}{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm
--rm.enc}] [2]
+l.186 ... --- enumerasi urutan \textit{sequence}.}
+                                                   [1{/usr/local/texlive/2026ba
+sic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2026basic/t
+exmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026basic/texmf-
+dist/fonts/enc/dvips/lm/lm-rm.enc}] [2]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 256.
- [3] [4]
-Underfull \hbox (badness 1270) in paragraph at lines 360--362
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 288.
+[3] [4] [5]
+Underfull \hbox (badness 1270) in paragraph at lines 419--421
 []\T1/lmr/m/n/10.95 (+20) Tanyao dipec-ah men-ja-di dua predikat: \T1/lmtt/m/n/
 10.95 tanyao_pattern/1 \T1/lmr/m/n/10.95 (+20) (ben-tuk tan-gan) dan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 []|\T1/lmr/m/n/10 (+20) Bintang Hi-jri-awan Jach-ja
  []
 
-[5]
-Underfull \hbox (badness 6332) in paragraph at lines 399--399
+[6]
+Underfull \hbox (badness 6332) in paragraph at lines 466--466
 []|\T1/lmr/m/n/10 (+20) Menafsirkan pe-san galat SWI-
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 403--403
+Underfull \hbox (badness 3815) in paragraph at lines 470--470
 []|\T1/lmr/m/n/10 (+20) Menyusun dan mer-apikan teks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--444
+Underfull \hbox (badness 10000) in paragraph at lines 511--511
 []|\T1/lmtt/m/n/10.95 winning_hand/1\T1/lmr/m/n/10.95 (+20) ,
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [6
+ignored: Infinite glue shrinkage found in box being split [7
 
-] [7] (./K11_M1P2_Laporan.aux)
+] [8] (./K11_M1P2_Laporan.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `K11_M1P2_Laporan.out' has not changed.
-(rerunfilecheck)             Checksum: 4D815E5586280F4A456EA7DDCFA461E6;3108.
+(rerunfilecheck)             Checksum: 11D0E1D8F4694E1D6D36DD6EF7E71D9B;3482.
  ) 
 Here is how much of TeX's memory you used:
- 18640 strings out of 469006
- 295950 string characters out of 5454813
- 1011375 words of memory out of 5000000
- 46844 multiletter control sequences out of 15000+600000
- 720374 words of font info for 170 fonts, out of 8000000 for 9000
+ 18678 strings out of 469006
+ 296427 string characters out of 5454813
+ 987375 words of memory out of 5000000
+ 46847 multiletter control sequences out of 15000+600000
+ 723881 words of font info for 177 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,15n,79p,1013b,1095s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,1013b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
 sr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/
@@ -858,10 +869,10 @@ f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-dis
 t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/fon
 ts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
 pe1/public/lm/lmtt9.pfb>
-Output written on K11_M1P2_Laporan.pdf (8 pages, 268836 bytes).
+Output written on K11_M1P2_Laporan.pdf (9 pages, 274074 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 94 named destinations out of 1000 (max. 500000)
- 51345 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 116 named destinations out of 1000 (max. 500000)
+ 53401 words of extra memory for PDF output out of 61914 (max. 10000000)
 

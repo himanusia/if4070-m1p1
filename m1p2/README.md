@@ -29,10 +29,14 @@ swipl src/kb.pl            # must load alone, with no individual triples
 ## Interface
 
 ```prolog
-?- classify(tangan_cq8, winning_hand).
-?- explain(classify(tangan_cq8, winning_hand), Proof).
-?- why_not(classify(tangan_cq12, winning_hand), Reasons).
-?- classify(Hand, mangan_hand).
+% from abox.pl
+?- classify(tangan_tanpa_yaku, valid_hand).          % true
+?- why_not(classify(tangan_tanpa_yaku, winning_hand), R).
+?- explain(classify(tangan_tanyao_closed, winning_hand), Proof).
+
+% a test case: kb.pl alone plus that case's facts
+?- halt.
+$ ./case.sh CQ8
 ```
 
 Proof shape:

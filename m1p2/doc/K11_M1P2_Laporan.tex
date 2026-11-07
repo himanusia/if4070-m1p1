@@ -146,6 +146,38 @@ punya dua klausa untuk \code{winning_hand/1}: satu menuntut yaku eksplisit, satu
 tanyao sebagai yaku. ID aturan dipertahankan sama dengan Part 1, sesuai ketentuan bahwa
 setiap aturan domain harus dapat ditelusuri ke nomornya.
 
+\subsection{Aksioma yang diterjemahkan penuh, sebagian, dan yang hilang}
+
+Tidak semua aksioma Part 1 punya padanan yang setara. Tabel berikut memisahkan tiga
+tingkat kesetaraan itu, karena perbedaan inilah yang menentukan jawaban mana yang berubah
+antara Protégé dan Prolog.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}p{4.6cm}p{2.4cm}p{6.9cm}@{}}
+\toprule
+Aksioma & Status & Yang hilang atau berubah \\
+\midrule
+Hirarki kelas (r1, r4, r5, r6, r7) & penuh & tidak ada; tiap kelas menjadi predikat uner \\
+Rentang numerik (r2, r3) & penuh & tidak ada; pembanding aritmetika sama \\
+Struktur tangan (r8, r9, r10) & sebagian & kardinalitas ``minimal 4 group'' di OWL menjadi
+``tepat 4'' di Prolog, sehingga tangan dengan lima group ditolak \\
+Eksistensial $\exists$hasYaku.Yaku & sebagian & OWL cukup menyatakan adanya yaku tanpa
+menyebut individunya; Prolog menuntut triple atau aturan yang membangunnya \\
+Aksioma penutup (ClosedHand) & sebagian & di OWL perlu aksioma penutup eksplisit; di Prolog
+cukup negasi sebagai kegagalan \\
+Aritmetika dan perbandingan (r16, r18) & hilang di OWL & penjumlahan han dan perbandingan
+skor meja tidak dapat dinyatakan; seluruhnya dipindah ke Prolog \\
+Prioritas antaraturan (r19) & hilang di OWL & OWL monoton, aturan tidak dapat membatalkan
+inferensi lain; di Prolog urutan klausa dan negasi menanganinya \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Yang paling menentukan adalah baris terakhir. Di OWL, begitu R12 menyimpulkan sebuah tangan
+bertanyao, tidak ada aturan yang dapat membatalkannya. Di Prolog, R19 dapat menolak tanyao
+pada tangan terbuka karena aturan itu dievaluasi sebagai klausa, bukan sebagai entailment.
+
 \section{Implementasi aturan non-OWL}
 
 Lima aturan pada Part 1 tidak dapat dinyatakan murni dalam OWL. Berikut bentuk Prolog-nya
@@ -290,16 +322,43 @@ lewat r17. Pohon buktinya lebih pendek karena tidak perlu melewati pola tanyao.
 
 \subsection{why_not/2 untuk CQ6 --- jawaban tidak}
 
-Dibahas pada Bagian~\ref{sec:ocwa}. Entri pertama (\code{gagal(r10, yaku_tangan(...))})
-sudah cukup untuk menjawab; tujuh entri sisanya adalah penelusuran turunan yang menjelaskan
-mengapa tiap jalur yaku gagal.
+\begin{lstlisting}
+?- why_not(classify(cq6_tangan, winning_hand), A).
+TIDAK
+[ gagal(r10, yaku_tangan(cq6_tangan,_)),
+  gagal(r10, triple(cq6_tangan,has_yaku,_)),
+  gagal(r12, tanyao_pattern(cq6_tangan)),
+  gagal(r12, triple(cq6_tangan,has_yaku,_)),
+  gagal(r13, punya_yakuhai(cq6_tangan)),
+  gagal(r12, \+ (triple(cq6_tangan,has_tile,_), \+ inside_tile(_))),
+  gagal(r13, triple(cq6_tangan_g4_8s_1, rdf_type, dragon_tile)),
+  gagal(r13, triple(cq6_tangan_g4_8s_1, has_wind,_)) ]
+\end{lstlisting}
+
+Cara membacanya: entri pertama adalah jawabannya. r10 adalah aturan menang dan badannya
+berisi \code{valid_hand} lalu \code{yaku_tangan}; \code{valid\_hand} berhasil, jadi yang
+dilaporkan adalah kegagalan \code{yaku\_tangan}. Empat entri berikutnya menelusuri tiga
+jalur yaku: eksplisit (r10), tanyao (r12), yakuhai (r13), semuanya gagal di tujuan pertama.
+Tiga entri terakhir adalah alasan paling dalam: tanyao gagal karena ada tile di luar
+rentang 2--8, dan yakuhai gagal karena group triplet 8s bukan dragon dan bukan wind.
 
 \subsection{why_not/2 untuk CQ5 --- jawaban tidak}
 
-Tangan \code{tangan_terbuka} tidak memiliki pair, sehingga \code{gagal(r9, ...)} muncul
-sebagai alasan utama. Contoh ini menunjukkan bahwa \code{why_not/2} tidak selalu berhenti di
-aturan yang sama: kalau kegagalannya struktural, r9 yang dilaporkan; kalau kegagalannya
-pada yaku, r10 yang dilaporkan.
+\begin{lstlisting}
+?- why_not(classify(cq5_tangan, valid_hand), A).
+TIDAK
+[ gagal(r9, pair_count(cq5_tangan,1)),
+  gagal(r9, seven_pairs_hand(cq5_tangan)),
+  gagal(r9, thirteen_orphans_hand(cq5_tangan)),
+  gagal(r9, pair_count(cq5_tangan,7)),
+  gagal(r9, triple(cq5_tangan,rdf_type,thirteen_orphans_hand)) ]
+\end{lstlisting}
+
+Di sini semua entri berasal dari satu aturan, r9, karena r9 punya tiga klausa: bentuk
+standar empat group satu pair, seven pairs, dan thirteen orphans. Tangan CQ5 tidak punya
+pair sehingga klausa pertama gagal di \code{pair\_count}; kedua bentuk khusus juga gagal.
+Perhatikan bahwa kelima entri memakai ID yang sama --- itu bukan duplikasi, melainkan satu
+entri untuk tiap klausa yang kepalanya cocok.
 
 \section{Hasil pengujian}
 
@@ -366,6 +425,14 @@ dan tidak ada triple individu yang ikut termuat.
 \item ID aturan r1--r19 dipertahankan, dan setiap klausa tetap dapat ditelusuri ke
       aksioma asalnya di ontologi.
 \end{enumerate}
+
+Daftar aturan tidak berubah, sehingga tidak ada izin asisten yang diperlukan untuk mengubahnya.
+Dua penambahan yang terlihat seperti aturan baru sebenarnya sudah tercakup definisi Part 1:
+\code{seven\_pairs\_hand/1} dan \code{thirteen\_orphans\_hand/1} adalah dua disjunct yang
+sudah ada pada aksioma $\text{ValidHand} \equiv \dots \sqcup \text{SevenPairsHand} \sqcup
+\text{ThirteenOrphansHand}$, hanya belum pernah dipakai sebagai klausa. Penanda
+\code{ruleset} juga bukan aturan baru, melainkan properti individu yang membuat R19 dapat
+memilih cabangnya.
 
 \section{Pembagian tanggung jawab}
 
