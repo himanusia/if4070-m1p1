@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 13:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,35 +623,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 337--337
 []\T1/lmr/m/n/10 Bintang Hi-jri-awan Jachja
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 350--350
-[]\T1/lmr/m/n/10 Hermes Agent
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
-[]\T1/lmr/m/n/10 Menjalankan \T1/lmtt/m/n/10 swipl
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--354
-[]\T1/lmr/m/n/10 Hermes Agent
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
-[]\T1/lmr/m/n/10 Menyusun ka-sus uji CQ dan
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
+Underfull \hbox (badness 7116) in paragraph at lines 354--354
+[]\T1/lmr/m/n/10 Menafsirkan pe-san galat SWI-
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 354--354
+\T1/lmr/m/n/10 Prolog saat memuat \T1/lmtt/m/n/10 kb.pl \T1/lmr/m/n/10 dan
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 355--357
+[]\T1/lmr/m/n/10 Pesan galat dibaca ulang sete-lah
+ []
+
+
+Underfull \hbox (badness 5771) in paragraph at lines 358--358
+[]\T1/lmr/m/n/10 Menyusun dan mer-apikan teks
+ []
+
+
+Underfull \hbox (badness 2189) in paragraph at lines 359--360
+[]\T1/lmr/m/n/10 Isi README dic-o-cokkan den-gan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
+\T1/lmr/m/n/10 per-in-tah yang benar-benar di-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 []|\T1/lmtt/m/n/10.95 winning_hand/1\T1/lmr/m/n/10.95 ,
  []
 
-[6] (./K11_M1P2_Laporan.aux)
+
+ignored: Infinite glue shrinkage found in box being split [6
+
+] [7] (./K11_M1P2_Laporan.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -661,7 +671,7 @@ Package rerunfilecheck Info: File `K11_M1P2_Laporan.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  13898 strings out of 469006
- 212435 string characters out of 5454813
+ 212425 string characters out of 5454813
  884870 words of memory out of 5000000
  42328 multiletter control sequences out of 15000+600000
  717367 words of font info for 100 fonts, out of 8000000 for 9000
@@ -678,10 +688,10 @@ f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-dis
 t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/fon
 ts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
 pe1/public/lm/lmtt9.pfb>
-Output written on K11_M1P2_Laporan.pdf (6 pages, 262912 bytes).
+Output written on K11_M1P2_Laporan.pdf (7 pages, 264552 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 227 compressed objects within 3 object streams
+ 266 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
  94 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

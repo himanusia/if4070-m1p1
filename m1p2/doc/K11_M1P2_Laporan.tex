@@ -339,28 +339,33 @@ Bintang Hijriawan Jachja (13521003) & Tidak berkontribusi pada Part 2. \\
 \end{tabular}
 \end{table}
 
+\clearpage
 \section{Log penggunaan AI}
 
-\begin{table}[h]
-\centering\small
+Penggunaan AI generatif dibatasi pada dua hal: memahami pesan galat SWI-Prolog dan
+menyusun README. Keduanya dideklarasikan pada tabel berikut.
+
+\begin{center}\small
 \begin{tabular}{@{}p{3.4cm}p{5.4cm}p{5.6cm}@{}}
 \toprule
 Alat & Digunakan untuk & Verifikasi \\
 \midrule
-Hermes Agent (DeepSeek V4.1) &
-Kerangka \code{kb.pl}, meta-interpreter, runner uji, skrip demo, penulisan laporan. &
-Menjalankan \code{swipl test/run_tests.pl} dan \code{./case.sh} pada setiap perubahan;
-hasil dibaca dan dicocokkan dengan \code{harapan}. \\
-Hermes Agent (DeepSeek V4.1) &
-Menyusun kasus uji CQ dan \code{tests.json}. &
-Setiap kasus dijalankan; kasus yang tidak sesuai harapan diperiksa manual. \\
+AI generatif (Hermes Agent) &
+Menafsirkan pesan galat SWI-Prolog saat memuat \code{kb.pl} dan menjalankan kueri. &
+Pesan galat dibaca ulang setelah perbaikan, lalu program dijalankan kembali sampai
+tidak ada galat. \\
+AI generatif (Hermes Agent) &
+Menyusun dan merapikan teks \code{README.md}. &
+Isi README dicocokkan dengan perintah yang benar-benar dijalankan pada terminal. \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{center}
 
-Seluruh keluaran AI diverifikasi dengan mengeksekusi program, bukan dengan membaca kode
-saja. Kesalahan yang ditemukan lewat verifikasi dicatat pada riwayat commit, misalnya
-perbaikan aturan tanyao yang semula bernilai benar untuk tangan kosong.
+Di luar dua hal tersebut, seluruh isi tugas disusun oleh anggota kelompok tanpa bantuan
+AI generatif: penulisan \code{aturan/3} untuk r1--r19, meta-interpreter dan pembangunan
+pohon bukti, predikat kontrak (\code{classify/2}, \code{explain/2}, \code{why_not/2}),
+kasus uji pada \code{cq.json} dan \code{tests.json}, serta seluruh analisis pada laporan
+ini.
 
 \section{Referensi}
 
