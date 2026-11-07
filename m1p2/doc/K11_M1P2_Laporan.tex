@@ -102,16 +102,15 @@ Part 1 menghasilkan ontologi OWL untuk domain mahjong empat pemain varian klub:
 ontologi itu dijalankan sebagai program: basis pengetahuan dalam SWI-Prolog, dengan
 antarmuka \code{classify/2}, \code{explain/2}, dan \code{why_not/2}.
 
-Perbedaan mendasar antara keduanya bukan bahasa, melainkan asumsi. OWL menganut
-\textit{open world}: pernyataan yang tidak ada dianggap belum diketahui. Prolog menganut
-\textit{closed world}: pernyataan yang tidak dapat dibuktikan dianggap salah. Karena itu
-sistem ini tidak sekadar menyalin aksioma; ia harus menjelaskan akibat dari perubahan asumsi
-itu, dan itu yang dibahas pada Bagian~\ref{sec:ocwa}.
+Yang berubah bukan cuma bahasanya. OWL menganut \textit{open world}: pernyataan yang tidak
+ada dianggap belum diketahui. Prolog menganut \textit{closed world}: pernyataan yang tidak
+dapat dibuktikan dianggap salah. Karena asumsinya berbeda, sistem ini tidak bisa hanya
+menyalin aksioma. Akibat dari perbedaan itu dibahas pada Bagian~\ref{sec:ocwa}.
 
 Sistem terdiri atas tiga berkas: \code{kb.pl} berisi 51 klausa aturan tanpa satu pun
 triple individu, \code{abox.pl} berisi 171 triple untuk 52 individu, dan \code{main.pl}
 sebagai titik masuk. Fakta individu pada kasus uji disuntikkan saat runtime, sehingga
-\code{kb.pl} dapat dimuat sendirian --- bentuk yang dipakai asisten saat menguji.
+\code{kb.pl} dapat dimuat sendirian, dan bentuk inilah yang dipakai asisten saat menguji.
 
 \section{Pemetaan OWL/DL ke Prolog}
 
@@ -174,7 +173,7 @@ inferensi lain; di Prolog urutan klausa dan negasi menanganinya \\
 \end{tabular}
 \end{table}
 
-Yang paling menentukan adalah baris terakhir. Di OWL, begitu R12 menyimpulkan sebuah tangan
+Baris terakhir yang paling berpengaruh. Di OWL, begitu R12 menyimpulkan sebuah tangan
 bertanyao, tidak ada aturan yang dapat membatalkannya. Di Prolog, R19 dapat menolak tanyao
 pada tangan terbuka karena aturan itu dievaluasi sebagai klausa, bukan sebagai entailment.
 
@@ -183,7 +182,7 @@ pada tangan terbuka karena aturan itu dievaluasi sebagai klausa, bukan sebagai e
 Lima aturan pada Part 1 tidak dapat dinyatakan murni dalam OWL. Berikut bentuk Prolog-nya
 dan alasan teknisnya.
 
-\paragraph{R5 --- enumerasi urutan \textit{sequence}.}
+\paragraph{R5: enumerasi urutan \textit{sequence}.}
 OWL tidak punya tipe daftar; urutan tile tidak dapat dinyatakan sebagai aksioma. Di Prolog,
 \code{sequence/1} dapat diperiksa dari data tile, tetapi pada sistem ini pemeriksaan dibatasi
 pada tipe group karena \code{abox.pl} tidak menyimpan urutan eksplisit:
@@ -192,7 +191,7 @@ aturan(r5, sequence(G), triple(G, rdf_type, sequence)).
 \end{lstlisting}
 Keterbatasan ini dicatat pada Bagian~\ref{sec:keterbatasan}.
 
-\paragraph{R11 --- ketersediaan tile untuk tenpai.}
+\paragraph{R11: ketersediaan tile untuk tenpai.}
 Menunggu tile yang keempat salinannya sudah dipegang sendiri bukan tenpai sah. Ini aturan
 kardinalitas atas dunia, bukan atas individu, sehingga butuh aritmetika:
 \begin{lstlisting}
@@ -202,7 +201,7 @@ aturan(r11, tenpai_hand(H),
 aturan(r11, tile_masih_ada(H, W), ( copies_held(H, W, N), N < 4 )).
 \end{lstlisting}
 
-\paragraph{R16 --- penjumlahan han.}
+\paragraph{R16: penjumlahan han.}
 OWL tidak punya penjumlahan. Prolog memakai \code{sum_list/2}:
 \begin{lstlisting}
 aturan(r16, total_han(H, Total),
@@ -211,7 +210,7 @@ aturan(r16, total_han(H, Total),
          sum_list(NV, HYaku), jumlah_dora(H, HD), Total is HYaku + HD )).
 \end{lstlisting}
 
-\paragraph{R18 --- perbandingan skor meja.}
+\paragraph{R18: perbandingan skor meja.}
 Syarat ``pemain dengan skor terendah'' adalah perbandingan antar-individu yang tidak
 tertutup, sehingga OWL hanya bisa menyatakannya dengan aksioma bantu:
 \begin{lstlisting}
@@ -221,7 +220,7 @@ aturan(r18, skor_meja_terendah(P),
               triple(Q, skor_meja, SQ), SQ < S ) )).
 \end{lstlisting}
 
-\paragraph{R19 --- override house rules.}
+\paragraph{R19: override house rules.}
 Tanyao pada tangan terbuka hanya bernilai bila tangan dinilai menurut WRC. Ini konflik
 prioritas antar aturan, yang di OWL tidak bisa membatalkan inferensi lain (monoton):
 \begin{lstlisting}
@@ -234,7 +233,7 @@ aturan(r19, tanyao_bernilai(H), triple(H, ruleset, wrc)).
 
 CQ6 menjadi contoh paling jelas. Pertanyaannya: apakah tangan dengan empat group dan satu
 pair tanpa yaku tergolong menang? Tangan yang diuji adalah 123m (meld) + 456m + 789p +
-888s + 55p --- sah secara bentuk, mengandung terminal, satu triplet, tanpa yakuhai.
+888s + 55p. Tangan ini sah secara bentuk, mengandung terminal, satu triplet, dan tanpa yakuhai.
 
 \subsection{Perilaku di OWL}
 
@@ -287,7 +286,7 @@ Untuk jawaban negatif & perlu aksioma penutup & otomatis \\
 
 \section{Contoh \code{explain/2} dan \code{why_not/2}}
 
-\subsection{explain/2 untuk CQ8 --- jawaban ya}
+\subsection{explain/2 untuk CQ8 (jawaban ya)}
 
 CQ8: tangan terbuka dengan meld 567m, sisa 234m 345p 678s 55s, tanpa yaku lain. Menurut
 WRC, apakah menang? Pohon bukti (dipotong pada bagian berulang):
@@ -308,19 +307,19 @@ bukti(r10, winning_hand(cq8_tangan), [
       fakta(triple(cq8_tangan,ruleset,wrc)) ]) ]) ])
 \end{lstlisting}
 
-Cara membacanya: r10 adalah aturan menang dengan dua syarat, sah dan punya yaku.
+r10 adalah aturan menang dengan dua syarat, sah dan punya yaku.
 Syarat pertama dipenuhi r9 (empat group, satu pair). Syarat kedua dipenuhi r12 dengan
 dua sub-syarat: polanya tanyao (\code{tile_count} 14, tidak ada tile di luar 2--8), dan
 tanyao itu bernilai karena r19 menemukan \code{ruleset wrc}. Tanpa triple terakhir,
-jawabannya berubah menjadi tidak --- inilah titik temu antara domain dan aturan house rules.
+jawabannya tidak lagi ya. Jadi hasil akhirnya bergantung pada satu triple penanda \code{ruleset}.
 
-\subsection{explain/2 untuk CQ10 --- jawaban ya}
+\subsection{explain/2 untuk CQ10 (jawaban ya)}
 
 Tangan \code{tangan_yakuhai_mangan} memiliki triplet yakuhai dan total han 5, sehingga
 menang lewat r10 klausa pertama dengan \code{yaku_tangan} eksplisit, dan kategorinya mangan
 lewat r17. Pohon buktinya lebih pendek karena tidak perlu melewati pola tanyao.
 
-\subsection{why_not/2 untuk CQ6 --- jawaban tidak}
+\subsection{why_not/2 untuk CQ6 (jawaban tidak)}
 
 \begin{lstlisting}
 ?- why_not(classify(cq6_tangan, winning_hand), A).
@@ -335,14 +334,14 @@ TIDAK
   gagal(r13, triple(cq6_tangan_g4_8s_1, has_wind,_)) ]
 \end{lstlisting}
 
-Cara membacanya: entri pertama adalah jawabannya. r10 adalah aturan menang dan badannya
+Membacanya begini. Entri pertama adalah jawabannya. r10 adalah aturan menang dan badannya
 berisi \code{valid_hand} lalu \code{yaku_tangan}; \code{valid\_hand} berhasil, jadi yang
 dilaporkan adalah kegagalan \code{yaku\_tangan}. Empat entri berikutnya menelusuri tiga
 jalur yaku: eksplisit (r10), tanyao (r12), yakuhai (r13), semuanya gagal di tujuan pertama.
 Tiga entri terakhir adalah alasan paling dalam: tanyao gagal karena ada tile di luar
 rentang 2--8, dan yakuhai gagal karena group triplet 8s bukan dragon dan bukan wind.
 
-\subsection{why_not/2 untuk CQ5 --- jawaban tidak}
+\subsection{why_not/2 untuk CQ5 (jawaban tidak)}
 
 \begin{lstlisting}
 ?- why_not(classify(cq5_tangan, valid_hand), A).
@@ -357,7 +356,7 @@ TIDAK
 Di sini semua entri berasal dari satu aturan, r9, karena r9 punya tiga klausa: bentuk
 standar empat group satu pair, seven pairs, dan thirteen orphans. Tangan CQ5 tidak punya
 pair sehingga klausa pertama gagal di \code{pair\_count}; kedua bentuk khusus juga gagal.
-Perhatikan bahwa kelima entri memakai ID yang sama --- itu bukan duplikasi, melainkan satu
+Kelima entri memakai ID yang sama karena r9 punya beberapa klausa, dan satu
 entri untuk tiap klausa yang kepalanya cocok.
 
 \section{Hasil pengujian}
@@ -388,11 +387,14 @@ Total & 38 & \textbf{38/38 lulus, 0 gagal} \\
 
 Jumlah 38 berasal dari 16 kasus CQ ditambah 22 kasus pada \code{tests.json}. Seluruh kasus
 yang diharapkan bernilai salah (\code{harapan: false}) juga lulus, termasuk lima kasus
-\code{info_tak_lengkap} yang menguji perilaku saat data tidak lengkap --- kondisi yang
+\code{info_tak_lengkap} yang menguji perilaku saat data tidak lengkap, yaitu kondisi yang
 paling mungkin muncul saat asisten menguji dengan individu baru.
 
-Waktu eksekusi seluruh 16 kasus CQ di bawah 0,1 detik, jauh di bawah batas 5 detik per
-kueri. \code{kb.pl} juga diuji dimuat sendirian: tidak ada error, tidak ada permintaan input,
+Waktu eksekusi seluruh 16 kasus CQ sekitar 0,53 detik termasuk waktu memuat program, jauh
+di bawah batas 5 detik per kueri. Satu kesalahan ketahuan saat pengujian: versi pertama r12
+menyatakan tanyao benar untuk tangan tanpa data tile, karena negasi bersarang di badannya
+terpenuhi secara vacuous. Kasus CQ6 yang seharusnya gagal justru lolos, dan aturan itu
+diperbaiki dengan menambahkan syarat jumlah tile. \code{kb.pl} juga diuji dimuat sendirian: tidak ada error, tidak ada permintaan input,
 dan tidak ada triple individu yang ikut termuat.
 
 \section{Keterbatasan}

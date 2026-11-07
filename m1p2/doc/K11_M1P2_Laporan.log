@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  7 NOV 2026 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -754,44 +754,44 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 126.
+(Font)              <10> on input line 125.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 126.
+(Font)              <7> on input line 125.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 126.
+(Font)              <5> on input line 125.
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 []|\T1/lmtt/m/n/10 aturan(r10, winning_hand(H), (valid_hand(H),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--132
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
 []|$[] \OMS/lmsy/m/n/10 ^^Q [] u
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
 []|$[] \OMS/lmsy/m/n/10 ^^Q [] u
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 []|\T1/lmtt/m/n/10 aturan(r9, valid_hand(H), (player_hand(H),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 []|\T1/lmtt/m/n/10 aturan(r12, yaku_tangan(H, y_tanyao),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 []|\T1/lmtt/m/n/10 triple(Subjek, Predikat, Objek) \T1/lmr/m/n/10 (+20) di \T1/
 lmtt/m/n/10 abox.pl
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 167--167
+Underfull \hbox (badness 6741) in paragraph at lines 166--166
 []|\T1/lmr/m/n/10 (+20) Aksioma penut-up (Closed-
  []
 
@@ -803,7 +803,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.186 ... --- enumerasi urutan \textit{sequence}.}
+l.185 ...{R5: enumerasi urutan \textit{sequence}.}
                                                    [1{/usr/local/texlive/2026ba
 sic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2026basic/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026basic/texmf-
@@ -812,50 +812,53 @@ dist/fonts/enc/dvips/lm/lm-rm.enc}] [2]
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 288.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 287.
 [3] [4] [5]
-Underfull \hbox (badness 1270) in paragraph at lines 419--421
+Underfull \hbox (badness 1270) in paragraph at lines 421--423
 []\T1/lmr/m/n/10.95 (+20) Tanyao dipec-ah men-ja-di dua predikat: \T1/lmtt/m/n/
 10.95 tanyao_pattern/1 \T1/lmr/m/n/10.95 (+20) (ben-tuk tan-gan) dan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 []|\T1/lmr/m/n/10 (+20) Bintang Hi-jri-awan Jach-ja
  []
 
-[6]
-Underfull \hbox (badness 6332) in paragraph at lines 466--466
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7]
+Underfull \hbox (badness 6332) in paragraph at lines 468--468
 []|\T1/lmr/m/n/10 (+20) Menafsirkan pe-san galat SWI-
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 470--470
+Underfull \hbox (badness 3815) in paragraph at lines 472--472
 []|\T1/lmr/m/n/10 (+20) Menyusun dan mer-apikan teks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--511
+Underfull \hbox (badness 10000) in paragraph at lines 513--513
 []|\T1/lmtt/m/n/10.95 winning_hand/1\T1/lmr/m/n/10.95 (+20) ,
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [7
+ignored: Infinite glue shrinkage found in box being split [8
 
-] [8] (./K11_M1P2_Laporan.aux)
+] [9] (./K11_M1P2_Laporan.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `K11_M1P2_Laporan.out' has not changed.
-(rerunfilecheck)             Checksum: 11D0E1D8F4694E1D6D36DD6EF7E71D9B;3482.
+(rerunfilecheck)             Checksum: 7565E6300AE3B8E794E7484BB992F525;3482.
  ) 
 Here is how much of TeX's memory you used:
- 18678 strings out of 469006
- 296427 string characters out of 5454813
- 987375 words of memory out of 5000000
+ 18675 strings out of 469006
+ 296393 string characters out of 5454813
+ 987377 words of memory out of 5000000
  46847 multiletter control sequences out of 15000+600000
- 723881 words of font info for 177 fonts, out of 8000000 for 9000
+ 723606 words of font info for 175 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,15n,79p,1013b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -869,10 +872,10 @@ f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-dis
 t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/fon
 ts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
 pe1/public/lm/lmtt9.pfb>
-Output written on K11_M1P2_Laporan.pdf (9 pages, 274074 bytes).
+Output written on K11_M1P2_Laporan.pdf (10 pages, 275094 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 116 named destinations out of 1000 (max. 500000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 117 named destinations out of 1000 (max. 500000)
  53401 words of extra memory for PDF output out of 61914 (max. 10000000)
 
